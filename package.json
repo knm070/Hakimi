@@ -1,0 +1,50 @@
+{
+  "name": "hakimi-admin-panel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ag-grid-community/client-side-row-model": "^32.2.0",
+    "@ag-grid-community/core": "^32.2.0",
+    "@ag-grid-community/styles": "^32.2.0",
+    "@ag-grid-community/vue3": "^32.2.0",
+    "@ag-grid-enterprise/excel-export": "^32.2.0",
+    "@ag-grid-enterprise/master-detail": "^32.2.0",
+    "@ag-grid-enterprise/multi-filter": "^32.2.0",
+    "@ag-grid-enterprise/set-filter": "^32.2.0",
+    "@popperjs/core": "^2.11.8",
+    "@vuepic/vue-datepicker": "^9.0.2",
+    "ag-grid-community": "^32.2.0",
+    "ag-grid-vue3": "^32.2.0",
+    "ant-design-vue": "^4.2.5",
+    "apexcharts": "^3.53.0",
+    "axios": "^1.7.7",
+    "bootstrap": "^5.3.3",
+    "bootstrap-vue-3": "^0.3.12",
+    "dayjs": "^1.11.13",
+    "intl-tel-input": "^24.5.0",
+    "less": "^4.2.0",
+    "vue": "^3.2.47",
+    "vue-i18n": "^10.0.0",
+    "vue-router": "^4.3.0",
+    "vue3-apexcharts": "^1.6.0",
+    "vue3-datepicker": "^0.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2",
+    "vite": "^5.2.6",
+    "vue-tsc": "^2.1.6"
+  },
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}

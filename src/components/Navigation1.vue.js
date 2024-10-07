@@ -1,0 +1,208 @@
+/// <reference types=".vue-global-types/vue_3.4_false.d.ts" />
+import { defineComponent } from "vue";
+export default defineComponent({
+    name: "Navigation1",
+});
+;
+function __VLS_template() {
+    const __VLS_ctx = {};
+    const __VLS_localComponents = {
+        ...{},
+        ...{},
+        ...__VLS_ctx,
+    };
+    let __VLS_components;
+    const __VLS_localDirectives = {
+        ...{},
+        ...__VLS_ctx,
+    };
+    let __VLS_directives;
+    let __VLS_styleScopedClasses;
+    __VLS_styleScopedClasses['frame-group'];
+    __VLS_styleScopedClasses['b-parent'];
+    __VLS_styleScopedClasses['b-group'];
+    __VLS_styleScopedClasses['b-container'];
+    __VLS_styleScopedClasses['b-parent1'];
+    __VLS_styleScopedClasses['b-parent2'];
+    __VLS_styleScopedClasses['b-parent3'];
+    __VLS_styleScopedClasses['b-parent4'];
+    __VLS_styleScopedClasses['b-parent5'];
+    __VLS_styleScopedClasses['m-parent'];
+    __VLS_styleScopedClasses['line-wrapper'];
+    __VLS_styleScopedClasses['line-container'];
+    __VLS_styleScopedClasses['line-frame'];
+    __VLS_styleScopedClasses['line-wrapper1'];
+    __VLS_styleScopedClasses['line-wrapper2'];
+    __VLS_styleScopedClasses['line-wrapper3'];
+    __VLS_styleScopedClasses['line-wrapper4'];
+    __VLS_styleScopedClasses['line-wrapper5'];
+    __VLS_styleScopedClasses['line-wrapper6'];
+    __VLS_styleScopedClasses['currency-symbol'];
+    __VLS_styleScopedClasses['chevron-buttons'];
+    __VLS_styleScopedClasses['navigation'];
+    // CSS variable injection 
+    // CSS variable injection end 
+    let __VLS_resolvedLocalAndGlobalComponents;
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("navigation") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("chevron-buttons") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("chevron-icons") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("button565") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ ...{ class: ("chevron-left-icon") }, loading: ("lazy"), alt: (""), src: ("/chevron-left.svg"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("button566") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ ...{ class: ("icons") }, alt: (""), src: ("/icons.svg"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("currency-label") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("currency-symbol") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("uzs6") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("chevron-icons1") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("button567") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ ...{ class: ("chevron-left-icon1") }, loading: ("lazy"), alt: (""), src: ("/chevron-left-1.svg"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("button568") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ ...{ class: ("icons1") }, alt: (""), src: ("/icons.svg"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("navigation-inner") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-parent") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-wrapper") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-group") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-container") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.textarea)({ ...{ class: ("frame-child") }, rows: ("7"), cols: ("9"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("empty-items") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-div") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-item") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("div686") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-parent1") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-inner") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("div687") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-parent2") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.textarea)({ ...{ class: ("frame-textarea") }, rows: ("4"), cols: ("9"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("div688") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-parent3") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.textarea)({ ...{ class: ("frame-child1") }, rows: ("4"), cols: ("9"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("div689") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("frame-parent4") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b-parent") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-wrapper") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("line-div") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b-group") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b1") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-container") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-child2") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b-container") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b2") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-frame") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-child3") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b-parent1") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b3") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-wrapper1") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-child4") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b-parent2") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b4") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-wrapper2") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-child5") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b-parent3") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b5") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-wrapper3") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-child6") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b-parent4") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b6") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-wrapper4") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-child7") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b-parent5") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("b7") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-wrapper5") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-child8") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("m-parent") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("m5") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("line-wrapper6") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div)({ ...{ class: ("frame-child9") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("contract-container-wrapper") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("contract-container") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.input)({ ...{ class: ("frame-input") }, type: ("checkbox"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("contract1") }, });
+    __VLS_styleScopedClasses['navigation'];
+    __VLS_styleScopedClasses['chevron-buttons'];
+    __VLS_styleScopedClasses['chevron-icons'];
+    __VLS_styleScopedClasses['button565'];
+    __VLS_styleScopedClasses['chevron-left-icon'];
+    __VLS_styleScopedClasses['button566'];
+    __VLS_styleScopedClasses['icons'];
+    __VLS_styleScopedClasses['currency-label'];
+    __VLS_styleScopedClasses['currency-symbol'];
+    __VLS_styleScopedClasses['uzs6'];
+    __VLS_styleScopedClasses['chevron-icons1'];
+    __VLS_styleScopedClasses['button567'];
+    __VLS_styleScopedClasses['chevron-left-icon1'];
+    __VLS_styleScopedClasses['button568'];
+    __VLS_styleScopedClasses['icons1'];
+    __VLS_styleScopedClasses['navigation-inner'];
+    __VLS_styleScopedClasses['frame-parent'];
+    __VLS_styleScopedClasses['frame-wrapper'];
+    __VLS_styleScopedClasses['frame-group'];
+    __VLS_styleScopedClasses['frame-container'];
+    __VLS_styleScopedClasses['frame-child'];
+    __VLS_styleScopedClasses['empty-items'];
+    __VLS_styleScopedClasses['frame-div'];
+    __VLS_styleScopedClasses['frame-item'];
+    __VLS_styleScopedClasses['div686'];
+    __VLS_styleScopedClasses['frame-parent1'];
+    __VLS_styleScopedClasses['frame-inner'];
+    __VLS_styleScopedClasses['div687'];
+    __VLS_styleScopedClasses['frame-parent2'];
+    __VLS_styleScopedClasses['frame-textarea'];
+    __VLS_styleScopedClasses['div688'];
+    __VLS_styleScopedClasses['frame-parent3'];
+    __VLS_styleScopedClasses['frame-child1'];
+    __VLS_styleScopedClasses['div689'];
+    __VLS_styleScopedClasses['frame-parent4'];
+    __VLS_styleScopedClasses['b-parent'];
+    __VLS_styleScopedClasses['b'];
+    __VLS_styleScopedClasses['line-wrapper'];
+    __VLS_styleScopedClasses['line-div'];
+    __VLS_styleScopedClasses['b-group'];
+    __VLS_styleScopedClasses['b1'];
+    __VLS_styleScopedClasses['line-container'];
+    __VLS_styleScopedClasses['frame-child2'];
+    __VLS_styleScopedClasses['b-container'];
+    __VLS_styleScopedClasses['b2'];
+    __VLS_styleScopedClasses['line-frame'];
+    __VLS_styleScopedClasses['frame-child3'];
+    __VLS_styleScopedClasses['b-parent1'];
+    __VLS_styleScopedClasses['b3'];
+    __VLS_styleScopedClasses['line-wrapper1'];
+    __VLS_styleScopedClasses['frame-child4'];
+    __VLS_styleScopedClasses['b-parent2'];
+    __VLS_styleScopedClasses['b4'];
+    __VLS_styleScopedClasses['line-wrapper2'];
+    __VLS_styleScopedClasses['frame-child5'];
+    __VLS_styleScopedClasses['b-parent3'];
+    __VLS_styleScopedClasses['b5'];
+    __VLS_styleScopedClasses['line-wrapper3'];
+    __VLS_styleScopedClasses['frame-child6'];
+    __VLS_styleScopedClasses['b-parent4'];
+    __VLS_styleScopedClasses['b6'];
+    __VLS_styleScopedClasses['line-wrapper4'];
+    __VLS_styleScopedClasses['frame-child7'];
+    __VLS_styleScopedClasses['b-parent5'];
+    __VLS_styleScopedClasses['b7'];
+    __VLS_styleScopedClasses['line-wrapper5'];
+    __VLS_styleScopedClasses['frame-child8'];
+    __VLS_styleScopedClasses['m-parent'];
+    __VLS_styleScopedClasses['m5'];
+    __VLS_styleScopedClasses['line-wrapper6'];
+    __VLS_styleScopedClasses['frame-child9'];
+    __VLS_styleScopedClasses['contract-container-wrapper'];
+    __VLS_styleScopedClasses['contract-container'];
+    __VLS_styleScopedClasses['frame-input'];
+    __VLS_styleScopedClasses['contract1'];
+    var __VLS_slots;
+    var __VLS_inheritedAttrs;
+    const __VLS_refs = {};
+    var $refs;
+    return {
+        slots: __VLS_slots,
+        refs: $refs,
+        attrs: {},
+    };
+}
+;
+let __VLS_self;
+//# sourceMappingURL=Navigation1.vue.js.map

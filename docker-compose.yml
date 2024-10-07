@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  hakimi_frontend_js_vuejs_app:
+    image: git.itic.uz:5050/root/hakimi_frontend_js_vuejs:latest
+    container_name: hakimi_frontend_js_vuejs
+    environment:
+      BASE_URL: ${BASE_URL}
+    ports:
+      - "3000:80"
+    stop_grace_period: 10s
+    restart: always
