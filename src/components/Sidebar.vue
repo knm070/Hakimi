@@ -30,6 +30,10 @@
         <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
         <router-link to="/sale" class="contract1">{{ $t('sale') }}</router-link>
       </div>
+      <div class="home-links4" :class="{ active: $route.path === '/changes' }">
+        <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
+        <router-link to="/changes" class="contract1">{{ $t('Changes') }}</router-link>
+      </div>
     </div>
   </div>
 </template>

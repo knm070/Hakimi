@@ -33,6 +33,7 @@ import Contracts from './pages/Contracts.vue'
 import ConstractsSingle from './pages/ContractsSingle.vue'
 import ClientBalance from './pages/ClientBalance.vue'
 import ClientInfo from './pages/ClientInfo.vue';
+import ApartmentInfo from './pages/ApartmentInfo.vue'
 import Antd from 'ant-design-vue';
 // import 'ant-design-vue/es/style/index.css';
 
@@ -238,6 +239,11 @@ const routes = [
     path: "/client-info",
     name: "ClientInfo",
     component: ClientInfo,
+  },
+  {
+    path: "/client-info/apartment-info",
+    name: "ApartmentInfo",
+    component: ApartmentInfo,
   },
 ];
 

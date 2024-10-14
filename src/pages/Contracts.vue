@@ -1,5 +1,5 @@
 <template>
-    <div class="flex bg-[#F4F6F6]">
+    <div class="flex bg-[#F4F6F6] h-screen">
         <Sidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
         <div class="w-full  m-[8px] p-[16px] bg-[#FFFFFF] rounded-[14px]" style="border: 1px solid #EDF1F1">
             <div>

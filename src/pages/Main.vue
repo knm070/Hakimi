@@ -1,5 +1,6 @@
 <template>
-    <div class="flex bg-[#F4F6F6] container" >
+    
+    <div class="flex bg-[#F4F6F6] container h-screen" >
         <Sidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
         <div class="rounded-[14px] bg-white p-[16px] my-[8px] w-full" >
             <div>

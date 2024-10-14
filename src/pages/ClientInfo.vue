@@ -53,24 +53,24 @@
                             </div>
                         </div>
                         <div class="pt-[36px]">
-                            <h2>Client information</h2>
+                            <h2 class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A">Client information</h2>
                             <div class="divide pt-[16px]"></div>
                             <div class="pt-[12px] flex justify-between">
                                 <div>
-                                    <p>Cellphone number</p>
+                                    <p class="text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Cellphone number</p>
                                     <div class="pt-[12px] flex items-end">
-                                        <div class="w-[80px] py-[12px] px-[14px] flex items-center gap-[10px]" style="border-radius: 8px 0 0 8px; border: 1px solid var(--Line-Field-Line, #DCE3E3)">  
+                                        <div class="w-[80px] py-[10px] px-[14px] flex items-center gap-[10px]" style="border-radius: 8px 0 0 8px; border: 1px solid var(--Line-Field-Line, #DCE3E3)">  
                                             <img src="/uzIcon.svg" alt="">
                                             <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12.9207 0.180176H6.69072H1.08072C0.120725 0.180176 -0.359275 1.34018 0.320725 2.02018L5.50072 7.20018C6.33072 8.03018 7.68073 8.03018 8.51073 7.20018L10.4807 5.23018L13.6907 2.02018C14.3607 1.34018 13.8807 0.180176 12.9207 0.180176Z" fill="#72908D"/>
                                             </svg>
                                         </div>
                                         <div class="w-[240px] flex items-center py-[13px] px-[14px]" style="border-radius: 0 8px 8px 0; border: 1px solid var(--Line-Field-Line, #DCE3E3)">
-                                            <input v-model="searchQueryNumder" type="text" class=" w-[240px] border-none outline-none">
+                                            <input v-model="searchQueryNumder" type="text" class=" w-[240px] border-none outline-none text-[16px]" style="font-family: Geist; font-weight: 400; color: #000000;">
                                         </div>
                                             <input type="checkbox" class="w-[24px] h-[24px] border-none outline-none ml-[12px]" >
-                                        </div>
-                                        <p class="pt-[12px] text-right">Add phone number</p>
+                                    </div>
+                                        <p class="pt-[12px] text-right text-[16px]" style="font-family: Geist; font-weight: 500; color: #0037FF;">Add phone number</p>
                                 </div>
                                 <div>
                                     <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>First name</p>
@@ -85,7 +85,7 @@
                             </div>
     
                             <div>
-                                <h2>Passport information</h2>
+                                <h2 class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A;">Passport information</h2>
                                 <div class="divide pt-[12px]"></div>
                                 <div class="flex justify-between pt-[12px]">
                                     <div>
@@ -106,8 +106,8 @@
                                                 </svg>
         
                                                 <div>
-                                                    <h3>Upload a passport</h3>
-                                                    <p class="text-[12px]">JPG, PNG or PDF, file size must not exceed 10 MB</p>
+                                                    <h3 class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Upload a passport</h3>
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #95ACAA;">JPG, PNG or PDF, file size must not exceed 10 MB</p>
                                                 </div>
                                             </div>
                                             <label for="file-input" class=" py-[6px] px-[12px] rounded-[4px] cursor-pointer" style=" color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%);">Upload</label>
@@ -123,11 +123,11 @@
                             </div>
     
                             <div class="pt-[32px]">
-                                <h2>Information of the place of residence</h2>
+                                <h2 class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A;">Information of the place of residence</h2>
                                 <div class="divide pt-[12px]"></div>
                                 <div class="flex pt-[12px]">
                                     <div class="">
-                                        <p class="pl-[15px]">Country</p>
+                                        <p class="pl-[15px] text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D">Country</p>
                                         <div class="p-[13px]">
                                             <a-select class="mt-[12px]"
                                                 v-model:value="value"
@@ -179,12 +179,91 @@
                             </div>
                         </div>  
                     </div>
-       
+
+                    <div v-show="selectedButton === 'legalEntities'">
+                        <p class="pt-[32px] text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A;">Initial information</p>
+                        <div class="divide pt-[12px]"></div>
+                        <div class="pt-[12px] flex justify-between">
+                            <div>
+                                <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span> Enterprise name</p>
+                                <input type="text" class="rounded-[8px] w-[580px] p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                <div class="pt-[24px]">
+                                    <p class="text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Cellphone number</p>
+                                    <div class="pt-[12px] flex items-end">
+                                        <div class="w-[80px] py-[12px] px-[14px] flex items-center gap-[10px]" style="border-radius: 8px 0 0 8px; border: 1px solid var(--Line-Field-Line, #DCE3E3)">  
+                                            <img src="/uzIcon.svg" alt="">
+                                            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.9207 0.180176H6.69072H1.08072C0.120725 0.180176 -0.359275 1.34018 0.320725 2.02018L5.50072 7.20018C6.33072 8.03018 7.68073 8.03018 8.51073 7.20018L10.4807 5.23018L13.6907 2.02018C14.3607 1.34018 13.8807 0.180176 12.9207 0.180176Z" fill="#72908D"/>
+                                            </svg>
+                                        </div>
+                                        <div class="w-[240px] flex items-center py-[13px] px-[14px]" style="border-radius: 0 8px 8px 0; border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                            <input v-model="searchQueryNumder" type="text" class=" w-[240px] border-none outline-none">
+                                        </div>
+                                            <input type="checkbox" class="w-[24px] h-[24px] border-none outline-none ml-[12px]" >
+                                        </div>
+                                        <p class="pt-[12px] w-[358px] text-right text-[16px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #0037FF">Add phone number</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Country</p>
+                                <select v-model="selected"  class="w-[580px] p-[12px] rounded-[8px] mt-[10px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <option disabled >Please select one</option>
+                                    <option>Uzbekistan</option>
+                                    <option>Russia</option>
+                                    <option>USA</option>
+                                </select>            
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Province</p>
+                                <select v-model="selected"  class="w-[580px] p-[12px] rounded-[8px] mt-[10px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <option disabled >Please select one</option>
+                                    <option>Uzbekistan</option>
+                                    <option>Russia</option>
+                                    <option>USA</option>
+                                </select>            
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>City/district</p>
+                                <select v-model="selected"  class="w-[580px] p-[12px] rounded-[8px] mt-[10px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <option disabled >Please select one</option>
+                                    <option>Uzbekistan</option>
+                                    <option>Russia</option>
+                                    <option>USA</option>
+                                </select>            
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>House</p>
+                                <select v-model="selected"  class="w-[580px] p-[12px] rounded-[8px] mt-[10px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <option disabled >Please select one</option>
+                                    <option>Uzbekistan</option>
+                                    <option>Russia</option>
+                                    <option>USA</option>
+                                </select>            
+                                          
+                            </div>
+                        </div>
+                        <div>
+                            <p class="pt-[36px] text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A;">Legal information</p>
+                            <div class="divide pt-[12px]"></div>
+                            <div class="flex gap-[24px]">
+                                <div>
+                                    <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>INN</p>
+                                    <input type="text" class="rounded-[8px] w-[580px] p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>MFO</p>
+                                    <input type="text" class="rounded-[8px] w-[580px] p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Account number</p>
+                                    <input type="text" class="rounded-[8px] w-[580px] p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                </div>
+                                <div>
+                                    <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>OKED</p>
+                                    <input type="text" class="rounded-[8px] w-[580px] p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Bank name</p>
+                                    <input type="text" class="rounded-[8px] w-[580px] p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Director</p>
+                                    <input type="text" class="rounded-[8px] w-[580px] p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bg-[#FFFFFF] mt-[6px] rounded-[6px] p-[12px] flex justify-end gap-[20px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
-                    <button class="w-[200px] py-[10px] bg-[#F4F6F6] rounded-[6px]">Cancel</button>
-                    <button class="w-[200px] py-[10px] rounded-[6px]" style="color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid;border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Next</button>
+                    <button class="w-[200px] py-[10px] bg-[#F4F6F6] rounded-[6px] text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000;">Cancel</button>
+                    <button @click="gotoApartmentInfo" class="w-[200px] py-[10px] rounded-[6px] text-[16px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid;border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Next</button>
                 </div>
             </div>
         </div>
@@ -235,7 +314,7 @@ import { ref } from 'vue';
                         label: 'Bukhara'
                     },
                 ]),
-
+                
             }
         },
         methods: {
@@ -245,6 +324,9 @@ import { ref } from 'vue';
             filterOption(input, option){
                  option.value.toLowerCase().indexOf(input.toLowerCase()) >= 0;
             },
+            gotoApartmentInfo() {
+                this.$router.push('/client-info/apartment-info');
+            }
            
         },
    }

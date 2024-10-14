@@ -43,7 +43,7 @@
                         </svg>
                         <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #0037FF;">Deposit</p>
                     </div>  
-                    <div class="bg-[#FFFFFF] w-[192px] rounded-[6px] flex flex-col items-center justify-center" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                    <div @click="showDisbursement" class="cursor-pointer bg-[#FFFFFF] w-[192px] rounded-[6px] flex flex-col items-center justify-center" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
                         <svg width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16.5 24.5C16.5 26.44 18 28 19.84 28H23.6C25.2 28 26.5 26.64 26.5 24.94C26.5 23.12 25.7 22.46 24.52 22.04L18.5 19.94C17.32 19.52 16.52 18.88 16.52 17.04C16.52 15.36 17.82 13.98 19.42 13.98H23.18C25.02 13.98 26.52 15.54 26.52 17.48M21.5 12V30M41.5 21C41.5 32.04 32.54 41 21.5 41C10.46 41 1.5 32.04 1.5 21C1.5 9.96 10.46 1 21.5 1M41.5 9V1M41.5 1H33.5M41.5 1L31.5 11" stroke="#0037FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -90,11 +90,73 @@
                 <div class="bg-[#F4F6F6] p-[6px] m-[12px] rounded-[8px] w-[600px]">
                     <div class="bg-[#FFFFFF] pt-[16px] pb-[6px] px-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
                         <div class="flex justify-between items-center">
-                            <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Payment schedule archive</p>
+                            <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Deposit</p>
                             <img class="cursor-pointer" @click="closeDeposit" src="/closeWhite.svg" alt="">
                         </div>
                         <div class="divide pt-[12px]"></div>
                         <p class="pt-[12px] text-[16px] " style="font-family: Geist; font-weight: 500; color: #72908D;">To which currency</p>
+                        <div class="w-[564px] rounded-[8px] mt-[12px] py-[13px] pr-[13px] flex justify-between items-center" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <select class="w-[564px] flex items-end pl-[13px]">
+                                <option >UZS</option>
+                                <option >USD</option>
+                                <option >RUB</option>
+                            </select>
+                            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L7 7L13 1" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Sum of payment</p>
+                        <div class="w-[564px] rounded-[8px] mt-[12px] p-[13px] flex justify-between items-center" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <input type="number" class="w-[564px] border-none outline-none">
+                        </div>
+                        <div class="pt-[12px] flex items-center justify-between">
+                            <div class=" w-[276px]">
+                                <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Payment type</p>
+                                <div class="rounded-[8px] mt-[12px] py-[12px] pr-[12px] flex justify-between items-center" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">  
+                                    <select class="pl-[12px] ">
+                                        <option >Cash</option>
+                                        <option >Card</option>
+                                    </select>
+                                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L7 7L13 1" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class=" w-[276px]">
+                                <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Currency</p>
+                                <div class="rounded-[8px] mt-[12px] py-[12px] pr-[12px] flex justify-between items-center" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">  
+                                    <select class="pl-[12px] ">
+                                        <option >UZS</option>
+                                        <option >USD</option>
+                                        <option >RUB</option>
+                                    </select>
+                                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L7 7L13 1" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <textarea placeholder="Leave a comment"  class="w-full h-[120px] resize-none rounded-[8px] mt-[12px] px-[14px] py-[13px] outline-none " style="border: 1px solid var(--Line-Field-Line, #DCE3E3)"></textarea>
+                        </div>
+                    </div>
+                    <div class="bg-[#FFFFFF] rounded-[6px] mt-[6px] p-[12px] flex justify-between " style="  border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                        <button @click="closeDeposit" class="w-[272px] py-[10px] rounded-[6px] flex items-center justify-center bg-[#F4F6F6] hover:bg-gray-300 text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Close</button>
+                        <button class="w-[272px] py-[10px] rounded-[6px] flex items-center justify-center text-[16px" style="font-family: Geist; font-weight: 600; color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid; border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Payment</button>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="popup">
+            <div v-if="isDisbursementOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+                <div class="bg-[#F4F6F6] p-[6px] m-[12px] rounded-[8px] w-[600px]">
+                    <div class="bg-[#FFFFFF] pt-[16px] pb-[6px] px-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                        <div class="flex justify-between items-center">
+                            <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Disbursement of funds</p>
+                            <img class="cursor-pointer" @click="closeDisbursement" src="/closeWhite.svg" alt="">
+                        </div>
+                        <div class="divide pt-[12px]"></div>
+                        <p class="pt-[12px] text-[16px] " style="font-family: Geist; font-weight: 500; color: #72908D;">From which currency</p>
                         <div class="w-[564px] rounded-[8px] mt-[12px] py-[13px] pr-[13px] flex justify-between items-center" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
                             <select class="w-[564px] flex items-end pl-[13px]">
                                 <option >UZS</option>
@@ -242,6 +304,7 @@ import Sidebar from '../components/Sidebar.vue';
                     },
                 ],
                 isDepositOpen : false,
+                isDisbursementOpen: false,
             }
         },
         methods: {
@@ -250,6 +313,12 @@ import Sidebar from '../components/Sidebar.vue';
             },
             closeDeposit() {
                 this.isDepositOpen = false;
+            },
+            showDisbursement() {
+                this.isDisbursementOpen = true;
+            },
+            closeDisbursement() {
+                this.isDisbursementOpen = false;
             },
         },
 
