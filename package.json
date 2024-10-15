@@ -27,6 +27,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-vue-3": "^0.3.12",
     "dayjs": "^1.11.13",
+    "element-plus": "^2.8.5",
     "intl-tel-input": "^24.5.0",
     "less": "^4.2.0",
     "vue": "^3.2.47",

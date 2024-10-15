@@ -22,7 +22,6 @@ import Order from "./pages/Order.vue";
 import Clients from "./pages/Clients.vue";
 import MainDebt from "./pages/MainDebt.vue";
 import Sms from "./pages/Sms.vue";
-import Changes from "./pages/Changes.vue";
 import Settings from "./pages/Settings.vue";
 import Login from "./pages/Login.vue";
 import AddClient from "./pages/AddClient.vue";
@@ -33,7 +32,10 @@ import Contracts from './pages/Contracts.vue'
 import ConstractsSingle from './pages/ContractsSingle.vue'
 import ClientBalance from './pages/ClientBalance.vue'
 import ClientInfo from './pages/ClientInfo.vue';
-import ApartmentInfo from './pages/ApartmentInfo.vue'
+import ApartmentInfo from './pages/ApartmentInfo.vue';
+import Changes from "./pages/Changes.vue";
+import Profile from './pages/Profile.vue';
+import Update from './pages/Update.vue';
 import Antd from 'ant-design-vue';
 // import 'ant-design-vue/es/style/index.css';
 
@@ -244,6 +246,16 @@ const routes = [
     path: "/client-info/apartment-info",
     name: "ApartmentInfo",
     component: ApartmentInfo,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+  },
+  {
+    path: "/update-table",
+    name: "Update",
+    component: Update,
   },
 ];
 
