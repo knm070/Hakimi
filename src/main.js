@@ -18,7 +18,6 @@ import Sale from "./pages/Sale.vue";
 import Home from "./pages/Home.vue";
 import MainPayments from "./pages/MainPayments.vue";
 import MainContract from "./pages/MainContract.vue";
-import Order from "./pages/Order.vue";
 import Clients from "./pages/Clients.vue";
 import MainDebt from "./pages/MainDebt.vue";
 import Sms from "./pages/Sms.vue";
@@ -36,6 +35,10 @@ import ApartmentInfo from './pages/ApartmentInfo.vue';
 import Changes from "./pages/Changes.vue";
 import Profile from './pages/Profile.vue';
 import Update from './pages/Update.vue';
+import Showroom from './pages/Showroom.vue';
+import Order from "./pages/Order.vue";
+import OrderSingle from './pages/OrderSingle.vue'
+import AddPayment from './pages/AddPayment.vue'
 import Antd from 'ant-design-vue';
 // import 'ant-design-vue/es/style/index.css';
 
@@ -256,6 +259,21 @@ const routes = [
     path: "/update-table",
     name: "Update",
     component: Update,
+  },
+  {
+    path: "/showroom",
+    name: "Showroom",
+    component: Showroom,
+  },
+  {
+    path: "/order-single",
+    name: "OrderSingle",
+    component: OrderSingle,
+  },
+  {
+    path: "/add-payment",
+    name: "AddPayment",
+    component: AddPayment,
   },
 ];
 
