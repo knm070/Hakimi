@@ -1,346 +1,304 @@
 <template>
-  <div class="main-page">
-    <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
-    <main class="container">
-      <div class="header">
-        <div class="inner">
-          <div class="text">
-            <h4>{{ $t("add_Client") }}</h4>
-          </div>
-          <div class="language-switcher">
-            <select v-model="currentLanguage" @change="changeLanguage">
-              <option v-for="(label, lang) in languages" :key="lang" :value="lang">
-                {{ label }}
-              </option>
-            </select>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="bg p-2">
-          <div class="mb-2">
-            <div class="title">
-              <h5 class="mb-0">Client contracts</h5>
-            </div>
-          </div>
-          <div class="toggle">
-            <!-- Tab navigation -->
-            <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
-                  <h6>{{ $t("Individuals") }}</h6>
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
-                  <h6>{{ $t("Legal_entities") }}</h6>
-                </button>
-              </li>
-            </ul>
-
-            <!-- Tab content -->
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="client_details">
-                 
-                  <div class="row">
-                    <div class="col-6">
-                      <label for="Passport">* Passport series and number</label>
-                      <div class="d-flex">
-                        <input type="text" id="Passport" maxlength="2" size="2" style="margin-right: 1rem; width: fit-content" />
-                        <input type="numbtexter" id="series" maxlength="6" />
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <label for="Passport">* Date of birth</label>
-                      <div class="d-flex">
-                        <Datepicker v-model="selectedDate" :format="formatDate" placeholder="Pick a date" style="width: 90%; border: none; margin-right: 1rem" />
-                        <button class="btn btn-primary">Search</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <h6>Client information</h6>
-                    <div class="divider"></div>
-                    <div class="col-6">
-                      <label for="Passport">* Cell phone</label>
-                      <input id="phone" type="tel" ref="phoneInput" />
-                    </div>
-                    <div class="col-6">
-                      <label for="Passport">* First name</label>
-                      <input id="f_name" type="text" />
-                      <label for="Passport">* Last name</label>
-                      <input id="f_name" type="text" />
-                      <label for="Passport">* Middle name</label>
-                      <input id="f_name" type="text" />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <h6>Passport information</h6>
-                    <div class="divider"></div>
-                    <div class="col-6">
-                      <label for="Passport">PIN</label>
-                      <input id="f_name" type="text" />
-                      <label for="Passport">* Given date</label>
-                      <Datepicker v-model="selectedDate" :format="formatDate" placeholder="Pick a date" style="width: 100%; border: none" />
-                      <label for="Passport">* Validity period</label>
-                      <Datepicker v-model="selectedDate" :format="formatDate" placeholder="Pick a date" style="width: 100%; border: none" />
-
-                      <label for="Passport">Passport file (not required)</label>
-                      <input type="file" id="file-upload" @change="handleFileUpload" accept=".jpg, .jpeg, .png, .pdf" />
-                    </div>
-                    <div class="col-6">
-                      <label for="Passport">INN</label>
-                      <input id="f_name" type="text" />
-                      <label for="Passport">* Given place</label>
-                      <input id="f_name" type="text" />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <h6>Given Country</h6>
-                    <div class="divider"></div>
-                    <div class="col-4">
-                      <label for="Passport">* Select a country</label>
-
-                      <select id="country-select" v-model="selectedCountry" @change="onCountryChange">
-                        <option value="" disabled>Select a country</option>
-                        <option v-for="country in countries" :key="country.code" :value="country.code">
-                          {{ country.name }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="col-4">
-                      <label for="Passport">* Province</label>
-                      <select id="country-select" v-model="selectedCountry" @change="onCountryChange">
-                        <option value="" disabled>Province</option>
-                        <option v-for="country in countries" :key="country.code" :value="country.code">
-                          {{ country.name }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="col-4">
-                      <label for="Passport">* City/district</label>
-                      <select id="country-select" v-model="selectedCountry" @change="onCountryChange">
-                        <option value="" disabled>City/district</option>
-                        <option v-for="country in countries" :key="country.code" :value="country.code">
-                          {{ country.name }}
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <label for="message" class="textarea-label">* MFY, street, house</label>
-                      <textarea id="message" v-model="message" rows="4" cols="50" @input="onInput"></textarea>
-                    </div>
-                    <div class="col-6">
-                      <label for="message" class="textarea-label">Work place</label>
-                      <textarea id="message" v-model="message" rows="4" cols="50" @input="onInput"></textarea>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-end">
-                    <button class="btn btn-default mr-5">Cancel</button>
-                    <button class="btn btn-primary ml-2">Next</button>
-
-                  </div>
+  <div class="bg-[#F4F6F6] h-full">
+    <div class="flex w-full min-h-screen">
+      <Sidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
+        <div class=" bg-[#FFFFFF] w-full rounded-[14px] my-[8px] mr-[6px] p-[16px] " style="border: 1px solid #EDF1F1" >
+          <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">Create new client</p>
+                    <p class="text-[10px] pt-[3px]" style="font-family: Geist; font-weight: 400; color: #B9C7C6;"> Clients > Create new client</p>
                 </div>
+                <div class="flex gap-[24px]">
+                        <svg @click="openMessage" class="cursor-pointer" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.3399 14.99L18.3399 13.33C18.1299 12.96 17.9399 12.26 17.9399 11.85V9.32C17.9399 6.97 16.5599 4.94 14.5699 3.99C14.0499 3.07 13.0899 2.5 11.9899 2.5C10.8999 2.5 9.91994 3.09 9.39994 4.02C7.44994 4.99 6.09994 7 6.09994 9.32V11.85C6.09994 12.26 5.90994 12.96 5.69994 13.32L4.68994 14.99C4.28994 15.66 4.19994 16.4 4.44994 17.08C4.68994 17.75 5.25994 18.27 5.99994 18.52C7.93994 19.18 9.97994 19.5 12.0199 19.5C14.0599 19.5 16.0999 19.18 18.0399 18.53C18.7399 18.3 19.2799 17.77 19.5399 17.08C19.7999 16.39 19.7299 15.63 19.3399 14.99Z" fill="#72908D"/>
+                            <path d="M14.8299 20.51C14.4099 21.67 13.2999 22.5 11.9999 22.5C11.2099 22.5 10.4299 22.18 9.87994 21.61C9.55994 21.31 9.31994 20.91 9.17994 20.5C9.30994 20.52 9.43994 20.53 9.57994 20.55C9.80994 20.58 10.0499 20.61 10.2899 20.63C10.8599 20.68 11.4399 20.71 12.0199 20.71C12.5899 20.71 13.1599 20.68 13.7199 20.63C13.9299 20.61 14.1399 20.6 14.3399 20.57C14.4999 20.55 14.6599 20.53 14.8299 20.51Z" fill="#72908D"/>
+                        </svg>  
+    
+                        <select class="w-[100px] pl-[5px]">
+                            <option >English</option>
+                            <option >Uzbek</option>
+                            <option >Russian</option>
+                            <option >Persian</option>
+                        </select>
+                </div>
+          </div>
+          <div class="divide pt-[16px]"></div>
+          <div class="bg-[#F4F6F6] rounded-[8px] p-[6px] mt-[16px]">
+            <div class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="box-shadow: 0px 1px 2px 0px #1823220D;border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+              <h2 class="text-[14px]" style="font-family:Geist; font-weight:600; color: #000000;">Client contracts</h2>
+            </div>
+            <div class="bg-[#FFFFFF] py-[24px] px-[12px] rounded-[6px]  w-full h-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+            <div class="bg-[#F4F6F6] rounded-[8px] p-[4px] w-[220px] flex gap-[4px]">
+              <button @click="selectButton('individuals')" :class="['py-[4px] px-[12px] rounded-[6px] text-[14px] transition-all duration-300', selectedButton === 'individuals' ? 'bg-[#FFFFFF]' : 'bg-[#F4F6F6]']" :style="{fontFamily: 'Geist', fontWeight: '600', color: selectedButton === 'individuals' ?  '#000000' : '#72908D' , boxShadow: selectedButton === 'individuals' ? '0px 1px 2px 0px #0000001F' : 'none'}">Individuals</button>
+              <button @click="selectButton('legalEntities')" :class="[' py-[4px] px-[12px] rounded-[6px] text-[14px]', selectedButton === 'legalEntities' ?  'bg-[#FFFFFF]' : 'bg-[#F4F6F6]']" :style="{fontFamily: 'Geist', fontWeight: '600', color: selectedButton === 'legalEntities' ?  '#000000' : '#72908D', boxShadow: selectedButton === 'legalEntities' ? '0px 1px 2px 0px #0000001F' : 'none', transition:'color 0.3s, background-color 0.3s, box-shadow 0.3s'}">Legal entities</button>   
+            </div>
+            <div v-if="selectedButton === 'individuals'">
+              <div class="pt-[32px] flex gap-[24px] items-end">
+                  <div class="w-full">
+                      <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Passport series and number</p>
+                      <div class="flex gap-[12px] mt-[12px] w-full">
+                          <input type="text" class="w-[114px] rounded-[8px] p-[10px] border-none outline-none" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                          <input type="text" class="w-full rounded-[8px] p-[10px] border-none outline-none" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                      </div>
+                  </div>
+                  <div class="w-full">
+                      <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Date of birth</p>
+                      <a-date-picker :format="dateFormatList" placeholder="dd.mm.yyyy" class="w-full p-[10px] mt-[12px] "/>
+                  </div>
+                  <div>
+                       <button class="py-[12px] w-[161px] text-[16px] rounded-[8px]" style=" font-family: Geist; font-weight: 600; color: #FFFFFF ; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%);border: 1px solid; border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Search</button>
+                  </div>
               </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <h6>Initial Information</h6>
+              <div class="pt-[36px]">
+                <h2 class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A">Client information</h2>
+                <div class="divide pt-[16px]"></div>
+                <div class="pt-[12px] flex justify-between">
+                              <div class="w-full">
+                                  <p class="text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Cellphone number</p>
+                                  <div class="pt-[12px] flex items-end">
+                                      <div class="w-[80px] py-[11px] px-[14px] flex items-center gap-[10px]" style="border-radius: 8px 0 0 8px; border: 1px solid var(--Line-Field-Line, #DCE3E3)">  
+                                          <img src="/uzIcon.svg" alt="">
+                                          <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M12.9207 0.180176H6.69072H1.08072C0.120725 0.180176 -0.359275 1.34018 0.320725 2.02018L5.50072 7.20018C6.33072 8.03018 7.68073 8.03018 8.51073 7.20018L10.4807 5.23018L13.6907 2.02018C14.3607 1.34018 13.8807 0.180176 12.9207 0.180176Z" fill="#72908D"/>
+                                          </svg>
+                                      </div>
+                                      <div class="w-[240px] flex items-center py-[13px] px-[14px]" style="border-radius: 0 8px 8px 0; border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                          <input v-model="searchQueryNumder" type="text" class=" w-[240px] border-none outline-none text-[16px]" style="font-family: Geist; font-weight: 400; color: #000000;">
+                                      </div>
+                                          <input type="checkbox" class="w-[24px] h-[24px] border-none outline-none ml-[12px]" >
+                                  </div>
+                                  <div class="w-[360px] flex justify-end">
+                                    <p class="pt-[12px] text-[16px] cursor-pointer " style="font-family: Geist; font-weight: 500; color: #0037FF;">Add phone number</p>
+                                  </div>
+                                </div>
+                              <div class="w-full">
+                                  <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>First name</p>
+                                  <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                  
+                                  <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Last name</p>
+                                  <input type="text" class="rounded-[8px]  w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                  
+                                  <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Middle name</p>
+                                  <input type="text" class="rounded-[8px]  w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                              </div>
+                </div>
+  
+                <div>
+                            <h2 class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A;">Passport information</h2>
+                            <div class="divide pt-[12px]"></div>
+                            <div class="flex justify-between pt-[12px] gap-[24px]">
+                              <div class="w-full">
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;">PIN</p>
+                                <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Given date</p>
+                                <a-date-picker :format="dateFormatList" placeholder="dd.mm.yyyy" class="w-full p-[12px] rounded-[8px] mt-[12px]"/>
+                                
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Validity period</p>
+                                <a-date-picker :format="dateFormatList" placeholder="dd.mm.yyyy" class="w-full p-[12px] rounded-[8px] mt-[12px]"/>
+                                
+                                
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;">Passport file (not required)</p>
+                                <div class="p-[13px] mt-[12px] rounded-[8px] flex items-center justify-between" style="border: 1px dashed var(--Line-Field-Line, #DCE3E3)">
+                                  <input type="file" id="file-input" name="photoUpload" class="hidden">
+                                  <div class="flex items-center gap-[24px]">
+                                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M18.5 8.19H15.61C13.24 8.19 11.31 6.26 11.31 3.89V1C11.31 0.45 10.86 0 10.31 0H6.07C2.99 0 0.5 2 0.5 5.57V14.43C0.5 18 2.99 20 6.07 20H13.93C17.01 20 19.5 18 19.5 14.43V9.19C19.5 8.64 19.05 8.19 18.5 8.19ZM9.53 11.53C9.38 11.68 9.19 11.75 9 11.75C8.81 11.75 8.62 11.68 8.47 11.53L7.75 10.81V15C7.75 15.41 7.41 15.75 7 15.75C6.59 15.75 6.25 15.41 6.25 15V10.81L5.53 11.53C5.24 11.82 4.76 11.82 4.47 11.53C4.18 11.24 4.18 10.76 4.47 10.47L6.47 8.47C6.54 8.41 6.61 8.36 6.69 8.32C6.71 8.31 6.74 8.3 6.76 8.29C6.82 8.27 6.88 8.26 6.95 8.25C6.98 8.25 7 8.25 7.03 8.25C7.11 8.25 7.19 8.27 7.27 8.3C7.28 8.3 7.28 8.3 7.29 8.3C7.37 8.33 7.45 8.39 7.51 8.45C7.52 8.46 7.53 8.46 7.53 8.47L9.53 10.47C9.82 10.76 9.82 11.24 9.53 11.53Z" fill="#4F7471"/>
+                                      <path d="M15.43 6.81C16.38 6.82 17.7 6.82 18.83 6.82C19.4 6.82 19.7 6.15 19.3 5.75C17.86 4.3 15.28 1.69 13.8 0.21C13.39 -0.2 12.68 0.08 12.68 0.65V4.14C12.68 5.6 13.92 6.81 15.43 6.81Z" fill="#4F7471"/>
+                                      </svg>
+                                      <div>
+                                          <h3 class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Upload a passport</h3>
+                                          <p class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #95ACAA;">JPG, PNG or PDF, file size must not exceed 10 MB</p>
+                                      </div>
+                                  </div>
+                                  <label for="file-input" class=" py-[6px] px-[12px] rounded-[4px] cursor-pointer" style=" color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%);">Upload</label>
+                                </div>
+                              </div>
+                              <div class="w-full">
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;">INN</p>
+                                <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+
+                                <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span> Given place</p>
+                                <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                              </div>
+                          </div>
+                </div>
+
+                  <div class="pt-[32px]">
+                      <h2 class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A;">Information of the place of residence</h2>
+                      <div class="divide pt-[12px]"></div>
+                      <div class="flex gap-[24px] pt-[12px] w-full">
+                          <div class="w-full">
+                              <p class=" text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D">Country</p>
+                              <div  class="w-full">
+                                  <a-select class="mt-[12px]"
+                                      v-model:value="value"
+                                      :size="size"
+                                      show-search
+                                      placeholder="Select a country"
+                                      style="width: 100% "
+                                      :options="countryOptions"
+                                      :filter-option="filterOption">
+                                  </a-select>
+                              </div>
+                          </div>
+                          <div class="w-full">
+                              <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Province  </p>
+                              <div class="w-full">
+                                  <a-select class="mt-[12px]"
+                                      v-model:value="value"
+                                      :size="size"
+                                      show-search
+                                      placeholder="Select an area"
+                                      style="width: 100% "
+                                      :options="cityOptions"
+                                      :filter-option="filterOption">
+                                  </a-select>
+                              </div>
+                          </div>
+                          <div class="w-full">
+                              <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>City/district</p>
+                              <div class="w-full">
+                                  <a-select class="mt-[12px]"
+                                      v-model:value="value"
+                                      show-search
+                                            placeholder="Select an area"
+                                            :size="size"
+                                            style="width: 100% "
+                                            :options="options"
+                                            :filter-option="filterOption">
+                                    </a-select>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="flex gap-[24px] pt-[12px] w-full">
+                          <div class="w-full">
+                              <p class="text-[16px] " style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>MFY, street, house</p>
+                              <textarea class="w-full h-[108px] rounded-[8px] resize-none mt-[12px] outline-none border-none p-[8px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)"></textarea>
+                          </div>
+                          <div class="w-full">
+                              <p class="text-[16px] " style="font-family: Geist; font-weight: 600; color: #72908D;">Work place</p>
+                              <textarea class="w-full h-[108px] rounded-[8px] resize-none mt-[12px] outline-none border-none p-[8px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)"></textarea>
+                          </div>
+                      </div>
+                  </div>
               </div>
             </div>
+            <div v-if="selectedButton === 'legalEntities'">
+                <div class="pt-[36px]">
+                  <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A;">Initial information</p>
+                  <div class="divide pt-[12px]"></div>
+                  <div class="pt-[12px] flex justify-between gap-[24px]">
+                    <div class="w-full">
+                        <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span> Enterprise name</p>
+                        <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                        <div class="pt-[24px]">
+                            <p class="text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Cellphone number</p>
+                            <div class="pt-[12px] flex items-end">
+                                <div class="w-[80px] py-[12px] px-[14px] flex items-center gap-[10px]" style="border-radius: 8px 0 0 8px; border: 1px solid var(--Line-Field-Line, #DCE3E3)">  
+                                    <img src="/uzIcon.svg" alt="">
+                                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.9207 0.180176H6.69072H1.08072C0.120725 0.180176 -0.359275 1.34018 0.320725 2.02018L5.50072 7.20018C6.33072 8.03018 7.68073 8.03018 8.51073 7.20018L10.4807 5.23018L13.6907 2.02018C14.3607 1.34018 13.8807 0.180176 12.9207 0.180176Z" fill="#72908D"/>
+                                    </svg>
+                                </div>
+                                <div class="w-[240px] flex items-center py-[13px] px-[14px]" style="border-radius: 0 8px 8px 0; border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                                    <input v-model="searchQueryNumder" type="text" class=" w-[240px] border-none outline-none">
+                                </div>
+                                    <input type="checkbox" class="w-[24px] h-[24px] border-none outline-none ml-[12px]" >
+                                </div>
+                                <p class="pt-[12px] w-[358px] text-right text-[16px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #0037FF">Add phone number</p>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Country</p>
+                        <select v-model="selected"  class="w-full p-[12px] rounded-[8px] mt-[10px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <option disabled >Please select one</option>
+                            <option>Uzbekistan</option>
+                            <option>Russia</option>
+                            <option>USA</option>
+                        </select>            
+                        <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Province</p>
+                        <select v-model="selected"  class="w-full p-[12px] rounded-[8px] mt-[10px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <option disabled >Please select one</option>
+                            <option>Uzbekistan</option>
+                            <option>Russia</option>
+                            <option>USA</option>
+                        </select>            
+                        <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>City/district</p>
+                        <select v-model="selected"  class="w-full p-[12px] rounded-[8px] mt-[10px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <option disabled >Please select one</option>
+                            <option>Uzbekistan</option>
+                            <option>Russia</option>
+                            <option>USA</option>
+                        </select>            
+                        <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>House</p>
+                        <select v-model="selected"  class="w-full p-[12px] rounded-[8px] mt-[10px]" style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <option disabled >Please select one</option>
+                            <option>Uzbekistan</option>
+                            <option>Russia</option>
+                            <option>USA</option>
+                        </select>            
+                                  
+                    </div>
+                </div>
+                <div>
+                    <p class="pt-[36px] text-[16px]" style="font-family: Geist; font-weight: 600; color: #3F5D5A;">Legal information</p>
+                    <div class="divide pt-[12px]"></div>
+                    <div class="flex gap-[24px]">
+                        <div class="w-full">
+                            <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>INN</p>
+                            <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>MFO</p>
+                            <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Account number</p>
+                            <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                        </div>
+                        <div class="w-full">
+                            <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>OKED</p>
+                            <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Bank name</p>
+                            <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                            <p class="text-[16px] pt-[24px]" style="font-family: Geist; font-weight: 600; color: #72908D;"><span style="color: #FF004D;">* </span>Director</p>
+                            <input type="text" class="rounded-[8px] w-full p-[12px] outline-none mt-[12px]"  style="border: 1px solid var(--Line-Field-Line, #DCE3E3)">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+          </div>
+          <div class="bg-[#FFFFFF] mt-[6px] p-[12px] rounded-[6px] flex justify-end gap-[20px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;" >
+              <button class="bg-[#F4F6F6] py-[8px] w-[200px] rounded-[8px] text-center" style="font-family:Geist; font-weight: 600; color:#000000;">Cancel</button>
+              <button class="text-[16px] py-[8px] w-[200px] rounded-[8px] text-center" style="font-family: Geist; font-weight: 600; color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid;border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Next</button>
+          </div>
           </div>
         </div>
-      </div>
-    </main>
+    </div>
   </div>
 </template>
 <script>
-import { defineComponent } from "vue";
-import MainSidebar from "../components/MainSidebar.vue";
-import axios from "axios";
-import { useI18n } from "vue-i18n";
-import intlTelInput from "intl-tel-input";
-import "intl-tel-input/build/css/intlTelInput.css";
-import Datepicker from "vue3-datepicker";
-
-export default defineComponent({
-  name: "MainPage",
-  components: { MainSidebar, Datepicker },
-
-  data() {
-    return {
-      languages: {
-        en: "English",
-        uz: "Uzbek",
-        ru: "Russian",
-        fa: "Persian",
-      },
-      currentLanguage: "en",
-      iti: null,
-      selectedPhoneNumber: "",
-      selectedDate: null,
-      selectedCountry: "",
-      countries: [
-        { code: "US", name: "United States" },
-        { code: "CA", name: "Canada" },
-        { code: "GB", name: "United Kingdom" },
-        { code: "AU", name: "Australia" },
-        { code: "IN", name: "India" },
-        // Add more countries as needed
-      ],
-    };
-  },
-  setup() {
-    const { locale } = useI18n();
-    return { locale };
-  },
-  methods: {
-    changeLanguage(event) {
-      this.currentLanguage = event.target.value;
-      this.$i18n.locale = this.currentLanguage;
-    },
-    updatePhoneNumber() {
-      if (this.iti.isValidNumber()) {
-        this.selectedPhoneNumber = this.iti.getNumber();
-      } else {
-        this.selectedPhoneNumber = "Invalid number";
+import { ref } from 'vue';
+import Sidebar from '../components/Sidebar.vue';
+  export default {
+    name: 'AddClient',
+    components: {Sidebar},
+    data() {
+      return {
+        size: ref('large'),
+        selectedButton: 'individuals',
       }
     },
-    formatDate(date) {
-      return date ? date.toISOString().split("T")[0] : "";
+    methods: {
+      selectButton(button) {
+      this.selectedButton = button;
     },
-    onCountryChange() {
-      console.log("Country selected:", this.selectedCountry);
-      // You can handle additional logic here
     },
-    handleFileUpload(event) {
-      const file = event.target.files[0];
+  }
 
-      // Clear previous error message
-      this.errorMessage = "";
 
-      if (file) {
-        // Check file size (10 MB = 10 * 1024 * 1024 bytes)
-        const maxSize = 10 * 1024 * 1024;
-        if (file.size > maxSize) {
-          this.errorMessage = "File size exceeds 10 MB.";
-          return;
-        }
-
-        // Check file type
-        const validTypes = ["image/jpeg", "image/png", "application/pdf"];
-        if (!validTypes.includes(file.type)) {
-          this.errorMessage = "Invalid file type. Please upload JPG, PNG, or PDF.";
-          return;
-        }
-
-        // If valid, you can process the file (e.g., upload it)
-        console.log("File ready for upload:", file);
-        // Add your upload logic here
-      }
-    },
-  },
-  mounted() {
-    // Initialize intl-tel-input
-    this.iti = intlTelInput(this.$refs.phoneInput, {
-      initialCountry: "auto",
-      geoIpLookup: (callback) => {
-        fetch("https://ipinfo.io?token=<YOUR_TOKEN>")
-          .then((resp) => resp.json())
-          .then((data) => {
-            const countryCode = data && data.country ? data.country : "UZ";
-            callback(countryCode);
-          })
-          .catch(() => {
-            callback("US");
-          });
-      },
-      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js", // for formatting/validation
-    });
-
-    // Listen for changes in the input field
-    this.$refs.phoneInput.addEventListener("change", this.updatePhoneNumber);
-    this.$refs.phoneInput.addEventListener("keyup", this.updatePhoneNumber);
-  },
-  beforeDestroy() {
-    // Clean up the event listeners
-    this.$refs.phoneInput.removeEventListener("change", this.updatePhoneNumber);
-    this.$refs.phoneInput.removeEventListener("keyup", this.updatePhoneNumber);
-  },
-});
 </script>
 
 <style scoped>
-.main-page {
-  display: flex;
-  background-color: var(--background-background-gray);
-  height: 100%;
-  color: inherit;
-}
-.container {
-  width: 100%;
-}
-.header {
-  background-color: white;
-  border-radius: 20px;
-  margin: 1rem;
-  padding: 1.2rem;
-  width: auto;
-}
-.inner {
-  display: flex;
-}
-.header .account-btn {
-  color: #72908d;
-  border: 2px solid #72908d;
-  background-color: #b9c7c6;
-  padding: 1rem;
-  border-radius: 50%;
-  font-weight: bold;
-}
-.header .text {
-  width: 100%;
-}
-
-.language-switcher button {
-  margin: 0 5px;
-}
-.bg {
-  background-color: #f4f6f6;
-  border-radius: 10px;
-}
-.bg div {
-  background-color: white;
-  border-radius: 5px;
-  padding: 0.3rem 0.5rem;
-}
-.client_details label {
-  font-size: smaller;
-  color: gray;
-  display: block;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-}
-.client_details input,
-.v3dp__datepicker,
-select,
-textarea {
-  border: 1px solid lightgray !important;
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 16px;
-  text-transform: uppercase;
-  color: gray;
-  width: 100% !important;
-}
-.date-picker-custom {
-  width: 250px;
-}
-.btn-default{
-  background-color: #f4f6f6;
-}
-.btn{
-  width: 100px;
-    margin-right: 1rem;
-}
+  .divide {
+    border-bottom: 1px dashed #95ACAA;
+  }
 </style>

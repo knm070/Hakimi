@@ -39,6 +39,7 @@ import Showroom from './pages/Showroom.vue';
 import Order from "./pages/Order.vue";
 import OrderSingle from './pages/OrderSingle.vue'
 import AddPayment from './pages/AddPayment.vue'
+import ClientSingle from './pages/ClientSingle.vue'
 import Antd from 'ant-design-vue';
 // import 'ant-design-vue/es/style/index.css';
 
@@ -274,6 +275,11 @@ const routes = [
     path: "/add-payment",
     name: "AddPayment",
     component: AddPayment,
+  },
+  {
+    path: "/client-single",
+    name: "ClientSingle",
+    component: ClientSingle,
   },
 ];
 

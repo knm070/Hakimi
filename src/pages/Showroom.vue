@@ -1,6 +1,6 @@
 <template>
     <div class="bg-[#F4F6F6] h-screen">
-        <div class="bg-[#FFFFFF] py-[12px] px-[24px] flex items-center justify-between">
+        <div class="bg-[#FFFFFF] py-[12px] px-[24px] flex items-center justify-between ">
             <div class="flex items-center gap-[24px]">
                 <img src="/hakimiIcon.svg" alt="">
                 <div class="flex items-center gap-[12px]">
@@ -37,7 +37,7 @@
                 <input type="text" placeholder="Qidirish" class="outline-none w-full">
             </div>
             <div  class="gap-[8px] border rounded-[8px]  py-[13px] px-[14px] w-full max-w-[323px]">
-                <input type="text" placeholder="Xonalar soni" class="outline-none w-full">
+                <input type="text"  placeholder="Xonalar soni" class="outline-none w-full">
             </div>
             <div class="flex">
                 <p class="py-[13px] px-[14px] bg-[#F4F6F6]" style="border-radius: 8px 0 0 8px; border: 1px solid var(--Line-Field-Line, #DCE3E3)">m2</p>
@@ -70,7 +70,7 @@
         </div>
 
         <div class="bg-[#FFFFFF] mt-[8px] py-[16px] px-[24px]">
-            <div class="border p-[16px] rounded-[14px]">
+            <div class="border p-[16px] rounded-[14px] ">
                 <div class="flex justify-between">
                     <div>
                         <div class="flex gap-[6px]">
@@ -237,594 +237,284 @@
                         </tbody>
                     </table>
                 </div>
-                <div v-if="activeButton === 2" class="pt-[16px]">
+                <div v-if="activeButton === 2" class="pt-[16px] ">
                     <div class="pl-[70px] pb-[16px]">
                         <p>1</p>
                         <p class="pt-[12px]">1- podez</p>
                     </div>
-                    <div class="flex flex-col gap-[8px]">
-                        <div class="flex gap-[64px] items-center">
-                            <span>9</span>
-                            <div class="flex gap-[8px]">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252] w-full" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#0EA5E9] w-full" style="border: 1px solid #0EA5E9">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full  py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                    <div class="flex gap-[64px] overflow-auto max-h-screen overflow-y-auto ">
+                        <div class="flex flex-col gap-[8px]">
+                            <div class="flex gap-[64px] items-center">
+                                <span>9</span>
+                                <div class="flex gap-[8px] w-full">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252] w-full" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#0EA5E9] w-full" style="border: 1px solid #0EA5E9">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full ] py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252] w-full" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full  py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#0EA5E9] w-full" style="border: 1px solid #0EA5E9">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full  py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div> 
                             </div>
-                        </div>
-                        <div class="flex gap-[64px] items-center">
-                            <span>8</span>
-                            <div class="flex gap-[8px] ">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            <div class="flex gap-[64px] items-center">
+                                <span>8</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#0EA5E9]" style="border: 1px solid #0EA5E9">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#0EA5E9]" style="border: 1px solid #0EA5E9">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                               
                             </div>
-                        </div>
-                        <div class="flex gap-[64px] items-center">
-                            <span>7</span>
-                            <div class="flex gap-[8px] ">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#0EA5E9]" style="border: 1px solid #0EA5E9">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            <div class="flex gap-[64px] items-center">
+                                <span>7</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#0EA5E9]" style="border: 1px solid #0EA5E9">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#0EA5E9]" style="border: 1px solid #0EA5E9">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div> 
                             </div>
-                        </div>
-                        <div class="flex gap-[64px] items-center">
-                            <span>6</span>
-                            <div class="flex gap-[8px] ">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            <div class="flex gap-[64px] items-center">
+                                <span>6</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>5</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>4</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>3</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>2</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>1</span>
+    
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex gap-[64px] items-center">
-                            <span>5</span>
-                            <div class="flex gap-[8px] ">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                        <div class="flex flex-col gap-[8px]">
+                            <div class="flex gap-[64px] items-center">
+                                <span>9</span>
+                                <div class="flex gap-[8px] w-full">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex gap-[64px] items-center">
-                            <span>4</span>
-                            <div class="flex gap-[8px] ">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            <div class="flex gap-[64px] items-center">
+                                <span>8</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex gap-[64px] items-center">
-                            <span>3</span>
-                            <div class="flex gap-[8px] ">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            <div class="flex gap-[64px] items-center">
+                                <span>7</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex gap-[64px] items-center">
-                            <span>2</span>
-                            <div class="flex gap-[8px] ">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            <div class="flex gap-[64px] items-center">
+                                <span>6</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex gap-[64px] items-center">
-                            <span>1</span>
-                            <div class="flex gap-[8px] ">
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            <div class="flex gap-[64px] items-center">
+                                <span>5</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
-                                    </div>
-                                </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>4</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
-                                    </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>3</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="p-[12px] rounded-[8px] bg-[#00B252]" style="border: 1px solid #00B252">
-                                    <div class="flex justify-between">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">3 xonali</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">№ 50</span>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>2</span>
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
-                                    <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                        <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">690 900 000 UZS</span>
-                                        <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">98.7 m2 - 7 000 000 UZS/m2</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-[64px] items-center">
+                                <span>1</span>
+    
+                                <div class="flex gap-[8px]">
+                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                        <div class="flex justify-between">
+                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                        </div>
+                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1013,6 +703,50 @@ import showRoomShaxmatkaBlue2 from '/showroomShaxmatkaBlue.svg'
                         position: "Ta'mirsiz",
                         equipped : "Bo'sh"
                     },
+                ],
+                shaxmatka2: [
+                    {
+                        room : '3 xonali',
+                        number :'№ 50',
+                        amount : '690 900 000 UZS',
+                        perSquare : '98.7 m2 - 7 000 000 UZS/m2'
+                    },
+                    {
+                        room : '3 xonali',
+                        number :'№ 50',
+                        amount : '690 900 000 UZS',
+                        perSquare : '98.7 m2 - 7 000 000 UZS/m2'
+                    },
+                    {
+                        room : '3 xonali',
+                        number :'№ 50',
+                        amount : '690 900 000 UZS',
+                        perSquare : '98.7 m2 - 7 000 000 UZS/m2'
+                    },
+                    {
+                        room : '3 xonali',
+                        number :'№ 50',
+                        amount : '690 900 000 UZS',
+                        perSquare : '98.7 m2 - 7 000 000 UZS/m2'
+                    },
+                    {
+                        room : '3 xonali',
+                        number :'№ 50',
+                        amount : '690 900 000 UZS',
+                        perSquare : '98.7 m2 - 7 000 000 UZS/m2'
+                    },
+                    {
+                        room : '3 xonali',
+                        number :'№ 50',
+                        amount : '690 900 000 UZS',
+                        perSquare : '98.7 m2 - 7 000 000 UZS/m2'
+                    },
+                    {
+                        room : '3 xonali',
+                        number :'№ 50',
+                        amount : '690 900 000 UZS',
+                        perSquare : '98.7 m2 - 7 000 000 UZS/m2'
+                    },
                 ]
             }
         },
@@ -1022,7 +756,7 @@ import showRoomShaxmatkaBlue2 from '/showroomShaxmatkaBlue.svg'
             },
             setActiveButton(index) {
                 this.activeButton = index;
-            }
+            },
         },
     }
 </script>
@@ -1044,5 +778,10 @@ import showRoomShaxmatkaBlue2 from '/showroomShaxmatkaBlue.svg'
     .showroom-table td{
         border-bottom: 1px solid var(--Line-Container-Line, #EDF1F1);
         padding: 16px 16px;
+    }
+
+    .showroom-table tbody tr:hover {
+        background: #EDF1F1;
+        transition: all 200ms;
     }
 </style>

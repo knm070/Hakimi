@@ -26,7 +26,7 @@
               <li v-for="(tab , index) in tabs" :key="index" class="flex gap-[10px] pr-[20px] cursor-pointer text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000;" >
                 <img :src="tab.image" alt="">
                 {{ tab.name }}
-                <span class="h-[16px] mt-[3px] pl-[10px]" style="border-right: 2px solid #EDF1F1;"></span>
+                <span class="h-[16px] pl-[10px]" style="border-right: 2px solid #EDF1F1;"></span>
               </li>
             </ul>
             <div class="search py-[12px] px-[20px] flex items-center rounded-[12px] w-[398px] cursor-pointer">

@@ -455,6 +455,10 @@ import Sidebar from '../components/Sidebar.vue';
         padding: 10px 10px;
     }
 
+    .contract-table {
+        width: 100%;
+    }
+
     .active {
         padding: 0;
         margin-top: 16px;
