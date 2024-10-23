@@ -153,11 +153,13 @@
                                     </thead>
 
                                     <tbody >
+                                    <tr>
                                         <td>2 219 100 (0.1%)</td>
                                         <td>0 (0%)</td>
                                         <td>2 219 100 000</td>
                                         <td>24</td>
                                         <td>61 580 025</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

@@ -210,10 +210,13 @@ const routes = [
     component: Shaxmatka2,
   },
   {
-    path: "/main",
+    path: "/debt",
     name: "Main",
     component: Main,
   },
+
+  // Nodirbek's pages
+
   {
     path: "/main/Hakimi",
     name: "Main2",
