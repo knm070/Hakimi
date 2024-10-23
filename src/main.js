@@ -18,11 +18,9 @@ import Sale from "./pages/Sale.vue";
 import Home from "./pages/Home.vue";
 import MainPayments from "./pages/MainPayments.vue";
 import MainContract from "./pages/MainContract.vue";
-import Order from "./pages/Order.vue";
 import Clients from "./pages/Clients.vue";
 import MainDebt from "./pages/MainDebt.vue";
 import Sms from "./pages/Sms.vue";
-import Changes from "./pages/Changes.vue";
 import Settings from "./pages/Settings.vue";
 import Login from "./pages/Login.vue";
 import AddClient from "./pages/AddClient.vue";
@@ -33,6 +31,15 @@ import Contracts from './pages/Contracts.vue'
 import ConstractsSingle from './pages/ContractsSingle.vue'
 import ClientBalance from './pages/ClientBalance.vue'
 import ClientInfo from './pages/ClientInfo.vue';
+import ApartmentInfo from './pages/ApartmentInfo.vue';
+import Changes from "./pages/Changes.vue";
+import Profile from './pages/Profile.vue';
+import Update from './pages/Update.vue';
+import Showroom from './pages/Showroom.vue';
+import Order from "./pages/Order.vue";
+import OrderSingle from './pages/OrderSingle.vue'
+import AddPayment from './pages/AddPayment.vue'
+import ClientSingle from './pages/ClientSingle.vue'
 import Antd from 'ant-design-vue';
 // import 'ant-design-vue/es/style/index.css';
 
@@ -241,6 +248,41 @@ const routes = [
     path: "/client-info",
     name: "ClientInfo",
     component: ClientInfo,
+  },
+  {
+    path: "/client-info/apartment-info",
+    name: "ApartmentInfo",
+    component: ApartmentInfo,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+  },
+  {
+    path: "/update-table",
+    name: "Update",
+    component: Update,
+  },
+  {
+    path: "/showroom",
+    name: "Showroom",
+    component: Showroom,
+  },
+  {
+    path: "/order-single",
+    name: "OrderSingle",
+    component: OrderSingle,
+  },
+  {
+    path: "/add-payment",
+    name: "AddPayment",
+    component: AddPayment,
+  },
+  {
+    path: "/client-single",
+    name: "ClientSingle",
+    component: ClientSingle,
   },
 ];
 
