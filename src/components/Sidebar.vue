@@ -1,8 +1,8 @@
 <template>
-  <div class="sidebar2 ">
+  <div class="sidebar2">
     <div class="logo1">
       <img class="image-icon1" loading="lazy" alt="" :src="image" />
-      <router-link to="/mainpage" class="hakimi-towers1">Hakimi Towers</router-link>
+      <router-link to="/main" class="hakimi-towers1">Hakimi Towers</router-link>
     </div>
     <div class="divider"></div>
     <div class="sidebar3">
@@ -29,22 +29,6 @@
       <div class="home-links4" :class="{ active: $route.path === '/sale' }">
         <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
         <router-link to="/sale" class="contract1">{{ $t('sale') }}</router-link>
-      </div>
-      <div class="home-links4" :class="{ active: $route.path === '/changes' }">
-        <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
-        <router-link to="/changes" class="contract1">{{ $t('Changes') }}</router-link>
-      </div>
-      <div class="home-links4" :class="{ active: $route.path === '/showroom' }">
-        <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
-        <router-link to="/showroom" class="contract1">{{ $t('Showroom') }}</router-link>
-      </div>
-      <div class="home-links4" :class="{ active: $route.path === '/showroom' }">
-        <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
-        <router-link to="/order" class="contract1">{{ $t('Order') }}</router-link>
-      </div>
-      <div class="home-links4" :class="{ active: $route.path === '/sms' }">
-        <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
-        <router-link to="/sms" class="contract1">{{ $t('SMS') }}</router-link>
       </div>
     </div>
   </div>
@@ -241,7 +225,7 @@ export default defineComponent({
 }
 .sidebar2 {
   background-color: var(--background-background-gray);
-  width: 268px;
+  width: 220px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

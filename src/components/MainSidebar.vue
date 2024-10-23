@@ -2,21 +2,21 @@
   <div class="sidebar2">
     <div class="logo1">
       <img class="image-icon1" loading="lazy" alt="" :src="image" />
-      <router-link to="/mainpage" class="hakimi-towers1">Hakimi Towers</router-link>
+      <router-link to="/main" class="hakimi-towers1">Hakimi Towers</router-link>
     </div>
     <div class="divider"></div>
     <div class="sidebar3">
-      <div class="home-links" :class="{ active: $route.path === '/home' }">
+      <div class="home-links" :class="{ active: $route.path === '/main' }">
         <img class="home-icon1" loading="lazy" alt="" :src="home" />
-        <router-link to="/home" class="main-page3" >{{ $t('main_page') }}</router-link>
+        <router-link to="/main" class="main-page3" >{{ $t('main_page') }}</router-link>
       </div>
       <div class="home-links1" :class="{ active: $route.path === '/order' }">
         <img class="account-balance-wallet-icon1" alt="" :src="accountBalanceWallet" />
         <router-link to="/order" class="payment5">{{ $t('Order') }}</router-link>
       </div>
-      <div class="home-links2" :class="{ active: $route.path === '/main_contract' }">
+      <div class="home-links2" :class="{ active: $route.path === '/Contracts' }">
         <img class="credit-card-clock-icon1" loading="lazy" alt="" :src="creditCardClock" />
-        <router-link to="/main_contract" class="debt1" :style="debtStyle">{{ $t('Contract') }}</router-link>
+        <router-link to="/Contracts" class="debt1" :style="debtStyle">{{ $t('Contract') }}</router-link>
       </div>
       <div class="home-links3" :class="{ active: $route.path === '/main_payment' }">
         <img class="location-city-icon1" loading="lazy" alt="" :src="locationCity" />
@@ -44,9 +44,9 @@
         <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
         <router-link to="/mainpage" class="contract1">{{ $t('Statistics') }}</router-link>
       </div>
-      <div class="home-links4" :class="{ active: $route.path === '/shaxmatka' }">
+      <div class="home-links4" :class="{ active: $route.path === '/showroom' }">
         <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
-        <router-link to="/shaxmatka" class="contract1">{{ $t('Showroom') }}</router-link>
+        <router-link to="/showroom" class="contract1">{{ $t('Showroom') }}</router-link>
       </div>
       <div class="home-links4" :class="{ active: $route.path === '/settings' }">
         <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />

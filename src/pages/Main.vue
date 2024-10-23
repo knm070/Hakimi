@@ -1,8 +1,10 @@
 <template>
     
-    <div class="flex bg-[#F4F6F6] container h-screen" >
-        <Sidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
-        <div class="rounded-[14px] bg-white p-[16px] my-[8px] w-full" >
+    <div class="bg-[#F4F6F6] h-full">
+        <div class="flex w-full min-h-screen">
+
+        <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
+        <div  class=" bg-[#FFFFFF] w-full rounded-[14px] my-[8px] mr-[6px] p-[16px] " style="border: 1px solid #EDF1F1" >
             <div>
             <div class="flex items-center justify-between pb-[16px]">
                 <h1 class="text-[20px]" style="font-family: Geist; font-weight: 600; color: rgba(0, 0, 0, 1);">Main page</h1>
@@ -102,8 +104,8 @@
             </div>
         </div>
 
-        <div class="mt-[16px]">
-            <table class="styled-table" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);">
+        <div class="mt-[16px] w-full">
+            <table class="styled-table w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); ">
                 <thead class="bg-[#EDF1F1] text-[14px]" style="font-family: Geist; font-weight: 500; color: #4F7471;">
                     <tr>
                         <th>Residential Complex name</th>
@@ -523,15 +525,26 @@
         </transition>
 
     </div>
+    </div>
 </template>
 
 <script >
-    import Sidebar from "../components/Sidebar.vue";
+    import MainSidebar from "../components/MainSidebar.vue";
+    import axios from "axios";
+import { useI18n } from "vue-i18n";
     export default{
         name: 'Main',
-        components: {Sidebar},
+        components: {MainSidebar},
         data(){
             return {
+                languages: {
+        en: "English",
+        uz: "Uzbek",
+        ru: "Russian",
+        fa: "Persian",
+      },
+      currentLanguage: "en",
+      locale: this.$i18n.locale,
                 progress : 48,
                 isFilterOpen : false,
                 filter: {
@@ -544,6 +557,10 @@
             };
         },
         methods: {
+            changeLanguage(event) {
+      this.currentLanguage = event.target.value;
+      this.$i18n.locale = this.currentLanguage;
+    },
             openFilter() {
                 this.isFilterOpen = true;
             },
