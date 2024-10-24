@@ -24,7 +24,7 @@
           </div>
           <div class="divide pt-[16px]"></div>
           <div class="bg-[#F4F6F6] rounded-[8px] p-[6px] mt-[16px]">
-            <div class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="box-shadow: 0px 1px 2px 0px #1823220D;border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+            <div class="bg-[#FFFFFF] p-[12px] mb-[6px] rounded-[6px]" style="box-shadow: 0px 1px 2px 0px #1823220D;border: 1px solid var(--Line-Container-Line, #EDF1F1)">
               <h2 class="text-[14px]" style="font-family:Geist; font-weight:600; color: #000000;">Client contracts</h2>
             </div>
             <div class="bg-[#FFFFFF] py-[24px] px-[12px] rounded-[6px]  w-full h-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
@@ -268,7 +268,7 @@
           </div>
           <div class="bg-[#FFFFFF] mt-[6px] p-[12px] rounded-[6px] flex justify-end gap-[20px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;" >
               <button class="bg-[#F4F6F6] py-[8px] w-[200px] rounded-[8px] text-center" style="font-family:Geist; font-weight: 600; color:#000000;">Cancel</button>
-              <button class="text-[16px] py-[8px] w-[200px] rounded-[8px] text-center" style="font-family: Geist; font-weight: 600; color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid;border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Next</button>
+              <button  @click="gotoApartmentInfo" class="text-[16px] py-[8px] w-[200px] rounded-[8px] text-center" style="font-family: Geist; font-weight: 600; color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid;border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Next</button>
           </div>
           </div>
         </div>
@@ -291,6 +291,9 @@ import Sidebar from '../components/Sidebar.vue';
       selectButton(button) {
       this.selectedButton = button;
     },
+    gotoApartmentInfo() {
+                this.$router.push('/client-info/apartment-info');
+    }
     },
   }
 

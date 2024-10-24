@@ -71,7 +71,7 @@
 
         <div class="bg-[#FFFFFF] mt-[8px] py-[16px] px-[24px]">
             <div class="border p-[16px] rounded-[14px] ">
-                <div class="flex justify-between">
+                <div class="flex justify-between gap-[24px]">
                     <div>
                         <div class="flex gap-[6px]">
                             <div v-for="(button, index) in buttons" :key="index" >
@@ -90,9 +90,9 @@
                         <img src="/showroomSettings.svg" alt="">
                         <img src="/showroomDownload.svg" alt="">
                     </div>
-                    <div v-if="activeButton === 1" class="flex gap-[32px]">
-                        <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
-                            Murakkab     
+                    <div v-if="activeButton === 1" class="flex gap-[32px] flex-wrap">
+                        <button @click="changeText" class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                            {{buttonText}}     
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_2_27365" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
                             <rect width="20" height="20" fill="#D9D9D9"/>
@@ -102,9 +102,9 @@
                             </g>
                             </svg>
                         </button>
-                        <div class="flex gap-[24px] items-center">
+                        <div class="flex  gap-[24px] items-center  flex-wrap">
                             <p>Xonadon:</p>
-                            <div class="flex gap-[12px]">
+                            <div v-if="buttonText === 'Murakkab'" class="flex gap-[12px]  flex-wrap">
                                 <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#00B252"/>
@@ -129,10 +129,54 @@
                                     </svg>
                                     Sotilmaydi
                                 </button>
-                                <button>
-                                    <img src="/showroomBurgerMenu.svg" alt="">
-                                </button>
+
                             </div>
+                            <div v-if="buttonText === 'Oddiy'" class="flex gap-[32px]  flex-wrap">
+                                <div class="flex gap-[12px]">
+                                    <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#00B252"/>
+                                        </svg>
+                                        Bo’sh
+                                    </button>
+                                    <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#FFD800"/>
+                                        </svg>
+                                        Band qilingan
+                                    </button>
+                                    <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 0.5H1.75C1.05964 0.5 0.5 1.05964 0.5 1.75V14.25C0.5 14.9404 1.05964 15.5 1.75 15.5H14.25C14.9404 15.5 15.5 14.9404 15.5 14.25V1.75C15.5 1.05964 14.9404 0.5 14.25 0.5Z" fill="#B9C7C6"/>
+                                        </svg>
+                                        Sotilmaydi
+                                    </button>
+                                </div>
+                                <div class="flex gap-[12px] items-center">
+                                    <p>Shartnoma:</p>
+                                    <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.25 0.5H1.75C1.05964 0.5 0.5 1.05964 0.5 1.75V14.25C0.5 14.9404 1.05964 15.5 1.75 15.5H14.25C14.9404 15.5 15.5 14.9404 15.5 14.25V1.75C15.5 1.05964 14.9404 0.5 14.25 0.5Z" fill="#0EA5E9"/>
+                                        </svg>
+                                        Faol
+                                    </button>
+                                    <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#FFD800"/>
+                                        </svg>
+                                        Boshlang’ich
+                                    </button>
+                                    <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#EF4444"/>
+                                        </svg>
+                                        Tugallangan
+                                    </button>
+                                </div>
+                            </div>
+                            <button>
+                                    <img src="/showroomBurgerMenu.svg" alt="">
+                            </button>
                         </div>
                     </div>
                     <div v-if="activeButton === 2" class="flex gap-[32px]">
@@ -521,6 +565,90 @@
                         </div>
                     </div>
                 </div>
+
+                <div v-if="activeButton === 1" class="pt-[16px] flex items-center ">
+                    <div class="flex flex-col-reverse pt-[30px] ">
+                        <div v-for="row in rows" :key="row" class=" flex flex-col-reverse  w-[40px] h-[40px] mb-[8px] pl-[8px] ">
+                            <div class=""><p>{{ row - 1 }}</p></div>
+                        </div>
+                    </div>
+                    <div class="flex gap-[64px]  overflow-auto  custom-scrollbar ">
+
+                        <div >
+                            <div class="mb-[16px]">
+                                <p class="pb-[12px]">1</p>
+                                <p>1- podez</p>
+                            </div>
+                            <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex pb-[8px] gap-[8px]">
+                                <div v-for="(block, blockIndex) in row" :key="blockIndex" :class="getClass(block)" class="w-[40px] h-[40px] flex justify-center items-center cursor-pointer  text-white rounded" style="box-shadow: 0px 1px 2px 0px #1823220D;">
+                                    {{ block !== '' ? block : '' }}
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div class="mb-[16px]">
+                                <p class="pb-[12px]">2</p>
+                                <p>1- podez</p>
+                            </div>
+                            <div v-for="(row, rowIndex) in blocks2" :key="rowIndex" class="flex pb-[8px] gap-[8px]">
+                                <div v-for="(block, blockIndex) in row" :key="blockIndex" :class="getClass(block)" class="w-[40px] h-[40px] flex justify-center items-center cursor-pointer  text-white rounded" >
+                                    {{ block !== '' ? block : '' }}
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div >
+                            <div class="mb-[16px]">
+                                <p class="pb-[12px]">1</p>
+                                <p>1- podez</p>
+                            </div>
+                            <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex pb-[8px] gap-[8px]">
+                                <div v-for="(block, blockIndex) in row" :key="blockIndex" :class="getClass(block)" class="w-[40px] h-[40px] flex justify-center items-center cursor-pointer  text-white rounded" style="box-shadow: 0px 1px 2px 0px #1823220D;">
+                                    {{ block !== '' ? block : '' }}
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div class="mb-[16px]">
+                                <p class="pb-[12px]">2</p>
+                                <p>1- podez</p>
+                            </div>
+                            <div v-for="(row, rowIndex) in blocks2" :key="rowIndex" class="flex pb-[8px] gap-[8px]">
+                                <div v-for="(block, blockIndex) in row" :key="blockIndex" :class="getClass(block)" class="w-[40px] h-[40px] flex justify-center items-center cursor-pointer  text-white rounded" >
+                                    {{ block !== '' ? block : '' }}
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div >
+                            <div class="mb-[16px]">
+                                <p class="pb-[12px]">1</p>
+                                <p>1- podez</p>
+                            </div>
+                            <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex pb-[8px] gap-[8px]">
+                                <div v-for="(block, blockIndex) in row" :key="blockIndex" :class="getClass(block)" class="w-[40px] h-[40px] flex justify-center items-center cursor-pointer  text-white rounded" style="box-shadow: 0px 1px 2px 0px #1823220D;">
+                                    {{ block !== '' ? block : '' }}
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div class="mb-[16px]">
+                                <p class="pb-[12px]">2</p>
+                                <p>1- podez</p>
+                            </div>
+                            <div v-for="(row, rowIndex) in blocks2" :key="rowIndex" class="flex pb-[8px] gap-[8px]">
+                                <div v-for="(block, blockIndex) in row" :key="blockIndex" :class="getClass(block)" class="w-[40px] h-[40px] flex justify-center items-center cursor-pointer  text-white rounded" >
+                                    {{ block !== '' ? block : '' }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col-reverse  pt-[30px] ">
+                        <div v-for="row in rows" :key="row" class=" flex flex-col-reverse  w-[40px] h-[40px] mb-[8px] pl-[16px] ">
+                            <div class=""><p>{{ row - 1 }}</p></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -747,7 +875,33 @@ import showRoomShaxmatkaBlue2 from '/showroomShaxmatkaBlue.svg'
                         amount : '690 900 000 UZS',
                         perSquare : '98.7 m2 - 7 000 000 UZS/m2'
                     },
-                ]
+                ],
+                rows : 10,
+                blocks: [
+                    [93, 10, 15, 27, 83, 45],   // Row 9
+                    [67, 45, 23, 93, 7, 71],    // Row 8
+                    [97, 48, 88, 28, 59, 58],   // Row 7
+                    [93, 96, 62, 66, 88, 82],   // Row 6
+                    [18, 54, 51, 2, 89, 54],    // Row 5
+                    [26, 56, 78, 21, 49, 9],    // Row 4
+                    [84, 61, 28, 25, 43, 20],   // Row 3
+                    [4, 56, 56, 25, 40, ''],    // Row 2
+                    ['', '', '', '', '', ''],   // Row 1
+                    ['', '', '', '', '', '']    // Row 0
+                ],
+                blocks2 : [
+                    [93, 10, 15, 27, 83, 45, 28,59],   // Row 9
+                    [67, 45, 23, 93, 7, 71,93 , 96],    // Row 8
+                    [97, 48, 88, 28, 59, 58, 27,83],   // Row 7
+                    [93, 96, 62, 66, 88, 82, 93, 7],   // Row 6
+                    [18, 54, 51, 2, 89, 54, 28, 59],    // Row 5
+                    [26, 56, 78, 21, 49, 9, 27, 83],    // Row 4
+                    [84, 61, 28, 25, 43, 20, 93, 7],   // Row 3
+                    [4, 56, 56, 25, 40, '', '' ,''],    // Row 2
+                    ['', '', '', '', '', '','' ,''],   // Row 1
+                    ['', '', '', '', '', '','' ,'']    // Row 0
+                ],
+                buttonText : 'Murakkab',
             }
         },
         methods: {
@@ -757,6 +911,21 @@ import showRoomShaxmatkaBlue2 from '/showroomShaxmatkaBlue.svg'
             setActiveButton(index) {
                 this.activeButton = index;
             },
+            changeText () {
+                this.buttonText = this.buttonText === 'Murakkab' ? 'Oddiy' : 'Murakkab'
+            },
+            getClass(block) {
+                if (block > 50) {
+                    return this.buttonText === 'Murakkab'  ? 'bg-[#00B252]' : 'bg-[#0EA5E9]';   // Dark green for blocks > 80
+                } else if (block > 20) {
+                    return 'bg-[#DB4F00]';  // Orange for blocks between 50-80
+                } else if (block > 0) {
+                    return 'bg-[#B9C7C6]';   // Light green for blocks between 0-50
+                } else {
+                    return 'bg-white border border-green-500';  // Empty block styling
+                }
+            }
+            
         },
     }
 </script>
@@ -769,8 +938,7 @@ import showRoomShaxmatkaBlue2 from '/showroomShaxmatkaBlue.svg'
         width: 100%;
         border: 1px solid var(--Line-Container-Line, #EDF1F1);
     }
-
-     
+    
     .showroom-table th,
     .showroom-table td {
         padding: 16px 16px;
@@ -783,5 +951,22 @@ import showRoomShaxmatkaBlue2 from '/showroomShaxmatkaBlue.svg'
     .showroom-table tbody tr:hover {
         background: #EDF1F1;
         transition: all 200ms;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #EDF1F1;
+      border-radius: 6px; /* Rounded corners for the thumb */
+      border: 3px solid #f1f1f1; /* Space around thumb */
+    }
+
+    .custom-scrollbar {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll; /* Enables vertical scrolling */
+        padding: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar  {
+        width: 2px;
     }
 </style>
