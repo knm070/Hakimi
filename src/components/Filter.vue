@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="flex gap-[6px]">
-            <div class="bg-[#FFFFFF]  rounded-[12px] flex-grow  flex items-center  ">
-                <div class="flex ga p-[10px]">
+            <div class="bg-[#FFFFFF]  rounded-[12px] flex-grow  flex items-center p-[12px] ">
+                <div class="flex gap-[10px]">
                     <!-- Filter button -->
-                    <button @click="openFilter" class="flex items-center ga py-[14px] px-[22px] rounded-full"
+                    <button @click="openFilter" class="flex items-center gap-[12px] py-[14px] px-[22px] rounded-full"
                         style="border: 1px solid #B9C7C6;">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
