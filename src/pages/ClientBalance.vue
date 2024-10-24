@@ -1,6 +1,6 @@
 <template>
     <div class="bg-[#F4F6F6] flex w-full">
-        <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
+        <Sidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
         <div class="bg-[#FFFFFF] m-[8px] p-[16px] rounded-[16px] w-full" style="border: 1px solid #EDF1F1">
             <div class="flex items-center justify-between">
                 <div>
@@ -13,11 +13,12 @@
                             <path d="M14.8299 20.51C14.4099 21.67 13.2999 22.5 11.9999 22.5C11.2099 22.5 10.4299 22.18 9.87994 21.61C9.55994 21.31 9.31994 20.91 9.17994 20.5C9.30994 20.52 9.43994 20.53 9.57994 20.55C9.80994 20.58 10.0499 20.61 10.2899 20.63C10.8599 20.68 11.4399 20.71 12.0199 20.71C12.5899 20.71 13.1599 20.68 13.7199 20.63C13.9299 20.61 14.1399 20.6 14.3399 20.57C14.4999 20.55 14.6599 20.53 14.8299 20.51Z" fill="#72908D"/>
                         </svg>  
     
-                       <select v-model="currentLanguage" @change="changeLanguage" class="w-[100px] pl-[5px]">
-              <option v-for="(label, lang) in languages" :key="lang" :value="lang">
-                {{ label }}
-              </option>
-            </select>
+                        <select class="w-[100px] pl-[5px]">
+                            <option >English</option>
+                            <option >Uzbek</option>
+                            <option >Russian</option>
+                            <option >Persian</option>
+                        </select>
                 </div>
             </div>
             <div class="divide pt-[16px]"></div>
@@ -217,24 +218,14 @@
 </template>
 
 <script>
-import MainSidebar from '../components/MainSidebar.vue';
-import axios from "axios";
-import { useI18n } from "vue-i18n";
+import Sidebar from '../components/Sidebar.vue';
     export default {
         name: 'ClientBalance',
-        components: {MainSidebar},
+        components: {Sidebar},
         
 
         data() {
             return {
-                languages: {
-        en: "English",
-        uz: "Uzbek",
-        ru: "Russian",
-        fa: "Persian",
-      },
-      currentLanguage: "en",
-      locale: this.$i18n.locale,
                 deposit: [
                     {   
                         number: 184,
@@ -323,10 +314,6 @@ import { useI18n } from "vue-i18n";
             }
         },
         methods: {
-            changeLanguage(event) {
-      this.currentLanguage = event.target.value;
-      this.$i18n.locale = this.currentLanguage;
-    },
             showDeposit() {
                 this.isDepositOpen = true;
             },

@@ -662,20 +662,10 @@ import showRoomShaxmatkaBlue from '/showroomShaxmatkaBlue.svg'
 import showRoomShaxmatkaGray from '/showroomShaxmatkaGray.svg'
 import showRoomShaxmatkaGray2 from '/showroomShaxmatkaGray.svg'
 import showRoomShaxmatkaBlue2 from '/showroomShaxmatkaBlue.svg'
-import axios from "axios";
-import { useI18n } from "vue-i18n";
 
     export default {
         data() {
             return {
-                languages: {
-        en: "English",
-        uz: "Uzbek",
-        ru: "Russian",
-        fa: "Persian",
-      },
-      currentLanguage: "en",
-      locale: this.$i18n.locale,
                 size: ref('middle'),
                 regionOptions: ref([
                 {
@@ -915,10 +905,6 @@ import { useI18n } from "vue-i18n";
             }
         },
         methods: {
-            changeLanguage(event) {
-      this.currentLanguage = event.target.value;
-      this.$i18n.locale = this.currentLanguage;
-    },
             selectButton(button) {
                 this.buttons = button;
             },
