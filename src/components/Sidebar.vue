@@ -6,9 +6,9 @@
     </div>
     <div class="divider"></div>
     <div class="sidebar3">
-      <div class="home-links" :class="{ active: $route.path === '/main' }">
+      <div class="home-links" :class="{ active: $route.path === '/mainpage' }">
         <img class="home-icon1" loading="lazy" alt="" :src="home" />
-        <router-link to="/main" class="main-page3" >{{ $t('main_page') }}</router-link>
+        <router-link to="/mainpage" class="main-page3" >{{ $t('main_page') }}</router-link>
       </div>
       <div class="home-links1" :class="{ active: $route.path === '/payments' }">
         <img class="account-balance-wallet-icon1" alt="" :src="accountBalanceWallet" />
@@ -22,9 +22,9 @@
         <img class="location-city-icon1" loading="lazy" alt="" :src="locationCity" />
         <router-link to="/tjm" class="tjm1">{{ $t('tjm') }}</router-link>
       </div>
-      <div class="home-links4" :class="{ active: $route.path === '/contracts' }">
+      <div class="home-links4" :class="{ active: $route.path === '/contract' }">
         <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />
-        <router-link to="/contracts" class="contract1">{{ $t('contract') }}</router-link>
+        <router-link to="/contract" class="contract1">{{ $t('contract') }}</router-link>
       </div>
       <div class="home-links4" :class="{ active: $route.path === '/sale' }">
         <img class="contract-edit-icon1" loading="lazy" alt="" :src="contractEdit" />

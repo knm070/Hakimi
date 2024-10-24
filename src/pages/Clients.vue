@@ -48,12 +48,9 @@
           </div>
 
           <div class="bg-[#F4F6F6] rounded-[8px] p-[6px] mt-[16px]">
-<<<<<<< HEAD
-            <Filter2/>
-=======
             <div class="flex gap-[6px]">
-              <div class="bg-[#FFFFFF] p-[16px] rounded-[12px] flex-grow  ">
-                <div class="flex gap-[12px] ">
+              <div class="bg-[#FFFFFF] p-[12px] rounded-[12px] flex-grow  ">
+                <div class="flex gap-[12px] pt-[12px]">
                   <!-- Filter button -->
                   <button @click="openFilter" class="flex items-center gap-[12px] py-[14px] px-[22px] rounded-full" style="border: 1px solid #B9C7C6;">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +67,7 @@
                   </div> 
                 </div>
               </div>
-              <div class="flex items-center gap-[12px] bg-[#FFFFFF] p-[16px] rounded-[12px]">
+              <div class="flex items-center gap-[12px] bg-[#FFFFFF] px-[48px] py-[28px] rounded-[12px]">
                     <!-- Refresh Icon -->
                     <div class="p-[12px] bg-white rounded-[12px] w-[48px] flex items-center cursor-pointer" style="border: 1px solid #EDF1F1; box-shadow: 0px 1px 2px 0px #1823220D;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -92,7 +89,6 @@
                     </div>
               </div>
             </div>
->>>>>>> parent of b61ff71 (Showroom)
             <div class="mt-[6px]">
                 <table class="client-table">
                   <thead>
