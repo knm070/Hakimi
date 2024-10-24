@@ -1,376 +1,713 @@
 <template>
-  <div  class="bg-[#F4F6F6] h-full">
-    <div class="flex w-full min-h-screen">
-      <Sidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
-      <div class=" bg-[#FFFFFF] w-full rounded-[14px] my-[8px] mr-[6px] p-[16px] " style="border: 1px solid #EDF1F1">
-        <div class="flex items-center justify-between">
-          <div>
-              <p class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">Payment</p>
+  <div class="payments-page">
+    <Sidebar image="../logo.svg" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
+    <main class="container">
+      <div class="header">
+        <div class="inner">
+          <div class="text">
+            <h4>{{ $t("payments") }}</h4>
+            <p>{{ $t("monitor_projects") }}</p>
           </div>
-          <div class="flex gap-[24px]">
-                  <svg @click="openMessage" class="cursor-pointer" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M19.3399 14.99L18.3399 13.33C18.1299 12.96 17.9399 12.26 17.9399 11.85V9.32C17.9399 6.97 16.5599 4.94 14.5699 3.99C14.0499 3.07 13.0899 2.5 11.9899 2.5C10.8999 2.5 9.91994 3.09 9.39994 4.02C7.44994 4.99 6.09994 7 6.09994 9.32V11.85C6.09994 12.26 5.90994 12.96 5.69994 13.32L4.68994 14.99C4.28994 15.66 4.19994 16.4 4.44994 17.08C4.68994 17.75 5.25994 18.27 5.99994 18.52C7.93994 19.18 9.97994 19.5 12.0199 19.5C14.0599 19.5 16.0999 19.18 18.0399 18.53C18.7399 18.3 19.2799 17.77 19.5399 17.08C19.7999 16.39 19.7299 15.63 19.3399 14.99Z" fill="#72908D"/>
-                      <path d="M14.8299 20.51C14.4099 21.67 13.2999 22.5 11.9999 22.5C11.2099 22.5 10.4299 22.18 9.87994 21.61C9.55994 21.31 9.31994 20.91 9.17994 20.5C9.30994 20.52 9.43994 20.53 9.57994 20.55C9.80994 20.58 10.0499 20.61 10.2899 20.63C10.8599 20.68 11.4399 20.71 12.0199 20.71C12.5899 20.71 13.1599 20.68 13.7199 20.63C13.9299 20.61 14.1399 20.6 14.3399 20.57C14.4999 20.55 14.6599 20.53 14.8299 20.51Z" fill="#72908D"/>
-                  </svg>  
-                  <select class="w-[100px] pl-[5px]">
-                      <option >English</option>
-                      <option >Uzbek</option>
-                      <option >Russian</option>
-                      <option >Persian</option>
-                  </select>
+          <div class="language-switcher">
+            <select v-model="currentLanguage" @change="changeLanguage">
+              <option v-for="(label, lang) in languages" :key="lang" :value="lang">
+                {{ label }}
+              </option>
+            </select>
           </div>
         </div>
-        <div class="divide pt-[16px]"></div>
-          <div class="flex justify-between items-center pt-[16px]">
-            <ul class="flex items-center">
-              <li v-for="(tab , index) in tabs" :key="index" class="flex gap-[10px] pr-[20px] cursor-pointer text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000;" >
-                <img :src="tab.image" alt="">
-                {{ tab.name }}
-                <span class="h-[16px] pl-[10px]" style="border-right: 2px solid #EDF1F1;"></span>
-              </li>
-            </ul>
-            <div class="search py-[12px] px-[20px] flex items-center rounded-[12px] w-[398px] cursor-pointer">
-              <input type="text" placeholder="Search..." class="outline-none w-full">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.6668 14.6666L13.3335 13.3333M14.0002 7.66659C14.0002 11.1644 11.1646 13.9999 7.66683 13.9999C4.16903 13.9999 1.3335 11.1644 1.3335 7.66659C1.3335 4.16878 4.16903 1.33325 7.66683 1.33325C11.1646 1.33325 14.0002 4.16878 14.0002 7.66659Z" stroke="#72908D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="flex justify-center">
-              <router-link to="/add-payment">
-                <button class="text-[16px] py-[11px] w-[200px] rounded-[8px] flex gap-[8px] justify-center" style="font-family: Geist; font-weight: 600; color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid;border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.66675 10.0001H13.3334M10.0001 13.3334V6.66675M10.0001 18.3334C14.5834 18.3334 18.3334 14.5834 18.3334 10.0001C18.3334 5.41675 14.5834 1.66675 10.0001 1.66675C5.41675 1.66675 1.66675 5.41675 1.66675 10.0001C1.66675 14.5834 5.41675 18.3334 10.0001 18.3334Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  Add Payment
-                </button>
-              </router-link>
-            </div>
-          </div>
-          <div class="mt-[16px] p-[6px] bg-[#F4F6F6] rounded-[8px]">
-            <div class="flex gap-[6px]">
-              <div class="p-[8px] rounded-[6px] bg-[#FFFFFF] flex gap-[16px] items-center    w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;">
-                <span class="w-[4px] h-full bg-[#335C67] rounded-full" style="box-shadow: 2px 0px 4px 0px #00000014;"></span>
-                <div>
-                  <p class="text-[12px] pb-[4px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Today's receipts</p>
-                  <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">0 UZS</span>
-                </div>
+        <div class="divider"></div>
+        <div class="payments-data">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="simple-tab-0" data-bs-toggle="tab" href="#simple-tabpanel-0" role="tab" aria-controls="simple-tabpanel-0" aria-selected="true">{{ $t("payments") }}</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="simple-tab-1" data-bs-toggle="tab" href="#simple-tabpanel-1" role="tab" aria-controls="simple-tabpanel-1" aria-selected="false">{{ $t("payment_period") }}</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="simple-tab-2" data-bs-toggle="tab" href="#simple-tabpanel-2" role="tab" aria-controls="simple-tabpanel-2" aria-selected="false">{{ $t("monthly_payment_schedule") }}</a>
+            </li>
+          </ul>
+          <div class="tab-content pt-2" id="tab-content">
+            <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel" aria-labelledby="simple-tab-0">
+              <div id="chart">
+                <apexchart type="bar" :options="chartOptions" :series="series" height="350"></apexchart>
               </div>
-
-              <div class="p-[8px] rounded-[6px] bg-[#FFFFFF] flex gap-[16px] items-center w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;">
-                <span class="w-[4px] h-full bg-[#00A389] rounded-full" style="box-shadow: 2px 0px 4px 0px #00000014;"></span>
-                <div>
-                  <p class="text-[12px] pb-[4px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Cash</p>
-                  <span class="text-[20px] " style="font-family: Geist; font-weight: 600; color: #000000">0 UZS</span>
-                </div>
-              </div>
-
-              <div class="p-[8px] rounded-[6px] bg-[#FFFFFF] flex gap-[16px] items-center w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;">
-                <span class="w-[4px] h-full  bg-[#4F1F9F] rounded-full" style="box-shadow: 2px 0px 4px 0px #00000014;"></span>
-                <div>
-                  <p class="text-[12px] pb-[4px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Terminal</p>
-                  <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">0 UZS</span>
-                </div>
-              </div>
-
-              <div class="p-[8px] rounded-[6px] bg-[#FFFFFF] flex gap-[16px] items-center w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;">
-                <span class="w-[4px] h-full  bg-[#FE6D73] rounded-full" style="box-shadow: 2px 0px 4px 0px #00000014;"></span>
-                <div>
-                  <p class="text-[12px] pb-[4px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Money transfer (P2P)</p>
-                  <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">0 UZS</span>
-                </div>
-              </div>
-
-              <div class="p-[8px] rounded-[6px] bg-[#FFFFFF] flex gap-[16px] items-center w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;">
-                <span class="w-[4px] h-full  bg-[#FFBB53] rounded-full" style="box-shadow: 2px 0px 4px 0px #00000014;"></span>
-                <div>
-                  <p class="text-[12px] pb-[4px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Bank</p>
-                  <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">0 UZS</span>
-                </div>
-              </div>
-              
-              <div class="p-[8px] rounded-[6px] bg-[#FFFFFF] flex gap-[16px] items-center w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;">
-                <span class="w-[4px] h-full  bg-[#FFBB53] rounded-full" style="box-shadow: 2px 0px 4px 0px #00000014;"></span>
-                <div>
-                  <p class="text-[12px] pb-[4px] " style="font-family: Geist; font-weight: 500; color: #72908D;" >From the customer's balance</p>
-                  <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">0 UZS</span>
-                </div>
-              </div>
-
-              <div class="p-[8px] rounded-[6px] bg-[#FFFFFF] flex items-center gap-[16px] w-full " style="border: 1px solid var(--Line-Container-Line, #EDF1F1);box-shadow: 0px 1px 2px 0px #1823220D;">
-                <span class="w-[4px] h-full  bg-[#6927DA] rounded-full" style="box-shadow: 2px 0px 4px 0px #00000014;"></span>
-                <div class="">
-                  <p class="text-[12px] pb-[4px] line-clamp-2" style="font-family: Geist; font-weight: 500; color: #72908D;">Other</p>
-                  <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">0 UZS</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-[6px]">
-              <table class="payment-table">
+              <!-- Table -->
+              <table class="styled-table">
                 <thead>
-                  <tr v-for="(head, index) in tableHead" :key="index" class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #4F7471;">
-                    <th><a-checkbox/> </th>
-                    <th>{{ head.number }}</th>
-                    <th>{{ head.basis }}</th>
-                    <th>{{ head.client }}</th>
-                    <th>{{ head.contract }}</th>
-                    <th>{{ head.date }}</th>
-                    <th>{{ head.amount }}</th>
-                    <th>{{ head.paymentType }}</th>
-                    <th>{{ head.responsible }}</th>
-                    <th>{{ head.complexName }}</th>
+                  <tr>
+                    <th>{{ $t("date") }}</th>
+                    <th>{{ $t("payment") }}</th>
+                    <th>{{ $t("terminal") }}</th>
+                    <th>{{ $t("cash") }}</th>
+                    <th>{{ $t("money_transfer") }}</th>
+                    <th>{{ $t("bank") }}</th>
+                    <th>{{ $t("other") }}</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(body , index) in tableBody" :key="index" class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000;">
-                    <td> <a-checkbox/> </td>
-                    <td>{{ body.number }}</td>
-                    <td>
-                      <div class="flex items-center gap-[6px]">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3.99307 6.28413L3.99307 12.007L9.71592 12.007M12.0069 3.99311L4.07321 11.9268" stroke="#00B252" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p style="color: #008E42;">{{ body.basis }}</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="flex items-center gap-[12px]">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="24" height="24" rx="12" fill="#00B252"/>
-                        <path d="M7.336 7.48H8.992L12.064 16H10.672L9.904 13.78H6.424L5.644 16H4.264L7.336 7.48ZM9.496 12.604L8.164 8.716L6.832 12.604H9.496ZM12.9714 7.48H14.2434V12.772L17.1114 9.616H18.7194L16.2234 12.304L18.8154 16H17.3514L15.3714 13.096L14.2434 14.296V16H12.9714V7.48Z" fill="white"/>
-                        </svg>
-                        <div>
-                          <p>{{ body.clientName }}</p>
-                          <span class="text-[12px] text-[#72908D]" >{{ body.clientPhone }}</span>
-                        </div>
-                      </div>
-                    </td>
-                    <td>{{ body.contract }}</td>
-                    <td>{{ body.date }}</td>
-                    <td>{{ body.amount }}</td>
-                    <td>
-                      <div class="flex items-center justify-center w-fit px-[8px] py-[2px] gap-[8px] bg-[#C5F7DC] rounded-full">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="6" height="6" rx="3" fill="#2CC171"/>
-                        </svg>
-                        <p class="text-[12px] text-[#008E42]">{{ body.paymentType }}</p>
-                      </div>
-                      
-                    </td>
-                    <td>{{ body.responsible }}</td>
-                    <td>{{ body.complexName }}</td>
+                  <tr v-for="(item, index) in paymentData" :key="index">
+                    <td>{{ item.datetime__date }}</td>
+                    <td>{{ item.payment }}</td>
+                    <td>{{ item.terminal }}</td>
+                    <td>{{ item.cash }}</td>
+                    <td>{{ item.p2p }}</td>
+                    <td>{{ item.bank }}</td>
+                    <td>{{ item.other }}</td>
                   </tr>
                 </tbody>
               </table>
+
+              <div class="" style="display: flex">
+                <!-- Items per page dropdown -->
+                <div class="pagination-container" style="width: 30%; text-wrap: nowrap">
+                  <label for="perPage">Items per page:</label>
+                  <select id="perPage" v-model="perPage" @change="changeItemsPerPage">
+                    <option v-for="option in [5, 10, 15, 20]" :key="option" :value="option">{{ option }}</option>
+                  </select>
+                </div>
+                <!-- Pagination Controls -->
+                <div class="pagination-container">
+                  <button class="pagination-btn" @click="goToPage(currentPage - 1)" :disabled="currentPage === 1">Previous</button>
+                  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+                  <button class="pagination-btn" @click="goToPage(currentPage + 1)" :disabled="currentPage === totalPages">Next</button>
+                </div>
+              </div>
             </div>
-            
+            <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
+              <div class="row pt-2">
+                <div class="col-6 border">
+                  <h5 class="text-center">{{ $t("payment_period") }}</h5>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Status</th>
+                        <th>Number of Contracts</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Total paying contracts</td>
+                        <td>{{ this.Deadline_data.total_paying_contracts }}</td>
+                      </tr>
+                      <tr>
+                        <td>On Time</td>
+                        <td>{{ this.Deadline_data.on_time }}</td>
+                      </tr>
+                      <tr>
+                        <td>Late (Last One Month)</td>
+                        <td>{{ this.Deadline_data.last_one_month }}</td>
+                      </tr>
+                      <tr>
+                        <td>Late (Last Three Months)</td>
+                        <td>{{ this.Deadline_data.late_three_months }}</td>
+                      </tr>
+                      <tr>
+                        <td>Late (Last One Year)</td>
+                        <td>{{ this.Deadline_data.late_one_year }}</td>
+                      </tr>
+                      <tr>
+                        <td>Late (More Than One Year)</td>
+                        <td>{{ this.Deadline_data.late_more_than_year }}</td>
+                      </tr>
+                      <tr>
+                        <td>Not Paid</td>
+                        <td>{{ this.Deadline_data.not_paid }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-6 border">
+                  <div class="top d-flex justify-content-space-between">
+                    <h6 class="pt-2">{{ $t("expected_payments") }}</h6>
+                    &nbsp &nbsp
+                    <select class="form-select" aria-label="Default select example" style="width: 4rem; font-size: 14px">
+                      <option selected>UZS</option>
+                      <option value="1">USD</option>
+                    </select>
+                    <VueDatePicker v-model="month" month-picker />
+                    <select class="form-select" aria-label="Default select example" style="width: fit-content; font-size: 14px">
+                      <option selected>{{ $t("all_residential_complexes") }}</option>
+                      <option value="1">Hakimi Towers</option>
+                    </select>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="content">
+                    <h6 class="pt-2 mb-2">{{ $t("expected_payments") }}</h6>
+                  </div>
+                  <div class="block gray mt-3">{{ (expecting_payments.full_payment ?? 0).toLocaleString() }} soum</div>
+                  <div class="blocks mt-3">
+                    <div class="block purple"></div>
+                    <div class="block orange"></div>
+                  </div>
+                  <div class="d-flex text-bold mt-2" style="justify-content: space-between">
+                    <div class="text-purple">{{ (expecting_payments.paid ?? 0).toLocaleString() }} soum</div>
+                    <div class="text-orange">{{ (expecting_payments.expecting_payment ?? 0).toLocaleString() }} soum</div>
+                  </div>
+                  <div class="content">
+                    <h6 class="pt-2 mb-2">{{ $t("overdue_payments_schedule") }}</h6>
+                  </div>
+                  <div class="block gray mt-3">{{ (expecting_payments.overdue_payments ?? 0).toLocaleString() }} soum</div>
+                  <div class="blocks mt-3">
+                    <div class="block purple"></div>
+                    <div class="block orange"></div>
+                  </div>
+                  <div class="d-flex text-bold mt-2" style="justify-content: space-between">
+                    <div class="text-purple">{{ expecting_payments.overdue_paid ?? 0 }} soum</div>
+                    <div class="text-orange">{{ (expecting_payments.overdue_expecting_payments ?? 0).toLocaleString() }} soum</div>
+                  </div>
+                  <div class="info d-flex mt-4" style="justify-content: center">
+                    <div class="Ellipse1" style="width: 16px; height: 16px; background: #8b62ff; border-radius: 50%; margin-top: 4px"></div>
+                    <p>{{ $t("payments") }}</p>
+                    <div class="Ellipse1 ml-2" style="width: 16px; height: 16px; background: #f7b91e; border-radius: 50%; margin-top: 4px"></div>
+                    <span>{{ $t("expected_payments") }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">
+              <div style="display: flex">
+                <VueDatePicker v-model="date" range :multiCalendars="true" />
+                <p style="display: none">Selected Date Range: {{ date }}</p>
+                <select class="form-select ml-5" aria-label="Default select example" style="width: 100%; font-size: 14px">
+                  <option selected>{{ $t("all_residential_complexes") }}</option>
+                  <option value="1">Hakimi Towers</option>
+                </select>
+              </div>
+              <apexchart type="bar" height="350" :options="barOptions" :series="barSeries"></apexchart>
+            </div>
           </div>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 <script>
-import Sidebar from '../components/Sidebar.vue';
-import Filter from '/paymetnsFilter.svg'
-import Download from '/paymentsDownload.svg'
-import Table from '/paymentsTable.svg'
-import Bank from '/paymentsBank.svg'
-import Information from '/paymentsInformation.svg'
+import TableContainer from "../components/TableContainer.vue";
+import Sidebar from "../components/Sidebar.vue";
+// import DeadlineChart from "../components/DeadlineChart.vue";
+import VueApexCharts from "vue3-apexcharts";
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
+import dayjs from "dayjs"; // For handling date formatting
+import axios from "axios";
+import { useI18n } from "vue-i18n";
+
 export default {
   name: "Payments",
-  components: {Sidebar},
+  components: { Sidebar, TableContainer, apexchart: VueApexCharts, VueDatePicker },
   data() {
+    const startDate = new Date();
+    const endDate = new Date(new Date().setDate(startDate.getDate() + 7));
     return {
-      tabs :[ 
+      languages: {
+        en: "English",
+        uz: "Uzbek",
+        ru: "Russian",
+        fa: "Persian",
+      },
+      currentLanguage: "en",
+      month: new Date().getMonth(),
+      year: new Date().getFullYear(),
+      selectedDate: [startDate, endDate],
+      barSeries: [
         {
-          name: 'Filter',
-          image : Filter
+          name: "Plan (monthly payment schedule)",
+          data: [],
         },
         {
-          name:'Download',
-          image: Download
+          name: "Payments",
+          data: [],
         },
-        {
-          name:'Table settings',
-          image : Table
-        },
-        {
-          name: 'Bank',
-          image: Bank
-        },
-        {
-          name: 'Information',
-          image : Information
-        }
       ],
-      tableHead : [
-        {
-          number: '№',
-          basis : 'Basis',
-          client : 'Client',
-          contract : 'Contract',
-          date : 'Date',
-          amount : 'Amount',
-          paymentType : 'Payment type',
-          responsible : 'Responsible',
-          complexName: 'Residential Complex name'
-        }
-      ],
-      tableBody : [
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+      barOptions: {
+        chart: {
+          type: "bar",
+          stacked: false,
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+        toolbar: {
+          tools: {
+            zoom: false, // Disable the zoom tool in the toolbar
+            zoomin: false, // Disable zoom in
+            zoomout: false, // Disable zoom out
+            pan: false, // Disable pan
+          },
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: "50%",
+          },
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+        dataLabels: {
+          enabled: false,
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+        colors: ["#FECB48", "#00BA34"],
+        xaxis: {
+          categories: [],
+          title: {
+            text: "Months",
+          },
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+        yaxis: {
+          title: {
+            text: "Amount (soum)",
+          },
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+        legend: {
+          position: "top",
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+        title: {
+          text: "Monthly Payments (2023-2024)",
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+      },
+      series: [],
+      chartOptions: {
+        chart: {
+          type: "bar",
+          stacked: false,
         },
-        {
-          number :'942',
-          basis : 'Contract',
-          clientName : 'Akbarali Khasanov',
-          clientPhone: '+998911234567',
-          contract : '186',
-          date : '12.08.2024 18:35',
-          amount : '15 400 000 UZS',
-          paymentType : 'P2P',
-          responsible : 'Xusnor Odilova',
-          complexName: 'Hakimi Towers'
+        toolbar: {
+          tools: {
+            zoom: false, // Disable the zoom tool in the toolbar
+            zoomin: false, // Disable zoom in
+            zoomout: false, // Disable zoom out
+            pan: false, // Disable pan
+          },
+        },
+        xaxis: {
+          categories: [], // Full dates (YYYY-MM-DD)
+          labels: {
+            show: true,
+            rotate: -45, // Rotate labels to avoid overlap
+          },
+          tickAmount: "dataPoints", // Ensures that a tick is placed for each data point
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: ["#000000"], // Y-axis label color set to black
+              fontSize: "12px",
+            },
+          },
         },
 
-      ]
-    }
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: "55%",
+            endingShape: "rounded",
+          },
+        },
+        fill: {
+          opacity: 1,
+        },
+        title: {
+          text: "Payments Statistics",
+          align: "center",
+        },
+      },
+      currentPage: 1,
+      perPage: 5,
+      expecting_payments: [],
+      Deadline_data: [],
+      deadline: [],
+      total_paying_contracts: [],
+      statistic_payment: [],
+      paymentData: [],
+      date: null,
+    };
   },
-}
+  setup() {
+    const { locale } = useI18n();
+    return { locale };
+  },
+  computed: {
+    totalPages() {
+      return Math.ceil(this.paymentData.length / this.perPage);
+    },
+    paginatedData() {
+      const start = (this.currentPage - 1) * this.perPage;
+      const end = this.currentPage * this.perPage;
+      return this.paymentData.slice(start, end);
+    },
+  },
+  methods: {
+    changeLanguage(event) {
+      this.currentLanguage = event.target.value;
+      this.$i18n.locale = this.currentLanguage;
+    },
+    goToPage(page) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page;
+      }
+    },
+    changeItemsPerPage() {
+      this.currentPage = 1;
+    },
+    async fetchPaymentDeadlineStats() {
+      try {
+        const response = await axios.get("/contract/payment/deadline");
+        this.Deadline_data = response.data;
+      } catch (error) {
+        console.error("Error fetching payment data:", error);
+      }
+    },
+    async fetchPaymentData() {
+      try {
+        const response = await axios.get("/contract/payment/monthly/2023/2024");
+        const data = response.data;
+
+        const expectingPayments = [];
+        const paidPayments = [];
+        const months = [];
+
+        data.forEach((entry) => {
+          // Adjust month value if necessary (ensure 1-indexing)
+          const monthYear = dayjs()
+            .set("month", entry.month - 1) // Adjust for 1-based month
+            .set("year", entry.year)
+            .format("MMM YYYY");
+
+          months.push(monthYear);
+          expectingPayments.push(entry.expecting_payment || 0);
+          paidPayments.push(entry.paid || 0);
+        });
+
+        // Update the chart data
+        this.barSeries[0].data = expectingPayments;
+        this.barSeries[1].data = paidPayments;
+
+        // Ensure the categories are set to the formatted months
+        this.barOptions = {
+          ...this.barOptions,
+          xaxis: {
+            ...this.barOptions.xaxis,
+            categories: months, // Set the formatted month-year categories
+          },
+        };
+
+        console.log("months : " + months);
+      } catch (error) {
+        console.error("Error fetching payment data:", error);
+      }
+    },
+
+    async fetchData() {
+      try {
+        const currentDate = dayjs(); // Get current date
+        const year = currentDate.year(); // Get current year
+        const month = currentDate.month() + 1; // Get current month (months are 0-based in dayjs, so add 1)
+
+        // Fetch data from the API
+        const response = await axios.get(`/contract/payment/statistic/?year=${year}&month=${month}`);
+        this.paymentData = response.data.detail;
+
+        const daysInMonth = currentDate.daysInMonth();
+
+        // Create an array of all days in the month
+        const allDays = Array.from({ length: daysInMonth }, (_, index) => dayjs(`${year}-${month}-${index + 1}`).format("YYYY-MM-DD"));
+
+        // Initialize series arrays
+        let paymentSeries = Array(daysInMonth).fill(0);
+        let terminalSeries = Array(daysInMonth).fill(0);
+        let cashSeries = Array(daysInMonth).fill(0);
+        let p2pSeries = Array(daysInMonth).fill(0);
+        let bankSeries = Array(daysInMonth).fill(0);
+        let otherSeries = Array(daysInMonth).fill(0);
+        let totalPaymentSeries = Array(daysInMonth).fill(0);
+
+        // Populate the series arrays
+        this.paymentData.forEach((item) => {
+          const index = allDays.indexOf(item.datetime__date);
+          if (index !== -1) {
+            paymentSeries[index] = item.payment || 0;
+            terminalSeries[index] = item.terminal || 0;
+            cashSeries[index] = item.cash || 0;
+            p2pSeries[index] = item.p2p || 0;
+            bankSeries[index] = item.bank || 0;
+            otherSeries[index] = item.other || 0;
+
+            // Calculate total payment for each day
+            totalPaymentSeries[index] = item.payment + item.terminal + item.cash + item.p2p + item.bank + item.other;
+          }
+        });
+
+        // Directly update the chart with the total payment series data
+        this.series = [
+          {
+            name: "Total Payment", // Series name data: totalPaymentSeries,
+            data: paymentSeries,
+          },
+        ];
+
+        // Update the chart x-axis categories with the days of the month
+        this.chartOptions.xaxis.categories = allDays;
+
+        // Configure the tooltip to display all categories on hover
+        this.chartOptions.tooltip = {
+          shared: true,
+          intersect: false,
+          custom: ({ series, seriesIndex, dataPointIndex, w }) => {
+            const total = totalPaymentSeries[dataPointIndex];
+            const payment = paymentSeries[dataPointIndex];
+            const terminal = terminalSeries[dataPointIndex];
+            const cash = cashSeries[dataPointIndex];
+            const p2p = p2pSeries[dataPointIndex];
+            const bank = bankSeries[dataPointIndex];
+            const other = otherSeries[dataPointIndex];
+
+            return `
+          <div class="tooltip-container">
+            <strong>Date: ${w.globals.categoryLabels[dataPointIndex]}</strong><br/>
+            <strong>Total Payment: ${total}</strong><br/>
+            <strong>Details:</strong><br/>
+            Payment: ${payment}<br/>
+            Terminal: ${terminal}<br/>
+            Cash: ${cash}<br/>
+            P2P: ${p2p}<br/>
+            Bank: ${bank}<br/>
+            Other: ${other}
+          </div>
+        `;
+          },
+        };
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    },
+  },
+  mounted() {
+    this.fetchPaymentData();
+    this.fetchData();
+    this.fetchPaymentDeadlineStats();
+    axios
+      .get("/contract/payment/expecting/?year=2024&month=9", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        this.expecting_payments = res.data;
+      })
+      .catch((error) => {
+        console.error("Error fetching expecting payments:", error);
+      });
+  },
+};
 </script>
 
 <style scoped>
-  .divide {
-    border-bottom: 1px dashed #95ACAA;
-  }
-  .search {
-    border: 1px solid #B9C7C6;
-  }
+.filter-buttons {
+  margin-bottom: 20px;
+}
 
-  .payment-table {
-    width: 100%;
-    background: #FFFFFF;
-    border: 1px solid var(--Line-Container-Line, #EDF1F1)
-  }
+.filter-buttons button {
+  margin-right: 10px;
+}
+.payments-page {
+  display: flex;
+  background-color: var(--background-background-gray);
+  height: 100%;
+  color: inherit;
+}
+.payments-data {
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  padding: 1rem;
+  height: 100%;
+}
+.nav {
+  display: flex;
+}
+.nav-item {
+  /* padding: 4px 12px; */
+  /* margin-right: 0.7rem; */
+  background: #f4f6f6;
+  border-radius: 6px;
+  align-items: center;
+  border: none;
+  cursor: pointer; /* Show a pointer cursor on hover */
+  color: #72908d; /* Text color */
+  outline: none; /* Remove default focus outline */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  color: inherit;
+}
 
-  .payment-table th, 
-  .payment-table td {
-    padding: 16px 16px;
-    border-bottom: 1px solid var(--Line-Container-Line, #EDF1F1)
-  }
+.pay-btn:hover {
+  background: #e0e3e3; /* Slightly darker background on hover */
+}
 
-  .payment-table tbody tr:hover {
-    background: #EDF1F1;
-    transition: all 300ms;
-  }
+.pay-btn:focus {
+  box-shadow: 0 0 0 2px rgba(114, 189, 183, 0.5); /* Focus ring for accessibility */
+}
+.payment-period {
+  word-wrap: break-word; /* Ensure long words break correctly */
+}
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 14px;
+  text-align: left;
+}
+.styled-table th,
+.styled-table td {
+  padding: 10px 10px;
+}
+.styled-table thead tr {
+  background-color: #f4f6f6;
+  color: inherit;
+  text-align: left;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid --background-background-gray;
+}
 
-  /* .search:hover {
-    border: 1px solid #0035f7;
-    transition: all 300ms;
-  } */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  /* background-color: #007bff; */
+  color: inherit;
+  border: none;
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.border {
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  padding: 0.5rem;
+  height: 100%;
+}
+.tab-pane {
+  padding-top: 2px !important;
+}
+.top {
+  vertical-align: middle;
+  margin: auto;
+}
+.top .dp__main {
+  width: min-content;
+}
+select {
+  -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+  -moz-appearance: none; /* Firefox */
+  appearance: none;
+  background: none; /* Remove background, optional */
+  /* padding-right: 20px;    */
+  /* Optional: create space for your own icon or styling */
+}
+.form-select {
+  padding: 5px !important;
+  width: 4rem;
+}
+.block {
+  color: black;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.blocks {
+  display: flex;
+}
+.gray {
+  background-color: #f4f6f6;
+  width: 100%;
+}
+.purple {
+  background-color: #8b62ff;
+  width: 20%;
+}
+.blocks .orange {
+  background-color: #f7b91e;
+  width: 80%;
+}
+.color-box {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Chart design */
+.chart-legend {
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: list-item;
+  border-radius: 20px;
+
+  /* justify-content: center; */
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  padding: 0.5rem;
+  width: fit-content;
+}
+li ::nth-of-type(even) {
+  background: #edf1f1;
+}
+
+.color-box {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.chart-legend .label {
+  /* font-weight: bold; */
+  margin-right: 10px;
+  width: 100%;
+}
+
+.value {
+  margin-left: 5px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+/* Chart design */
 </style>

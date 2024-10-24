@@ -216,16 +216,22 @@ const routes = [
     name: "Shaxmatka2",
     component: Shaxmatka2,
   },
+
+  // Nodirbek's pages
+
   {
     path: "/main",
     name: "Main",
     component: Main,
   },
+
+
   {
     path: "/main/Hakimi",
     name: "Main2",
     component: Main2,
   },
+
   {
     path: "/Contracts",
     name: "Contracts",
