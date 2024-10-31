@@ -1,5 +1,6 @@
 <template>
-    <div class="bg-[#F4F6F6] flex ">
+    <div  class="bg-[#F4F6F6] h-full">
+        <div class="flex w-full min-h-screen">
         <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
         <div class="bg-[#FFFFFF] m-[8px] rounded-[14px] p-[16px] w-full" style="border: 1px solid #EDF1F1">
             <div class="flex items-center justify-between">
@@ -67,24 +68,24 @@
                 </div>
             </div>
                 
-                <div class="bg-[#EDF1F1] p-[6px] rounded-[8px] flex">
-                    <div class="">
-                        <div class="flex flex-wrap gap-[6px]">
-                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-[197px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                <div class="bg-[#EDF1F1] p-[6px] rounded-[8px] flex ">
+                    <div class="flex flex-col gap-[6px] w-full">
+                        <div class="flex gap-[6px] w-full">
+                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
                                 <div class="flex gap-[12px] items-center">
                                     <img src="/moneyIcon.svg" alt="">
                                     <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Contract amount</p>
                                 </div>
                                 <span class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000">475,300,000UZS</span>
                             </div>
-                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-[197px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
                                 <div class="flex gap-[12px] items-center">
                                     <img src="/cardIcon.svg" alt="">
                                     <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">First payment</p>
                                 </div>
                                 <span class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000">475,300,000UZS</span>
                             </div>
-                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-[197px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
                                 <div class="flex items-center ">
                                     <div class="flex gap-[12px] items-center pr-[15px]">
                                         <img src="/dateIcon.svg" alt="">
@@ -99,21 +100,23 @@
                                 
                                 <span class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000">475,300,000UZS</span>
                             </div>
-                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-[197px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                        </div>
+                        <div class="flex gap-[6px] w-full">
+                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
                                 <div class="flex gap-[12px] items-center">
                                     <img src="/cardIcon2.svg" alt="">
                                     <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Paid amount</p>
                                 </div>
                                 <span class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000">475,300,000UZS</span>
                             </div>
-                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-[197px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
                                 <div class="flex gap-[12px] items-center">
                                     <img src="/cashIcon.svg" alt="">
                                     <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Remaining amount</p>
                                 </div>
                                 <span class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000">475,300,000UZS</span>
                             </div>
-                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-[197px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                            <div class="bg-[#FFFFFF] py-[20px] px-[16px] rounded-[6px] flex flex-col items-start gap-[12px] w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
                                 <div class="flex gap-[12px] items-center">
                                     <img src="/walletIcon.svg" alt="">
                                     <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Monthly arrears</p>
@@ -121,6 +124,7 @@
                                 <span class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000">475,300,000UZS</span>
                             </div>
                         </div>
+                        
 
                         <div class="mt-[6px] p-[16px] rounded-[6px] bg-[#FFFFFF] " style="border: 1px solid #EDF1F1">
                             <div class="flex gap-[6px]">
@@ -472,17 +476,17 @@
                         </div>
                     </div>
                     
-                    <div>
-                        <div class="bg-[#FFFFFF] px-[12px] pt-[12px] rounded-[6px] ml-[6px] w-[600px] h-[450px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                    <div class="w-full">
+                        <div class="bg-[#FFFFFF] px-[12px] pt-[12px] rounded-[6px] ml-[6px] " style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
                             <h2>Payments</h2>
                             <div class="divide pt-[12px]"></div>
 
-                            <div class="flex items-center gap-[12px] pt-[16px]">
+                            <div class="flex items-center gap-[12px] pt-[16px] ">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="48" height="48" rx="24" fill="#00B252"/>
                                 <path d="M17.464 18.64H20.008L24.104 30H21.928L20.984 27.312H16.488L15.544 30H13.368L17.464 18.64ZM20.376 25.536L18.744 20.736L17.096 25.536H20.376ZM25.2569 18.64H27.3049V25.312L30.8089 21.456H33.3369L29.9929 25.008L33.4489 30H31.1449L28.6489 26.224L27.3049 27.648V30H25.2569V18.64Z" fill="white"/>
                                 </svg>
-                                <div class="flex items-center ">
+                                <div class="flex items-center justify-between w-full">
                                     <div>
                                             <p>Akbarali Khasanov</p>
                                         <div class="flex gap-[4px] pt-[6px]">
@@ -499,7 +503,7 @@
                                             <a class="list-none" href="#">+998911234567</a>
                                         </div>
                                     </div>
-                                    <div class="flex items-center gap-[12px] pl-[270px]">
+                                    <div class="flex items-center gap-[12px] ">
                                         <img @click="gotoClientBalance" class="cursor-pointer" src="/profileMoney.svg" alt="">
                                         <img class="cursor-pointer" src="/chatIcon.svg" alt="">
                                     </div>
@@ -547,12 +551,12 @@
                                 </div> 
                                 
                             </div>
-                            <div class="pl-[270px] pt-[16px] cursor-pointer">
+                            <div class="flex items-center justify-center pb-[32px] pt-[16px] cursor-pointer">
                                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="36" height="36" rx="18" fill="#335FFF"/>
                                     <path d="M24 21L18 15L12 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                </div>
+                            </div>
                         </div>
                         <div class="bg-[#FFFFFF] p-[12px] rounded-[6px] mt-[6px] ml-[6px]">
                             <h2>House information</h2>
@@ -596,120 +600,125 @@
                 </div>
         </div>
 
+        <div v-show="isImageOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start"></div>
         <transition name="popup">
-            <div v-show="isImageOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start">
-                <div ref="panel" class="flex ">
-                    <img class="cursor-pointer mr-[200px]" src="/whiteArrowLeft.svg" alt="">
-                    <img class="h-screen" src="/assets/img/bigHousePlan.jpg" alt="">
-                    <img class="cursor-pointer ml-[200px]" src="/whiteArrowRight.svg" alt="">
+                <div v-show="isImageOpen" class="fixed inset-0 flex justify-center items-start">
+                    <div ref="panel" class="flex ">
+                        <img class="cursor-pointer mr-[200px]" src="/whiteArrowLeft.svg" alt="">
+                        <img class="h-screen" src="/assets/img/bigHousePlan.jpg" alt="">
+                        <img class="cursor-pointer ml-[200px]" src="/whiteArrowRight.svg" alt="">
+                    </div>
+                    <div class="flex gap-[48px] pt-[50px]">
+                        <!--  -  -->
+                        <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 11.7H14M22 22L20 20M21 11.5C21 16.7467 16.7467 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 6.25329 6.25329 2 11.5 2C16.7467 2 21 6.25329 21 11.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+        
+                        <!--   +   -->
+                        <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.2 11.7H14.2M11.7 14.2V9.2M22 22L20 20M21 11.5C21 16.7467 16.7467 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 6.25329 6.25329 2 11.5 2C16.7467 2 21 6.25329 21 11.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <!-- X -->
+                        <svg class="cursor-pointer" @click="closeImage" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.17 14.83L14.83 9.17M14.83 14.83L9.17 9.17M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+        
+                    </div>
                 </div>
-                <div class="flex gap-[48px] pt-[50px]">
-                    <!--  -  -->
-                    <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 11.7H14M22 22L20 20M21 11.5C21 16.7467 16.7467 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 6.25329 6.25329 2 11.5 2C16.7467 2 21 6.25329 21 11.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-    
-                    <!--   +   -->
-                    <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.2 11.7H14.2M11.7 14.2V9.2M22 22L20 20M21 11.5C21 16.7467 16.7467 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 6.25329 6.25329 2 11.5 2C16.7467 2 21 6.25329 21 11.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <!-- X -->
-                    <svg class="cursor-pointer" @click="closeImage" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.17 14.83L14.83 9.17M14.83 14.83L9.17 9.17M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-    
-                </div>
-            </div>
         </transition>
 
+        <div  v-if="isPaymentOPen" class="fixed inset-0 bg-black bg-opacity-50 "></div>
         <transition name="popup">
-            <div  v-if="isPaymentOPen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                <div class="bg-[#F4F6F6] p-[6px] rounded-[8px] w-[500px]">
-                    <div class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                        <div class="flex justify-between items-center">
-                            <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Payment info</p>
-                            <img class="cursor-pointer" @click="closePayment" src="/closeWhite.svg" alt="">
-                        </div>
-                        <div class="divide pt-[10px]"></div>
-                        <div class="flex justify-between items-center pt-[12px]">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Responsible employee</p>
-                            <span class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000;">Xusnor Odilova</span>
-                        </div>
-                        <div class="divide pt-[12px]"></div>
-                        <div class="flex justify-between items-center pt-[12px]">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Date</p>
-                            <span class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000;">12.08.2024 18:25</span>
+                <div v-if="isPaymentOPen" class="fixed inset-0 flex justify-center items-center">
+                    <div class="bg-[#F4F6F6] p-[6px] rounded-[8px] w-[500px]">
+                        <div class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                            <div class="flex justify-between items-center">
+                                <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Payment info</p>
+                                <img class="cursor-pointer" @click="closePayment" src="/closeWhite.svg" alt="">
+                            </div>
+                            <div class="divide pt-[10px]"></div>
+                            <div class="flex justify-between items-center pt-[12px]">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Responsible employee</p>
+                                <span class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000;">Xusnor Odilova</span>
+                            </div>
+                            <div class="divide pt-[12px]"></div>
+                            <div class="flex justify-between items-center pt-[12px]">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Date</p>
+                                <span class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000;">12.08.2024 18:25</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
         </transition>
         
 
+        <div v-if="isContractOpen" class="fixed inset-0 bg-black bg-opacity-50 "></div>
         <transition name="popup">
-        <div v-if="isContractOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div class="bg-[#F4F6F6] p-[6px] rounded-[8px] w-[500px]">
-                <div  class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                    <div class="flex justify-between items-center">
-                            <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Contract information</p>
-                            <img class="cursor-pointer" @click="closeContract" src="/closeWhite.svg" alt="">
-                    </div>
-                    <div class="divide pt-[10px]"></div>
-                    <div class="flex justify-between items-center pt-[18px]">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Payment id</p>
-                            <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">
-                                240750083 
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 12.4V15.4C16 19.4 14.4 21 10.4 21H6.6C2.6 21 1 19.4 1 15.4V11.6C1 7.6 2.6 6 6.6 6H9.6M16 12.4H12.8C10.4 12.4 9.6 11.6 9.6 9.2V6M16 12.4L9.6 6M10.6 1H14.6M6 4C6 2.34 7.34 1 9 1H11.62M21 7V13.19C21 14.74 19.74 16 18.19 16M21 7H18C15.75 7 15 6.25 15 4V1L21 7Z" stroke="#335FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <div v-if="isContractOpen" class="fixed inset-0 flex justify-center items-center">
+                <div class="bg-[#F4F6F6] p-[6px] rounded-[8px] w-[500px]">
+                    <div  class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                        <div class="flex justify-between items-center">
+                                <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Contract information</p>
+                                <img class="cursor-pointer" @click="closeContract" src="/closeWhite.svg" alt="">
+                        </div>
+                        <div class="divide pt-[10px]"></div>
+                        <div class="flex justify-between items-center pt-[18px]">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Payment id</p>
+                                <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">
+                                    240750083 
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 12.4V15.4C16 19.4 14.4 21 10.4 21H6.6C2.6 21 1 19.4 1 15.4V11.6C1 7.6 2.6 6 6.6 6H9.6M16 12.4H12.8C10.4 12.4 9.6 11.6 9.6 9.2V6M16 12.4L9.6 6M10.6 1H14.6M6 4C6 2.34 7.34 1 9 1H11.62M21 7V13.19C21 14.74 19.74 16 18.19 16M21 7H18C15.75 7 15 6.25 15 4V1L21 7Z" stroke="#335FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="divide pt-[16px]"></div>
+
+                            <div class="flex justify-between items-center pt-[16px]">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Contract create date</p>
+                                <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">12.08.2024 18:25</span>
+                            </div>
+                            <div class="divide pt-[16px]"></div>
+
+                            <div class="flex justify-between items-center pt-[16px]">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Contract creator</p>
+                                <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">Xusnor Odilova</span>
+                            </div>
+                            <div class="divide pt-[16px]"></div>
+
+                            <div class="flex justify-between items-center pt-[16px]">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Contract Officer</p>
+                                <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">Xusnor Odilova</span>
+                            </div>
+                            <div class="divide pt-[16px]"></div>
+
+                            <div class="flex justify-between items-center pt-[16px]">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Mediator</p>
+                                <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">Xusnor Odilova</span>
+                            </div>
+                            <div class="divide pt-[16px]"></div>
+
+                            <div class="flex justify-between items-center pt-[16px]">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Explanation of the contract</p>
+                                <svg @click="toggleInput" class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11 1.99976H9C4 1.99976 2 3.99976 2 8.99976V14.9998C2 19.9998 4 21.9998 9 21.9998H15C20 21.9998 22 19.9998 22 14.9998V12.9998M14.91 4.14976C15.58 6.53976 17.45 8.40976 19.85 9.08976M16.04 3.01976L8.16 10.8998C7.86 11.1998 7.56 11.7898 7.5 12.2198L7.07 15.2298C6.91 16.3198 7.68 17.0798 8.77 16.9298L11.78 16.4998C12.2 16.4398 12.79 16.1398 13.1 15.8398L20.98 7.95976C22.34 6.59976 22.98 5.01976 20.98 3.01976C18.98 1.01976 17.4 1.65976 16.04 3.01976Z" stroke="#335FFF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                            </span>
-                        </div>
-                        <div class="divide pt-[16px]"></div>
+                            </div>
 
-                        <div class="flex justify-between items-center pt-[16px]">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Contract create date</p>
-                            <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">12.08.2024 18:25</span>
-                        </div>
-                        <div class="divide pt-[16px]"></div>
-
-                        <div class="flex justify-between items-center pt-[16px]">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Contract creator</p>
-                            <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">Xusnor Odilova</span>
-                        </div>
-                        <div class="divide pt-[16px]"></div>
-
-                        <div class="flex justify-between items-center pt-[16px]">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Contract Officer</p>
-                            <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">Xusnor Odilova</span>
-                        </div>
-                        <div class="divide pt-[16px]"></div>
-
-                        <div class="flex justify-between items-center pt-[16px]">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Mediator</p>
-                            <span class="text-[14px] flex gap-[14px] items-center" style="font-family: Geist; font-weight: 500; color: #000000;">Xusnor Odilova</span>
-                        </div>
-                        <div class="divide pt-[16px]"></div>
-
-                        <div class="flex justify-between items-center pt-[16px]">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Explanation of the contract</p>
-                            <svg @click="toggleInput" class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M11 1.99976H9C4 1.99976 2 3.99976 2 8.99976V14.9998C2 19.9998 4 21.9998 9 21.9998H15C20 21.9998 22 19.9998 22 14.9998V12.9998M14.91 4.14976C15.58 6.53976 17.45 8.40976 19.85 9.08976M16.04 3.01976L8.16 10.8998C7.86 11.1998 7.56 11.7898 7.5 12.2198L7.07 15.2298C6.91 16.3198 7.68 17.0798 8.77 16.9298L11.78 16.4998C12.2 16.4398 12.79 16.1398 13.1 15.8398L20.98 7.95976C22.34 6.59976 22.98 5.01976 20.98 3.01976C18.98 1.01976 17.4 1.65976 16.04 3.01976Z" stroke="#335FFF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-
-                        <div v-if="isEditing" class="mt-[6px] flex flex-col items-end edit-page">
-                            <textarea 
-                                v-model="explanation"
-                                rows="3" class="w-full rounded-[8px] resize-none outline-none p-[12px]" style="border: 1px solid #335FFF"></textarea>
-                                <button class=" py-[8px] w-[166px] rounded-[8px] mt-[16px] " style="color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%);border: 1px solid; border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Save</button>
-                        </div>
+                            <div v-if="isEditing" class="mt-[6px] flex flex-col items-end edit-page">
+                                <textarea 
+                                    v-model="explanation"
+                                    rows="3" class="w-full rounded-[8px] resize-none outline-none p-[12px]" style="border: 1px solid #335FFF"></textarea>
+                                    <button class=" py-[8px] w-[166px] rounded-[8px] mt-[16px] " style="color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%);border: 1px solid; border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Save</button>
+                            </div>
+                    </div>
                 </div>
             </div>
-        </div>
         </transition>
 
+            <div v-if="isCancelOpen" class="fixed inset-0 bg-black bg-opacity-50 "></div>
         <transition name="popup">
-            <div v-if="isCancelOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+            <div v-if="isCancelOpen" class="fixed inset-0 flex justify-center items-center">
                 <div class="bg-[#F4F6F6] p-[6px] rounded-[8px] w-[415px]">
                     <div  class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
                         <div class="flex justify-between items-center">
@@ -736,75 +745,77 @@
             </div>
         </transition>
 
-        <transition name="popup">
-            <div v-if="isArchiveOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                <div class="bg-[#F4F6F6] p-[6px] m-[12px] rounded-[8px] w-[760px]">
-                    <div  class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                        <div class="flex justify-between items-center">
-                            <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Payment schedule archive</p>
-                            <img class="cursor-pointer" @click="closeArchive" src="/closeWhite.svg" alt="">
-                        </div>
-                        <div class="divide pt-[12px]"></div>
-                        <div class="flex mt-[12px] gap-[16px]">
-                            <div v-for="(schedule, index) in paymentSchedules"
-                            :key="index"
-                            @click="selectSchedule(index)"
-                            :class="['rounded-[6px] p-[12px] w-[354px] cursor-pointer flex  gap-[12px]', isSelected === index ? 'bg-[#E5EBFF]' : 'bg-[#FFFFFF]']"
-                            style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+            <div v-if="isArchiveOpen" class="fixed inset-0 bg-black bg-opacity-50 "></div>
+            <transition name="popup">
+                    <div v-if="isArchiveOpen" class="fixed inset-0 flex justify-center items-center">
+                        <div class="bg-[#F4F6F6] p-[6px] m-[12px] rounded-[8px] w-[760px]">
+                            <div  class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Payment schedule archive</p>
+                                    <img class="cursor-pointer" @click="closeArchive" src="/closeWhite.svg" alt="">
+                                </div>
+                                <div class="divide pt-[12px]"></div>
+                                <div class="flex mt-[12px] gap-[16px]">
+                                    <div v-for="(schedule, index) in paymentSchedules"
+                                    :key="index"
+                                    @click="selectSchedule(index)"
+                                    :class="['rounded-[6px] p-[12px] w-[354px] cursor-pointer flex  gap-[12px]', isSelected === index ? 'bg-[#E5EBFF]' : 'bg-[#FFFFFF]']"
+                                    style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
 
-                                <svg v-if="isSelected === index" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="#E6EBFF"/>
-                                <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="#335FFF"/>
-                                <circle cx="8" cy="8" r="3" fill="#335FFF"/>
-                                </svg>
-
-                                <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="8" cy="8" r="7.5" stroke="#DCE3E3"/>
-                                </svg>
-
-                                <div>
-                                    <div class="flex items-center justify-between ">
-                                        <p class="text-[18px] " style="font-family: Geist; font-weight: 600; color: #000000 ;"> {{ index + 1 }} - {{ schedule.title }}</p>
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.3307 9.1665H13.3382M9.99656 9.1665H10.004M6.66242 9.1665H6.6699M7.08366 15.8332H6.66699C3.33366 15.8332 1.66699 14.9998 1.66699 10.8332V6.6665C1.66699 3.33317 3.33366 1.6665 6.66699 1.6665H13.3337C16.667 1.6665 18.3337 3.33317 18.3337 6.6665V10.8332C18.3337 14.1665 16.667 15.8332 13.3337 15.8332H12.917C12.6587 15.8332 12.4087 15.9582 12.2503 16.1665L11.0003 17.8332C10.4503 18.5665 9.55033 18.5665 9.00033 17.8332L7.75033 16.1665C7.61699 15.9832 7.30866 15.8332 7.08366 15.8332Z" stroke="#335FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <svg v-if="isSelected === index" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="#E6EBFF"/>
+                                        <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="#335FFF"/>
+                                        <circle cx="8" cy="8" r="3" fill="#335FFF"/>
                                         </svg>
+
+                                        <svg v-else width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8" cy="8" r="7.5" stroke="#DCE3E3"/>
+                                        </svg>
+
+                                        <div>
+                                            <div class="flex items-center justify-between ">
+                                                <p class="text-[18px] " style="font-family: Geist; font-weight: 600; color: #000000 ;"> {{ index + 1 }} - {{ schedule.title }}</p>
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.3307 9.1665H13.3382M9.99656 9.1665H10.004M6.66242 9.1665H6.6699M7.08366 15.8332H6.66699C3.33366 15.8332 1.66699 14.9998 1.66699 10.8332V6.6665C1.66699 3.33317 3.33366 1.6665 6.66699 1.6665H13.3337C16.667 1.6665 18.3337 3.33317 18.3337 6.6665V10.8332C18.3337 14.1665 16.667 15.8332 13.3337 15.8332H12.917C12.6587 15.8332 12.4087 15.9582 12.2503 16.1665L11.0003 17.8332C10.4503 18.5665 9.55033 18.5665 9.00033 17.8332L7.75033 16.1665C7.61699 15.9832 7.30866 15.8332 7.08366 15.8332Z" stroke="#335FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                            <div class="flex py-[4px] justify-between w-[302px]">
+                                                <p class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #72908D" >Created date</p>
+                                                <span class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000"> {{ schedule.createdDate }}</span>
+                                            </div>
+                                            <div class="flex justify-between w-[302px]">
+                                                <p class="text-[12px] justify-between" style="font-family: Geist; font-weight: 400; color: #72908D" >Bekor_qilingan_sana</p>
+                                                <span  class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000">{{ schedule.cancelledDate }}</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="flex py-[4px] justify-between w-[302px]">
-                                        <p class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #72908D" >Created date</p>
-                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000"> {{ schedule.createdDate }}</span>
-                                    </div>
-                                    <div class="flex justify-between w-[302px]">
-                                        <p class="text-[12px] justify-between" style="font-family: Geist; font-weight: 400; color: #72908D" >Bekor_qilingan_sana</p>
-                                        <span  class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000">{{ schedule.cancelledDate }}</span>
-                                    </div>
+                                </div>
+                                <div class="mt-[12px] ">
+                                    <table class="archive-table w-[724px] "  style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                                        <thead class="bg-[#F4F6F6]">
+                                            <tr class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000;">
+                                                <th >№</th>
+                                                <th>Date of payment</th>
+                                                <th>Sum of payment</th>
+                                                <th>Paid amount (soum)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody v-for="(table, index) in paymentTable" :key="index" style="border-bottom: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                                            <tr class="text-[14px]" style="font-family: Geist; font-weight: 00; color: #000000;">
+                                                <td>{{ index + 1 }}</td>
+                                                <td>{{ table.paymentDate }}</td>
+                                                <td>{{ table.paymentSum }}</td>
+                                                <td>{{ table.paidAmount }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-[12px] ">
-                            <table class="archive-table w-[724px] "  style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                                <thead class="bg-[#F4F6F6]">
-                                    <tr class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000;">
-                                        <th >№</th>
-                                        <th>Date of payment</th>
-                                        <th>Sum of payment</th>
-                                        <th>Paid amount (soum)</th>
-                                    </tr>
-                                </thead>
-                                <tbody v-for="(table, index) in paymentTable" :key="index" style="border-bottom: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                                    <tr class="text-[14px]" style="font-family: Geist; font-weight: 00; color: #000000;">
-                                        <td>{{ index + 1 }}</td>
-                                        <td>{{ table.paymentDate }}</td>
-                                        <td>{{ table.paymentSum }}</td>
-                                        <td>{{ table.paidAmount }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
-                </div>
-            </div>
-        </transition>
+            </transition>
 
+        <div v-if="Payment" class="fixed inset-0 bg-black bg-opacity-50  flex justify-end"></div>
         <transition 
             name="slide"
             enter-active-class="transition-transform duration-300 ease-out"
@@ -813,95 +824,96 @@
             enter-to-class="translate-x-0"
             leave-from-class="translate-x-0"
             leave-to-class="translate-x-full">
-                <div v-if="Payment" class="fixed inset-0 bg-black bg-opacity-50  flex justify-end">
-                    <div class="bg-[#F4F6F6] p-[6px] w-[559px]  m-[8px] rounded-[8px] overflow-y-auto">
-                        <div class="bg-[#FFFFFF] p-[12px] flex justify-between items-center rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
-                            <p class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000;">Payment</p>
-                            <img class="cursor-pointer" @click="closePaymentInfo" src="/closeWhite.svg" alt="">
-                        </div>
-                        <div class="mt-[6px] flex flex-wrap gap-[6px]">
-                            <div class="bg-[#FFFFFF] rounded-[6px] px-[16px] py-[20px] w-[260px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                                <div class="flex items-center gap-[12px]">
-                                    <img src="/moneyIcon.svg" alt="">
-                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D">Remainder initial payment</p>
+                    <div v-if="Payment" class="fixed inset-0 flex justify-end">
+                        <div class="bg-[#F4F6F6] p-[6px] w-[559px]  m-[8px] rounded-[8px] overflow-y-auto">
+                            <div class="bg-[#FFFFFF] p-[12px] flex justify-between items-center rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                                <p class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000;">Payment</p>
+                                <img class="cursor-pointer" @click="closePaymentInfo" src="/closeWhite.svg" alt="">
+                            </div>
+                            <div class="mt-[6px] flex flex-wrap gap-[6px]">
+                                <div class="bg-[#FFFFFF] rounded-[6px] px-[16px] py-[20px] w-[260px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                                    <div class="flex items-center gap-[12px]">
+                                        <img src="/moneyIcon.svg" alt="">
+                                        <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D">Remainder initial payment</p>
+                                    </div>
+                                    <p class="pt-[12px] text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">475,300,000UZS</p>
                                 </div>
-                                <p class="pt-[12px] text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">475,300,000UZS</p>
-                            </div>
-                            <div class="bg-[#FFFFFF] rounded-[6px] px-[16px] py-[20px] w-[260px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                                <div class="flex items-center gap-[12px]">
-                                    <img src="/cardIcon.svg" alt="">
-                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D">Surcharge</p>
+                                <div class="bg-[#FFFFFF] rounded-[6px] px-[16px] py-[20px] w-[260px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                                    <div class="flex items-center gap-[12px]">
+                                        <img src="/cardIcon.svg" alt="">
+                                        <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D">Surcharge</p>
+                                    </div>
+                                    <p class="pt-[12px] text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">475,300,000UZS</p>
                                 </div>
-                                <p class="pt-[12px] text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">475,300,000UZS</p>
-                            </div>
-                            <div class="bg-[#FFFFFF] rounded-[6px] px-[16px] py-[20px]  w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                                <div class="flex items-center gap-[12px]">
-                                    <img src="/dateIcon.svg" alt="">
-                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D">Monthly arrears</p>
+                                <div class="bg-[#FFFFFF] rounded-[6px] px-[16px] py-[20px]  w-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                                    <div class="flex items-center gap-[12px]">
+                                        <img src="/dateIcon.svg" alt="">
+                                        <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D">Monthly arrears</p>
+                                    </div>
+                                    <p class="pt-[12px] text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">475,300,000UZS</p>
                                 </div>
-                                <p class="pt-[12px] text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">475,300,000UZS</p>
                             </div>
-                        </div>
-                        
-                        <div class="bg-[#FFFFFF] px-[12px] pt-[12px] pb-[32px] rounded-[8px] mt-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
-                            <div class="flex gap-[6px]">
-                                <button @click="selectPayment('standard')" :class="[' w-[248px] py-[12px] rounded-[6px] text-[14px] cursor-pointer' , selectedPayment === 'standard' ? 'bg-[#E5EBFF]' : 'bg-[#F4F6F6]']" :style="{fontFamily: 'Geist' , fontWeight:'600' , color: selectedPayment === 'standard' ? '#0037FF' : '#72908D'}">Standard payment</button>
-                                <button @click="selectPayment('balance')" :class="[' w-[248px] py-[12px] rounded-[6px] text-[14px] cursor-pointer' , selectedPayment === 'balance' ? 'bg-[#E5EBFF]' : 'bg-[#F4F6F6]']" :style="{fontFamily: 'Geist' , fontWeight:'600' , color: selectedPayment === 'balance' ? '#0037FF' : '#72908D'}">Payment from the balance</button>
-                            </div>
-                            <div class="divide pt-[12px]"></div>
-                            <div class="pt-[32px]">
-                                <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A">Payment number</p>
-                                <input type="text" class="w-[503px] p-[12px] rounded-[6px] mt-[6px] text-[16px]" v-model="paymentNumber" style="font-family: Geist; font-weight: 500; color: #95ACAA; border: 1px solid #DCE3E3"/>
-                            </div>
+                            
+                            <div class="bg-[#FFFFFF] px-[12px] pt-[12px] pb-[32px] rounded-[8px] mt-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1)">
+                                <div class="flex gap-[6px]">
+                                    <button @click="selectPayment('standard')" :class="[' w-[248px] py-[12px] rounded-[6px] text-[14px] cursor-pointer' , selectedPayment === 'standard' ? 'bg-[#E5EBFF]' : 'bg-[#F4F6F6]']" :style="{fontFamily: 'Geist' , fontWeight:'600' , color: selectedPayment === 'standard' ? '#0037FF' : '#72908D'}">Standard payment</button>
+                                    <button @click="selectPayment('balance')" :class="[' w-[248px] py-[12px] rounded-[6px] text-[14px] cursor-pointer' , selectedPayment === 'balance' ? 'bg-[#E5EBFF]' : 'bg-[#F4F6F6]']" :style="{fontFamily: 'Geist' , fontWeight:'600' , color: selectedPayment === 'balance' ? '#0037FF' : '#72908D'}">Payment from the balance</button>
+                                </div>
+                                <div class="divide pt-[12px]"></div>
+                                <div class="pt-[32px]">
+                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A">Payment number</p>
+                                    <input type="text" class="w-[503px] p-[12px] rounded-[6px] mt-[6px] text-[16px]" v-model="paymentNumber" style="font-family: Geist; font-weight: 500; color: #95ACAA; border: 1px solid #DCE3E3"/>
+                                </div>
 
-                            <div class="pt-[24px] flex gap-[12px]">
-                                <div>
-                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Payment amount</p>
-                                    <input type="text" class="w-[200px] p-[12px] rounded-[6px] mt-[6px]" style="border: 1px solid #DCE3E3">
+                                <div class="pt-[24px] flex gap-[12px]">
+                                    <div>
+                                        <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Payment amount</p>
+                                        <input type="text" class="w-[200px] p-[12px] rounded-[6px] mt-[6px]" style="border: 1px solid #DCE3E3">
+                                    </div>
+                                    <div>
+                                        <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Currency</p>
+                                        <select class="p-[12px] w-[139px] rounded-[6px] mt-[6px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D; border: 1px solid #DCE3E3">
+                                            <option >UZS</option>
+                                            <option >RUB</option>
+                                            <option >USD</option>
+                                            <option >EUR</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Payment type</p>
+                                        <select class="p-[12px] w-[139px] rounded-[6px] mt-[6px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;border: 1px solid #DCE3E3">
+                                            <option></option>
+                                            <option >Cash</option>
+                                            <option >Card</option>
+                                            <option >P2P</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Currency</p>
-                                    <select class="p-[12px] w-[139px] rounded-[6px] mt-[6px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D; border: 1px solid #DCE3E3">
-                                        <option >UZS</option>
-                                        <option >RUB</option>
-                                        <option >USD</option>
-                                        <option >EUR</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Payment type</p>
-                                    <select class="p-[12px] w-[139px] rounded-[6px] mt-[6px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #72908D;border: 1px solid #DCE3E3">
-                                        <option></option>
-                                        <option >Cash</option>
-                                        <option >Card</option>
-                                        <option >P2P</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                            <div class="flex gap-[12px] pt-[24px] items-center">
-                                <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Date: </p>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" v-model="isToggled" class="sr-only peer" />
-                                        <div class="w-[45px] h-[25px] bg-gray-300 rounded-[12px] peer-checked:bg-green-600 transition-colors duration-300"></div>
-                                        <div class="absolute left-[3px] top-[2px] w-5 h-5 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
-                                </label>
-                            </div>
-                            <div class="pt-[24px]">
-                                <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Comment</p>
-                                <input type="text" class="w-[503px] p-[12px] rounded-[6px] mt-[6px] outline-none" style="border: 1px solid #DCE3E3" >
-                            </div>
-                            <div class="flex pt-[24px] gap-[12px]">
-                                <input type="checkbox"  class="w-[20px] h-[20px]">
-                                <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #4F7471;">Payment to penny</p>
-                            </div>
-                            <div class="mt-[176px]">
-                                <button class="w-[503px] py-[8px] rounded-[8px] text-[16px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid; border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Payment</button>
+                                <div class="flex gap-[12px] pt-[24px] items-center">
+                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Date: </p>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" v-model="isToggled" class="sr-only peer" />
+                                            <div class="w-[45px] h-[25px] bg-gray-300 rounded-[12px] peer-checked:bg-green-600 transition-colors duration-300"></div>
+                                            <div class="absolute left-[3px] top-[2px] w-5 h-5 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                    </label>
+                                </div>
+                                <div class="pt-[24px]">
+                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #3F5D5A;">Comment</p>
+                                    <input type="text" class="w-[503px] p-[12px] rounded-[6px] mt-[6px] outline-none" style="border: 1px solid #DCE3E3" >
+                                </div>
+                                <div class="flex pt-[24px] gap-[12px]">
+                                    <input type="checkbox"  class="w-[20px] h-[20px]">
+                                    <p class="text-[14px]" style="font-family: Geist; font-weight: 400; color: #4F7471;">Payment to penny</p>
+                                </div>
+                                <div class="mt-[176px]">
+                                    <button class="w-[503px] py-[8px] rounded-[8px] text-[16px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF; background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid; border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Payment</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
         </transition>
+        </div>
 
 
         
@@ -1081,10 +1093,11 @@ import { useI18n } from "vue-i18n";
     }
 
     .paymenr-table th, .paymenr-table td{
-        padding: 7px 7px;
+        padding: 14px;
     }
 
     .paymenr-table{
+        width: 100%;
         border: 1px solid var(--Line-Container-Line, #EDF1F1);
     }
 
@@ -1097,12 +1110,13 @@ import { useI18n } from "vue-i18n";
         padding: 10px 10px; 
     }
     .schedule-table {
+        width: 100%;
         border: 1px solid var(--Line-Container-Line, #EDF1F1);
     }
     .schedule-table td,
     .schedule-table th {
         border-bottom: 1px solid var(--Line-Container-Line, #EDF1F1);
-        padding: 10px 10px;
+        padding: 14px;
     }
     
     

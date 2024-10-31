@@ -1,6 +1,7 @@
 <template>
-    <div class="flex flex-row bg-[#F4F6F6]">
-        <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
+    <div class="bg-[#F4F6F6] h-full">
+        <div class="flex w-full min-h-screen">
+            <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
         
         <div class="bg-[#FFFFFF] my-[8px] w-full p-[16px] rounded-[16px]">
             <div class="flex items-start justify-between ">
@@ -30,8 +31,8 @@
                     <h2 class="p-[12px] text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000;" >House information</h2>
                 </div>
 
-                <div class="p-[6px] flex gap-[6px]">
-                    <div class="p-[12px] rounded-[6px] bg-[#FFFFFF] w-full h-full">
+                <div class="py-[6px] flex gap-[6px]">
+                    <div class="p-[12px] rounded-[6px] bg-[#FFFFFF] w-full">
                         <div  class="flex items-center justify-center pb-[12px]">
                             <img src="/assets/img/HakimiPagePlan2.jpg" alt="" width="200px" height="200px">
                         </div>
@@ -123,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                    <div class="bg-[#FFFFFF] rounded-[6px] p-[12px] ">
+                    <div class="bg-[#FFFFFF] rounded-[6px] p-[12px]">
                         <h2 class="">Ixtiyoriy boshlang’ich to’lov</h2>
                         <div class="divide pt-[12px]"></div>
 
@@ -138,8 +139,8 @@
                                 </div> 
                             </div>
 
-                            <div>
-                                <table class="main-table rounded-[6px] " style="border: 1px solid #EDF1F1;" >
+                            <div class="w-full">
+                                <table class="main-table rounded-[6px]" style="border: 1px solid #EDF1F1;" >
                                     <thead>
                                         <tr>
                                             <th>Boshlang’ich to’lov</th>
@@ -220,8 +221,7 @@
                     </div>
             </div>
         </div>
-
-
+        </div>
     </div>
     
 </template>
@@ -266,17 +266,19 @@ import { useI18n } from "vue-i18n";
         border-bottom: 1px dashed #95ACAA;
     }
 
-    .main-table th,.main-table td{
-        padding: 10px 0 10px 15px ;
+    .main-table th,
+    .main-table td{
+        padding: 16px 16px ;
     }
 
     .main-table thead {
         background: #EDF1F1;
     }
 
-    .main-table th{
-        width: 250px;
+    .main-table {
+        width: 100%;
     }
+
     /*
     .main-table {
         border-radius: 6px;
