@@ -64,19 +64,26 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr @click="gotoClientSingle" v-for="(body, index) in tableBody" :key="index" class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000; ">
-                      <td>{{ body.number }}</td>
-                      <td>{{ body.client }}</td>
-                      <td>{{ body.phoneNumber }}</td>
-                      <td>{{ body.residence }}</td>
+                    <tr @click="gotoClientSingle(body.id)" v-for="(body, index) in paginatedData" :key="index" class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000; ">
+                      <td>{{ body.id }}</td>
+                      <td>{{ body.full_name }}</td>
+                      <td>{{ body.phone_number }}</td>
+                      <td>{{ body.region }}</td>
                       <td >{{ body.balance }}</td>
                       <td>
-                        <button  v-if="index % 3 == 0" class="bg-[#E5EBFF] text-[#0037FF] w-[160px] py-[10px] rounded-[6px]">{{body.statusA}}</button>
-                        <button  v-else-if="index % 3 == 1" class="bg-[#FBEDE5] text-[#DB4F00] w-[160px] py-[10px] rounded-[6px]" >{{body.statusNA}}</button>
-                        <button v-else  class="bg-[#C5F7DC4D] text-[#008E42] w-[160px] py-[10px] rounded-[6px]">{{ body.statusN }}</button>
+                       <button
+                      :class="{
+                        'bg-green-500 text-white': body.status === 'active',
+                        'bg-red-500 text-white': body.status === 'cancelled',
+                        'bg-[#DCE3E3]': body.status !== 'contracted' && body.status !== 'cancelled',
+                      }"
+                      class="py-[10px] rounded-[6px] w-[157px]"
+                    >
+                      {{ body.status }}
+                    </button>
                       </td>
-                      <td>{{ body.respobsible }}</td>
-                      <td class="text-[#72908D] font-[500]">{{ body.date }}</td>
+                      <td>Xusnora Odilova</td>
+                      <td class="text-[#72908D] font-[500]">{{ body.given_date }}</td>
                       <td>
                         <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="6" cy="12" r="1.5" transform="rotate(90 6 12)" fill="#18181B"/>
@@ -87,6 +94,11 @@
                     </tr>
                   </tbody>
                 </table>
+                <div style="margin: 2rem">
+              <button @click="prevPage" :disabled="currentPage === 1" class="pgn_data">Previous</button>
+              <span>Page {{ currentPage }} of {{ totalPages }}</span>
+              <button @click="nextPage" :disabled="currentPage === totalPages" class="pgn_data">Next</button>
+            </div>
             </div>
           </div>
       </div>
@@ -116,6 +128,10 @@ import Information from '/paymentsInformation.svg'
       },
       currentLanguage: "en",
       locale: this.$i18n.locale,
+      table_data:[],
+      currentPage: 1,
+      itemsPerPage: 10, // Adjust this to set how many items per page
+ 
         tabs :[ 
         {
           name: 'Filter',
@@ -150,138 +166,49 @@ import Information from '/paymentsInformation.svg'
           date:'Date',
         }
       ],
-      tableBody : [
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-        {
-          number : '184',
-          client: 'XUDAYBERDIYEV ILXOMJON ISMATULLOYEVICH',
-          phoneNumber : '+998915299629',
-          residence : 'Samarqand viloyati',
-          balance : '0 UZS',
-          statusA : 'Active',
-          statusNA: 'Not active',
-          statusN: 'New',
-          respobsible: 'Xusnor Odilova',
-          date:'10.08.2024'
-        },
-      ]
+     
       }
     },
+    computed: {
+    paginatedData() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      return this.table_data.slice(start, start + this.itemsPerPage);
+    },
+    totalPages() {
+      return Math.ceil(this.table_data.length / this.itemsPerPage);
+    },
+  },
+    mounted() {
+    this.fetchTableData();
+  },
     methods: {
       changeLanguage(event) {
       this.currentLanguage = event.target.value;
       this.$i18n.locale = this.currentLanguage;
     },
+    
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage += 1;
+      }
+    },
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage -= 1;
+      }
+    },
       gotoClientSingle() {
         this.$router.push('/client-single')
+      },
+      async fetchTableData() {
+      try {
+        const response = await axios.get("/accounts/clients/");
+        this.table_data = response.data.results;
+      } catch (error) {
+        this.error = "An error occurred while fetching data";
+        console.error(error);
       }
+    },
     },
   }
 </script>
@@ -310,4 +237,18 @@ import Information from '/paymentsInformation.svg'
     background: #EDF1F1;
     transition: all 300ms;
   }
+  .pgn_data {
+  background-color: #00b252;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pgn_data:hover {
+  background-color: #008a3b;
+}
 </style>

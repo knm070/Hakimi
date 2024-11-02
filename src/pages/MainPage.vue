@@ -232,7 +232,7 @@ export default defineComponent({
     },
     async fetchPaymentStats() {
       try {
-        const response = await axios.get("/contract/payment/today", {
+        const response = await axios.get("/statistics/payment/today", {
         });
         const data = response.data;
         this.pie_series = [data.terminal, data.cash, data.p2p, data.bank, data.other]; // Remove zero values
@@ -247,7 +247,7 @@ export default defineComponent({
   mounted() {
     this.fetchPaymentStats();
     axios
-      .get("/project/apartment/condition", {
+      .get("/projects/apartment/condition", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -256,7 +256,7 @@ export default defineComponent({
         this.apartments_data = res.data;
       }),
     axios
-      .get("/account/balance", {
+      .get("/accounts/balance", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
@@ -265,7 +265,7 @@ export default defineComponent({
         this.balance = res.data.balance_of_client.toLocaleString();
       }),
     axios
-      .get("/contract/debts/total", {
+      .get("/statistics/debts/total", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
