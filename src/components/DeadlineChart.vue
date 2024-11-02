@@ -1,6 +1,12 @@
 <template>
   <div>
-    <apexchart type="pie" height="350" :options="chartOptions" :series="series"></apexchart>
+    <apexchart
+      type="pie"
+      height="350"
+      :options="chartOptions"
+      :series="series"
+    ></apexchart>
+    asdasdss
   </div>
 </template>
 
@@ -16,8 +22,22 @@ export default {
     return {
       series: [], // Chart series (data)
       chartOptions: {
-        labels: [this.$t("on_time"), this.$t("last_one_month"), this.$t("late_three_months"), this.$t("late_one_year"), this.$t("late_more_than_year"), this.$t("not_paid")],
-        colors: ["#00E396", "#FEB019", "#FF4560", "#775DD0", "#546E7A", "#D4526E"],
+        labels: [
+          this.$t("on_time"),
+          this.$t("last_one_month"),
+          this.$t("late_three_months"),
+          this.$t("late_one_year"),
+          this.$t("late_more_than_year"),
+          this.$t("not_paid"),
+        ],
+        colors: [
+          "#00E396",
+          "#FEB019",
+          "#FF4560",
+          "#775DD0",
+          "#546E7A",
+          "#D4526E",
+        ],
         chart: {
           type: "pie",
         },
@@ -46,7 +66,14 @@ export default {
       const data = response.data;
 
       // Populate the series with the API data
-      this.series = [data.on_time, data.last_one_month, data.late_three_months, data.late_one_year, data.late_more_than_year, data.not_paid];
+      this.series = [
+        data.on_time,
+        data.last_one_month,
+        data.late_three_months,
+        data.late_one_year,
+        data.late_more_than_year,
+        data.not_paid,
+      ];
     } catch (error) {
       console.error("Error fetching payment deadline data:", error);
     }
