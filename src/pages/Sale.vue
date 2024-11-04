@@ -220,7 +220,7 @@ export default {
     },
     fetchData() {
       axios
-        .get("https://api.hakimi.itic.uz/contract/address")
+        .get("https://api.hakimi.itic.uz/statistics/address")
         .then((response) => {
           const data = response.data;
           const series = data.map((item) => item.number_of_contract); // Extract contract numbers
@@ -242,7 +242,7 @@ export default {
     },
     fetchDataDetails(period,encodedValue ) {
       const currentYear = new Date().getFullYear(); // Get the current year dynamically
-      const apiUrl = `/contract/address/detail/${currentYear}/${this.encodedValue}/${period}`;
+      const apiUrl = `/statistics/address/detail/${currentYear}/${this.encodedValue}/${period}`;
       this.filter = period;
       axios
         .get(apiUrl)

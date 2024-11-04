@@ -36,7 +36,7 @@ export default {
     async loginUser() {
   try {
     const response = await  this.$http.post(
-      "/account/api/login/", // Proxy path
+      "/accounts/api/login/", // Proxy path
       {
         username: this.username,
         password: this.password,

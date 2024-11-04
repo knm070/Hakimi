@@ -227,7 +227,7 @@ const routes = [
 
 
   {
-    path: "/main/Hakimi",
+    path: "/main/Hakimi/:id",
     name: "Main2",
     component: Main2,
   },
@@ -238,7 +238,7 @@ const routes = [
     component: Contracts,
   },
   {
-    path: "/Contracts/single",
+    path: "/Contracts/single/:id",
     name: "ContractsSingle",
     component: ConstractsSingle,
   },
@@ -273,7 +273,7 @@ const routes = [
     component: Showroom,
   },
   {
-    path: "/order-single",
+    path: '/order-single/:id',
     name: "OrderSingle",
     component: OrderSingle,
   },

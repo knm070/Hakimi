@@ -61,9 +61,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get(
-        "https://api.hakimi.itic.uz/contract/payment/deadline"
-      );
+      const response = await axios.get("https://api.hakimi.itic.uz/statistics/payment/deadline");
       const data = response.data;
 
       // Populate the series with the API data

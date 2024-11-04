@@ -286,7 +286,7 @@ export default {
   },
   mounted() {
     axios
-      .get("/contract/debts/statistics/clients/", {
+      .get("/statistics/debts/statistics/clients/", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -296,7 +296,7 @@ export default {
         this.updateChartData(); // Initialize chart data
       }),
       axios
-        .get(`https://api.hakimi.itic.uz/contract/debts/statistics/${this.currentYear}/${this.currentMonth2}/yearly`, {
+        .get(`https://api.hakimi.itic.uz/statistics/debts/statistics/${this.currentYear}/${this.currentMonth2}/yearly`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -307,7 +307,7 @@ export default {
           console.table("YEarly " + this.yearly_chart);
         }),
       axios
-        .get(`https://api.hakimi.itic.uz/contract/debts/statistics/${this.currentYear}/${this.currentMonth2}/monthly`, {
+        .get(`https://api.hakimi.itic.uz/statistics/debts/statistics/${this.currentYear}/${this.currentMonth2}/monthly`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -317,7 +317,7 @@ export default {
           this.updateChartData(); // Initialize chart data
         }),
       axios
-        .get(`https://api.hakimi.itic.uz/contract/debts/statistics/${this.currentYear}/${this.currentMonth2}/daily`, {
+        .get(`https://api.hakimi.itic.uz/statistics/debts/statistics/${this.currentYear}/${this.currentMonth2}/daily`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

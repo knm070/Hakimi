@@ -352,7 +352,7 @@ export default {
     },
     async fetchPaymentDeadlineStats() {
       try {
-        const response = await axios.get("/contract/payment/deadline");
+        const response = await axios.get("/statistics/payment/deadline");
         this.Deadline_data = response.data;
       } catch (error) {
         console.error("Error fetching payment data:", error);
@@ -360,7 +360,7 @@ export default {
     },
     async fetchPaymentData() {
       try {
-        const response = await axios.get("/contract/payment/monthly/2023/2024");
+        const response = await axios.get("/statistics/payment/monthly/2023/2024");
         const data = response.data;
 
         const expectingPayments = [];
@@ -405,7 +405,7 @@ export default {
         const month = currentDate.month() + 1; // Get current month (months are 0-based in dayjs, so add 1)
 
         // Fetch data from the API
-        const response = await axios.get(`/contract/payment/statistic/?year=${year}&month=${month}`);
+        const response = await axios.get(`/statistics/payment/statistic/?year=${year}&month=${month}`);
         this.paymentData = response.data.detail;
 
         const daysInMonth = currentDate.daysInMonth();
@@ -487,7 +487,7 @@ export default {
     this.fetchData();
     this.fetchPaymentDeadlineStats();
     axios
-      .get("/contract/payment/expecting/?year=2024&month=9", {
+      .get("/statistics/payment/expecting/?year=2024&month=9", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

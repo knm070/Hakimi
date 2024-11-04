@@ -304,7 +304,7 @@ export default {
     },
     async fetchProjectData() {
       try {
-        const response = await axios.get("/contract/projects/statistics/");
+        const response = await axios.get("/statistics/projects/statistics/");
         this.projectData = response.data[0];
         console.log(this.projectData);
       } catch (error) {
@@ -313,7 +313,7 @@ export default {
     },
     async fetchSaleData() {
       try {
-        const response = await axios.get("/contract/sale-of_apartments/");
+        const response = await axios.get("/statistics/sale-of_apartments/");
         this.sale_data = response.data.total_number_of_houses_sold;
         console.log(this.sale_data);
       } catch (error) {
@@ -322,7 +322,7 @@ export default {
     },
     async fetchInitialPayments() {
       try {
-        const response = await axios.get("/contract/apartments/stats/total_initial_payments/");
+        const response = await axios.get("/statistics/apartments/stats/total_initial_payments/");
         const houses = response.data[0].houses; // Assuming the data structure you provided
         this.donutSeries = houses.map(house => house.total_initial_payment);
         this.donutOptions.labels = houses.map(house => house.name);
@@ -343,7 +343,7 @@ this.total_initial_payments = this.donutSeries.reduce((sum, payment) => sum + pa
     },
     async fetchData() {
       try {
-        const response = await axios.get("/contract/projects/total-statistics/");
+        const response = await axios.get("/statistics/projects/total-statistics/");
         const data = response.data;
         this.bardata = data.apartments_total_amount_in_sale + data.contracted_paid_apartments_amount + data.contracted_not_paid_apartments_amount;
         this.barSeries[0].data = [this.bardata]
@@ -359,7 +359,7 @@ this.total_price = this.series.reduce((sum, amount) => sum + amount, 0);
     },
     async fetchInittialData() {
       try {
-        const response = await axios.get("/contract/apartments/stats/for-sale/");
+        const response = await axios.get("/statistics/apartments/stats/for-sale/");
         const data = response.data;
         this.project_statistics = data;
         // this.pieOptions.labels.value = data.map(item => `Room ${item.room_numbers}`);
@@ -373,7 +373,7 @@ this.total_price = this.series.reduce((sum, amount) => sum + amount, 0);
     },
     async fetchAverageData() {
       try {
-        const response = await axios.get("/contract/average-prices/");
+        const response = await axios.get("/statistics/average-prices/");
         const data = response.data[0];
         this.for_sold_apartments = data.for_sold_apartments;
         this.for_apartments_for_sale = data.for_apartments_for_sale;
