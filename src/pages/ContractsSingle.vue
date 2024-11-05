@@ -4,8 +4,8 @@
     <div class="bg-[#FFFFFF] m-[8px] rounded-[14px] p-[16px] w-full" style="border: 1px solid #edf1f1">
       <div class="flex items-center justify-between">
         <div>
-          <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">№ 184</span>
-          <p class="text-[10px]" style="font-family: Geist; font-weight: 400; color: #b9c7c6">Contract > № 184</p>
+          <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">№ {{contractId}}</span>
+          <p class="text-[10px]" style="font-family: Geist; font-weight: 400; color: #b9c7c6">Contract > № {{contractId}}</p>
         </div>
         <div class="flex gap-[24px]">
           <svg @click="openMessage" class="cursor-pointer" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">

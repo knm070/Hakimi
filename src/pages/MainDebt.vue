@@ -43,17 +43,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(body, index) in debtBody" :key="index" class="text-[14px]" style="font-family: Geist; font-weight : 600; color: #000000;">
+                    <tr v-for="(body, index) in paginatedData" :key="index"  class="text-[14px]" style="font-family: Geist; font-weight : 600; color: #000000;">
                       <td> <a-checkbox/> </td>
-                      <td>{{ body.contract }}</td>
-                      <td>{{ body.client }}</td>
-                      <td style="font-weight: 600; color: #72908D;">{{ body.phoneNumber }}</td>
-                      <td style="font-weight: 600; color: #DB4F00;">{{ body.loadAmount }}</td>
-                      <td>{{ body.delay }}</td>
-                      <td>{{ body.delayRate }}</td>
-                      <td  style="font-weight: 600; color: #DB4F00;">{{ body.surcharge }}</td>
+                      <td  @click="gotoContractsSinglePage(body.id)">{{ body.contract_number }}</td>
+                      <td  @click="gotoContractsSinglePage(body.id)">{{ body.client_individual }}</td>
+                      <td style="font-weight: 600; color: #72908D;">{{ body.phone_number }}</td>
+                      <td style="font-weight: 600; color: #DB4F00;">{{ body.debt_amount.toLocaleString() }}</td>
+                      <td>{{ body.debt_amount.toLocaleString() }}</td>
+                      <td>{{ body.max_delay_period }}</td>
+                      <td  style="font-weight: 600; color: #DB4F00;">{{ body.penny }}</td>
                       <td>{{ body.responsible }}</td>
-                      <td style="font-weight: 600; color: #72908D;">{{ body.date }}</td>
+                      <td style="font-weight: 600; color: #72908D;">{{ body.payment_date }}</td>
                       <td>
                           <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <circle cx="5.50024" cy="6" r="5.5" fill="#D9D9D9"/>
@@ -80,6 +80,11 @@
                     </tr>
                   </tbody>
                 </table>
+                <div style="margin: 2rem">
+              <button @click="prevPage" :disabled="currentPage === 1" class="pgn_data">Previous</button>
+              <span>Page {{ currentPage }} of {{ totalPages }}</span>
+              <button @click="nextPage" :disabled="currentPage === totalPages" class="pgn_data">Next</button>
+            </div>
               </div>
             </div>
           </div>
@@ -174,6 +179,10 @@ export default {
       isOpen : false,
       isMessageOpen : false,
       isTaskOpen: false,
+      table_data:[],
+      currentPage: 1,
+      itemsPerPage: 10, // Adjust this to set how many items per page
+   
       debtHead : [
         {
           contract : 'Contract',
@@ -187,119 +196,19 @@ export default {
           date : 'Date'
         }
       ],
-      debtBody  : [
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-        {
-          contract : '942',
-          client : 'SALIMOVA NILUFAR QUCHQOROVNA',
-          phoneNumber : '+998975778118',
-          loadAmount: '2 137 500 UZS',
-          delay : '4',
-          delayRate : '4',
-          surcharge : '2 137 500 UZS',
-          responsible : 'Xusnor Odilova',
-          date : '10.08.2024'
-        },
-      ]
     }
+  },
+  computed: {
+    paginatedData() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      return this.table_data.slice(start, start + this.itemsPerPage);
+    },
+    totalPages() {
+      return Math.ceil(this.table_data.length / this.itemsPerPage);
+    },
+  },
+  mounted() {
+    this.fetchTableData();
   },
   methods: {
     changeLanguage(event) {
@@ -312,6 +221,16 @@ export default {
     closeTask() {
       this.isTaskOpen = false;
     },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage += 1;
+      }
+    },
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage -= 1;
+      }
+    },
 
 
     openMessage() {
@@ -323,7 +242,19 @@ export default {
     },
     toggleMenu(index) {
       this.isOpen = this.isOpen === index ? null : index;
-    }
+    },
+    async fetchTableData() {
+      try {
+        const response = await axios.get("/contracts/debts/list/");
+        this.table_data = response.data.results;
+      } catch (error) {
+        this.error = "An error occurred while fetching data";
+        console.error(error);
+      }
+    },
+    gotoContractsSinglePage(id) {
+        this.$router.push({ path: `/Contracts/single/${id}` }); // Ensure the backticks are not missing
+    },
   } 
 }
 </script>
@@ -365,4 +296,18 @@ export default {
     transform: scale(1);
     opacity: 1;
     }
+    .pgn_data {
+  background-color: #00b252;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pgn_data:hover {
+  background-color: #008a3b;
+}
 </style>
