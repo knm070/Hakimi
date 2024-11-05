@@ -549,7 +549,7 @@ export default {
     },
     async fetchClients() {
       try {
-        const response = await axios.get("/statistics/client-contracts/");
+        const response = await axios.get("/contract/client-contracts/");
         this.clients = response.data;
         // Initialize isOpenClient and isOpenContract arrays based on the fetched data
         this.isOpenClient = new Array(this.clients.length).fill(false);
@@ -583,7 +583,7 @@ export default {
     },
     async fetchContracts() {
       try {
-        const response = await axios.get("/statistics/contracts/period/");
+        const response = await axios.get("/contract/contracts/period/");
         this.contracts = response.data;
       } catch (error) {
         console.error("Error fetching contracts:", error);
@@ -617,7 +617,7 @@ export default {
     },
     async fetchClientStats() {
       try {
-        const response = await axios.get("/statistics/payment-summary/");
+        const response = await axios.get("/contract/payment-summary/");
         const data = response.data;
 
         // Assign the data to the Vue component properties
@@ -637,7 +637,7 @@ export default {
       }
 
       // Simulated API call to fetch data
-      // fetch("https://api.hakimi.itic.uz/statistics/payment-summary/")
+      // fetch("https://api.hakimi.itic.uz/contract/payment-summary/")
       //   .then((response) => response.json())
       //   .then((data) => {
       //     this.payingClients = data.paying_clients.paying_client_contracts;

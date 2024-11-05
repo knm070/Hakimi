@@ -197,8 +197,10 @@ import Information from '/paymentsInformation.svg'
         this.currentPage -= 1;
       }
     },
-      gotoClientSingle() {
+      gotoClientSingle(id) {
         this.$router.push('/client-single')
+        this.$router.push({ path: `/client-single/${id}` }); // Ensure the backticks are not missing
+
       },
       async fetchTableData() {
       try {

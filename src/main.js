@@ -283,7 +283,7 @@ const routes = [
     component: AddPayment,
   },
   {
-    path: "/client-single",
+    path: "/client-single/:id",
     name: "ClientSingle",
     component: ClientSingle,
   },

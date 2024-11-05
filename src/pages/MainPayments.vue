@@ -134,7 +134,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(body, index) in paginatedTableBody" :key="index" class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000">
+                <tr v-for="(body, index) in paginatedTableBody" :key="index"  @click="gotoContractsSinglePage(body.contract)" class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000">
                   <td><a-checkbox /></td>
                   <td>{{ body.id }}</td>
                   <td>
@@ -153,7 +153,7 @@
                       </div>
                     </div>
                   </td>
-                  <td>{{ body.contract }}</td>
+                  <td>{{ body.contract_number }}</td>
                   <td>{{ new Date(body.datetime).toLocaleString() }}</td>
                   <td>{{ body.amount.toLocaleString() }}</td>
                   <td>
@@ -262,6 +262,9 @@ export default {
     },
   },
   methods: {
+    gotoContractsSinglePage(id) {
+        this.$router.push({ path: `/Contracts/single/${id}` }); // Ensure the backticks are not missing
+    },
     changeLanguage(event) {
       this.currentLanguage = event.target.value;
       this.$i18n.locale = this.currentLanguage;
