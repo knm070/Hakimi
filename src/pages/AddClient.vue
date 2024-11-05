@@ -26,7 +26,7 @@
             <div class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="box-shadow: 0px 1px 2px 0px #1823220D;border: 1px solid var(--Line-Container-Line, #EDF1F1)">
               <h2 class="text-[14px]" style="font-family:Geist; font-weight:600; color: #000000;">Client contracts</h2>
             </div>
-            <div class="bg-[#FFFFFF] py-[24px] px-[12px] rounded-[6px]  w-full h-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+            <div class="bg-[#FFFFFF] py-[24px] px-[12px] rounded-[6px] mt-[6px] w-full h-full" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
             <div class="bg-[#F4F6F6] rounded-[8px] p-[4px] w-[220px] flex gap-[4px]">
               <button @click="selectButton('individuals')" :class="['py-[4px] px-[12px] rounded-[6px] text-[14px] transition-all duration-300', selectedButton === 'individuals' ? 'bg-[#FFFFFF]' : 'bg-[#F4F6F6]']" :style="{fontFamily: 'Geist', fontWeight: '600', color: selectedButton === 'individuals' ?  '#000000' : '#72908D' , boxShadow: selectedButton === 'individuals' ? '0px 1px 2px 0px #0000001F' : 'none'}">Individuals</button>
               <button @click="selectButton('legalEntities')" :class="[' py-[4px] px-[12px] rounded-[6px] text-[14px]', selectedButton === 'legalEntities' ?  'bg-[#FFFFFF]' : 'bg-[#F4F6F6]']" :style="{fontFamily: 'Geist', fontWeight: '600', color: selectedButton === 'legalEntities' ?  '#000000' : '#72908D', boxShadow: selectedButton === 'legalEntities' ? '0px 1px 2px 0px #0000001F' : 'none', transition:'color 0.3s, background-color 0.3s, box-shadow 0.3s'}">Legal entities</button>   

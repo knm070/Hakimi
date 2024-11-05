@@ -1,36 +1,28 @@
 <template>
-  <div class="flex flex-row bg-[#F4F6F6]">
-    <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
-
-    <div class="bg-[#FFFFFF] my-[8px] w-full p-[16px] rounded-[16px]">
-      <div class="flex items-start justify-between">
-        <div>
-          <h1 class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">Hakimi Towers</h1>
-          <p class="text-[10px]" style="font-family: Geist; font-weight: 400; color: #b9c7c6">
-            Main page >
-            <span>Hakimi Towers</span>
-          </p>
-        </div>
-
-        <div class="flex">
-          <svg class="cursor-pointer" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M19.3399 14.99L18.3399 13.33C18.1299 12.96 17.9399 12.26 17.9399 11.85V9.32C17.9399 6.97 16.5599 4.94 14.5699 3.99C14.0499 3.07 13.0899 2.5 11.9899 2.5C10.8999 2.5 9.91994 3.09 9.39994 4.02C7.44994 4.99 6.09994 7 6.09994 9.32V11.85C6.09994 12.26 5.90994 12.96 5.69994 13.32L4.68994 14.99C4.28994 15.66 4.19994 16.4 4.44994 17.08C4.68994 17.75 5.25994 18.27 5.99994 18.52C7.93994 19.18 9.97994 19.5 12.0199 19.5C14.0599 19.5 16.0999 19.18 18.0399 18.53C18.7399 18.3 19.2799 17.77 19.5399 17.08C19.7999 16.39 19.7299 15.63 19.3399 14.99Z"
-              fill="#72908D"
-            />
-            <path
-              d="M14.8299 20.51C14.4099 21.67 13.2999 22.5 11.9999 22.5C11.2099 22.5 10.4299 22.18 9.87994 21.61C9.55994 21.31 9.31994 20.91 9.17994 20.5C9.30994 20.52 9.43994 20.53 9.57994 20.55C9.80994 20.58 10.0499 20.61 10.2899 20.63C10.8599 20.68 11.4399 20.71 12.0199 20.71C12.5899 20.71 13.1599 20.68 13.7199 20.63C13.9299 20.61 14.1399 20.6 14.3399 20.57C14.4999 20.55 14.6599 20.53 14.8299 20.51Z"
-              fill="#72908D"
-            />
-          </svg>
-
-          <select v-model="currentLanguage" @change="changeLanguage" class="w-[100px] pl-[5px]">
-            <option v-for="(label, lang) in languages" :key="lang" :value="lang">
-              {{ label }}
-            </option>
-          </select>
-        </div>
-      </div>
+    <div class="bg-[#F4F6F6] h-full">
+        <div class="flex w-full min-h-screen">
+            <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />
+        
+        <div class="bg-[#FFFFFF] my-[8px] w-full p-[16px] rounded-[16px]">
+            <div class="flex items-start justify-between ">
+                <div>
+                    <h1 class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">Hakimi Towers</h1>
+                    <p class="text-[10px]" style="font-family: Geist; font-weight: 400; color: #B9C7C6;">Main page > <span>Hakimi Towers</span></p>
+                </div>
+    
+                    <div class="flex">
+                        <svg class="cursor-pointer" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.3399 14.99L18.3399 13.33C18.1299 12.96 17.9399 12.26 17.9399 11.85V9.32C17.9399 6.97 16.5599 4.94 14.5699 3.99C14.0499 3.07 13.0899 2.5 11.9899 2.5C10.8999 2.5 9.91994 3.09 9.39994 4.02C7.44994 4.99 6.09994 7 6.09994 9.32V11.85C6.09994 12.26 5.90994 12.96 5.69994 13.32L4.68994 14.99C4.28994 15.66 4.19994 16.4 4.44994 17.08C4.68994 17.75 5.25994 18.27 5.99994 18.52C7.93994 19.18 9.97994 19.5 12.0199 19.5C14.0599 19.5 16.0999 19.18 18.0399 18.53C18.7399 18.3 19.2799 17.77 19.5399 17.08C19.7999 16.39 19.7299 15.63 19.3399 14.99Z" fill="#72908D"/>
+                            <path d="M14.8299 20.51C14.4099 21.67 13.2999 22.5 11.9999 22.5C11.2099 22.5 10.4299 22.18 9.87994 21.61C9.55994 21.31 9.31994 20.91 9.17994 20.5C9.30994 20.52 9.43994 20.53 9.57994 20.55C9.80994 20.58 10.0499 20.61 10.2899 20.63C10.8599 20.68 11.4399 20.71 12.0199 20.71C12.5899 20.71 13.1599 20.68 13.7199 20.63C13.9299 20.61 14.1399 20.6 14.3399 20.57C14.4999 20.55 14.6599 20.53 14.8299 20.51Z" fill="#72908D"/>
+                        </svg>  
+    
+                       <select v-model="currentLanguage" @change="changeLanguage" class="w-[100px] pl-[5px]">
+              <option v-for="(label, lang) in languages" :key="lang" :value="lang">
+                {{ label }}
+              </option>
+            </select>
+                    </div>
+            </div>
 
       <div class="divide pt-[16px]"></div>
 
@@ -39,18 +31,23 @@
           <h2 class="p-[12px] text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000">House information</h2>
         </div>
 
-        <div class="p-[6px] flex gap-[6px]">
-          <div class="p-[12px] rounded-[6px] bg-[#FFFFFF] w-full h-full">
-            <div class="flex items-center justify-center pb-[12px]">
-              <img src="/assets/img/HakimiPagePlan2.jpg" alt="" width="200px" height="200px" />
-            </div>
-            <div class="flex items-center gap-[6px]">
-              <p class="text-[12px] bg-[#00B252] rounded-[6px] py-[8px] px-[12px]" style="font-family: Geist; font-weight: 500; color: #ffffff">{{ data.room_numbers }} xonali</p>
-              <div class="bg-[#F4F6F6] p-[6px] rounded-[8px] flex gap-[10px] items-center">
-                <button class="bg-[#FFFFFF] py-[4px] px-[12px] rounded-[6px] text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000; box-shadow: 0px 1px 2px 0px #0000001f">{{ data.condition }}</button>
-              </div>
-            </div>
-            <div class="divide pt-[12px]"></div>
+                <div class="py-[6px] flex gap-[6px]">
+                    <div class="p-[12px] rounded-[6px] bg-[#FFFFFF] w-full">
+                        <div  class="flex items-center justify-center pb-[12px]">
+                            <img src="/assets/img/HakimiPagePlan2.jpg" alt="" width="200px" height="200px">
+                        </div>
+                        <div class="flex items-center gap-[6px]">
+                            <p class="text-[12px] bg-[#00B252] rounded-[6px] py-[8px] px-[12px]" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">3 xonali</p>
+                            <div class="bg-[#F4F6F6] p-[6px] rounded-[8px] flex gap-[10px] items-center">
+                                <button class="pl-[10px] text-[14px]" style="font-family: Geist; font-weight: 500; color: #72908D;">
+                                    Ta’mirsiz 
+                                </button>
+                                <button class="bg-[#FFFFFF] py-[4px] px-[12px] rounded-[6px] text-[14px]" style="font-family: Geist; font-weight: 500; color: #000000; box-shadow: 0px 1px 2px 0px #0000001F;">
+                                    Ta’mirli
+                                </button>
+                            </div>
+                        </div>
+                        <div class="divide pt-[12px]"></div>
 
             <div class="mt-[12px] bg-[#E5EBFF] p-[12px] flex flex-col items-start rounded-[4px]">
               <div class="flex gap-[9px]">
@@ -119,30 +116,28 @@
                 <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">{{data.initial_payment.toLocaleString()}} % </span>
               </div>
 
-              <div style="border: 1px solid #edf1f1" class="flex flex-col justify-between py-[20px] rounded-[6px] pt-[20px] pl-[20px] w-[218px] h-[318px]">
-                <div>
-                  <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0.666748" width="32" height="32" rx="4" fill="#F59E0B" fill-opacity="0.1" />
-                    <mask id="mask0_53_1541" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="25" height="24">
-                      <rect x="4.66675" y="4" width="24" height="24" fill="#D9D9D9" />
-                    </mask>
-                    <g mask="url(#mask0_53_1541)">
-                      <path
-                        d="M8.66675 22V14V14.325V10V22ZM8.66675 12H24.6667V10H8.66675V12ZM16.3417 24H8.66675C8.11675 24 7.64591 23.8042 7.25425 23.4125C6.86258 23.0208 6.66675 22.55 6.66675 22V10C6.66675 9.45 6.86258 8.97917 7.25425 8.5875C7.64591 8.19583 8.11675 8 8.66675 8H24.6667C25.2167 8 25.6876 8.19583 26.0792 8.5875C26.4709 8.97917 26.6667 9.45 26.6667 10V15.25C26.0667 14.8333 25.4167 14.5208 24.7167 14.3125C24.0167 14.1042 23.3001 14 22.5667 14C21.6667 14 20.8001 14.175 19.9667 14.525C19.1334 14.875 18.4001 15.3667 17.7667 16H8.66675V22H15.7417C15.7917 22.35 15.8667 22.6917 15.9667 23.025C16.0667 23.3583 16.1917 23.6833 16.3417 24ZM24.3417 23.375L25.0417 22.675L23.1667 20.8V18H22.1667V21.2L24.3417 23.375ZM22.6917 26C21.2917 26 20.1042 25.5167 19.1292 24.55C18.1542 23.5833 17.6667 22.4 17.6667 21C17.6667 19.6 18.1542 18.4167 19.1292 17.45C20.1042 16.4833 21.2917 16 22.6917 16C24.0751 16 25.2501 16.4875 26.2167 17.4625C27.1834 18.4375 27.6667 19.6167 27.6667 21C27.6667 22.3833 27.1834 23.5625 26.2167 24.5375C25.2501 25.5125 24.0751 26 22.6917 26Z"
-                        fill="#F59E0B"
-                      />
-                    </g>
-                  </svg>
-                  <p class="text-[16px] pt-[12px]" style="font-family: Geist; font-weight: 500; color: #3f5d5a">Boshlang'ich to'lov summa</p>
+                            
+                            <div style="border: 1px solid #EDF1F1 " class="flex flex-col justify-between py-[20px] rounded-[6px] pt-[20px] pl-[20px] w-[218px] h-[318px]">
+                                <div>
+                                    <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.666748" width="32" height="32" rx="4" fill="#F59E0B" fill-opacity="0.1"/>
+                                        <mask id="mask0_53_1541" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="25" height="24">
+                                        <rect x="4.66675" y="4" width="24" height="24" fill="#D9D9D9"/>
+                                        </mask>
+                                        <g mask="url(#mask0_53_1541)">
+                                        <path d="M8.66675 22V14V14.325V10V22ZM8.66675 12H24.6667V10H8.66675V12ZM16.3417 24H8.66675C8.11675 24 7.64591 23.8042 7.25425 23.4125C6.86258 23.0208 6.66675 22.55 6.66675 22V10C6.66675 9.45 6.86258 8.97917 7.25425 8.5875C7.64591 8.19583 8.11675 8 8.66675 8H24.6667C25.2167 8 25.6876 8.19583 26.0792 8.5875C26.4709 8.97917 26.6667 9.45 26.6667 10V15.25C26.0667 14.8333 25.4167 14.5208 24.7167 14.3125C24.0167 14.1042 23.3001 14 22.5667 14C21.6667 14 20.8001 14.175 19.9667 14.525C19.1334 14.875 18.4001 15.3667 17.7667 16H8.66675V22H15.7417C15.7917 22.35 15.8667 22.6917 15.9667 23.025C16.0667 23.3583 16.1917 23.6833 16.3417 24ZM24.3417 23.375L25.0417 22.675L23.1667 20.8V18H22.1667V21.2L24.3417 23.375ZM22.6917 26C21.2917 26 20.1042 25.5167 19.1292 24.55C18.1542 23.5833 17.6667 22.4 17.6667 21C17.6667 19.6 18.1542 18.4167 19.1292 17.45C20.1042 16.4833 21.2917 16 22.6917 16C24.0751 16 25.2501 16.4875 26.2167 17.4625C27.1834 18.4375 27.6667 19.6167 27.6667 21C27.6667 22.3833 27.1834 23.5625 26.2167 24.5375C25.2501 25.5125 24.0751 26 22.6917 26Z" fill="#F59E0B"/>
+                                        </g>
+                                    </svg>
+                                    <p class="text-[16px] pt-[12px]" style="font-family: Geist; font-weight: 500; color: #3F5D5A;">Umumiy summa</p>
+                                </div>
+                                <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000;">61 580 025 UZS</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <span class="text-[20px]" style="font-family: Geist; font-weight: 600; color: #000000">{{data.initial_payment_sum}} UZS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-[#FFFFFF] rounded-[6px] p-[12px]">
-          <h2 class="">Ixtiyoriy boshlang’ich to’lov</h2>
-          <div class="divide pt-[12px]"></div>
+                    <div class="bg-[#FFFFFF] rounded-[6px] p-[12px]">
+                        <h2 class="">Ixtiyoriy boshlang’ich to’lov</h2>
+                        <div class="divide pt-[12px]"></div>
 
           <div class="flex mt-[12px] gap-[12px]">
             <div class="bg-[#F4F6F6] rounded-[6px] px-[20px] py-[28px] max-w-[305px]">
@@ -161,17 +156,18 @@
               </div>
             </div>
 
-            <div>
-              <table class="main-table rounded-[6px]" style="border: 1px solid #edf1f1">
-                <thead>
-                  <tr>
-                    <th>Boshlang’ich to’lov</th>
-                    <th>Chegirma summasi</th>
-                    <th>Sotuv summasi</th>
-                    <th>Muddat</th>
-                    <th>Oylik to’lov</th>
-                  </tr>
-                </thead>
+                            <div class="w-full">
+                                <table class="main-table rounded-[6px]" style="border: 1px solid #EDF1F1;" >
+                                    <thead>
+                                        <tr>
+                                            <th>Boshlang’ich to’lov</th>
+                                            <th>Chegirma summasi</th>
+                                            <th>Sotuv summasi</th>
+                                            <th>Muddat</th>
+                                            <th>Oylik to’lov</th>
+
+                                        </tr>
+                                    </thead>
 
                 <tbody>
                   <tr>
@@ -257,6 +253,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -313,19 +310,20 @@ export default {
   border-bottom: 1px dashed #95acaa;
 }
 
-.main-table th,
-.main-table td {
-  padding: 10px 0 10px 15px;
-}
+    .main-table th,
+    .main-table td{
+        padding: 16px 16px ;
+    }
 
 .main-table thead {
   background: #edf1f1;
 }
 
-.main-table th {
-  width: 250px;
-}
-/*
+    .main-table {
+        width: 100%;
+    }
+
+    /*
     .main-table {
         border-radius: 6px;
         overflow: hidden; This ensures the radius cuts off the content 

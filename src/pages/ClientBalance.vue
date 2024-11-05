@@ -22,38 +22,43 @@
             </div>
             <div class="divide pt-[16px]"></div>
             <div class="mt-[16px] p-[6px] bg-[#F4F6F6] rounded-[8px]">
-                <div class="flex gap-[6px]">
-                    <div class="px-[16px] py-[26px] bg-[#10B981] rounded-[6px] w-[330px]" style="border: 1px solid #FFFFFF; box-shadow: 0px 1px 2px 0px #1823220D;">
-                        <h3 class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #FFFFFFCC;">Client</h3>
-                        <span class="text-[16px] pt-[2px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">NILUFAR SALIMOVA QUCHQOROVNA</span>
-                        <h3 class="pt-[12px] text-[14px]" style="font-family: Geist; font-weight: 500; color: #FFFFFFCC;">Cellphone number</h3>
-                        <span class="text-[16px] pt-[2px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">+998975778118</span>
+                <div class="flex gap-[6px] w-full">
+                    <div class="flex gap-[6px] w-full">
+                        <div class="px-[16px] py-[26px] bg-[#10B981] rounded-[6px] w-full" style="border: 1px solid #FFFFFF; box-shadow: 0px 1px 2px 0px #1823220D;">
+                            <h3 class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #FFFFFFCC;">Client</h3>
+                            <span class="text-[16px] pt-[2px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">NILUFAR SALIMOVA QUCHQOROVNA</span>
+                            <h3 class="pt-[12px] text-[14px]" style="font-family: Geist; font-weight: 500; color: #FFFFFFCC;">Cellphone number</h3>
+                            <span class="text-[16px] pt-[2px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">+998975778118</span>
+                        </div>
+                        <div class="p-[16px] bg-[#F59E0B] rounded-[6px] w-full" style="border: 1px solid #FFFFFF; box-shadow: 0px 1px 2px 0px #1823220D;">
+                            <h3 class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">Client balance</h3>
+                            <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #FFFFFFCC;">Basic balance</p>
+                            <span class="text-[16px] pt-[2px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">0 UZS</span>
+                            <p class="text-[14px] pt-[12px]" style="font-family: Geist; font-weight: 500; color: #FFFFFFCC;">Additional balance</p>
+                            <span class="text-[16px] pt-[2px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">0</span>
+                        </div>
                     </div>
-                    <div class="p-[16px] bg-[#F59E0B] rounded-[6px] w-[300px]" style="border: 1px solid #FFFFFF; box-shadow: 0px 1px 2px 0px #1823220D;">
-                        <h3 class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">Client balance</h3>
-                        <p class="text-[14px]" style="font-family: Geist; font-weight: 500; color: #FFFFFFCC;">Basic balance</p>
-                        <span class="text-[16px] pt-[2px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">0 UZS</span>
-                        <p class="text-[14px] pt-[12px]" style="font-family: Geist; font-weight: 500; color: #FFFFFFCC;">Additional balance</p>
-                        <span class="text-[16px] pt-[2px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">0</span>
+
+                    <div class="flex gap-[6px] w-full">
+                        <div @click="showDeposit" class="bg-[#FFFFFF] w-full rounded-[6px] flex flex-col items-center justify-center cursor-pointer" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                            <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 24.5C16 26.44 17.5 28 19.34 28H23.1C24.7 28 26 26.64 26 24.94C26 23.12 25.2 22.46 24.02 22.04L18 19.94C16.82 19.52 16.02 18.88 16.02 17.04C16.02 15.36 17.32 13.98 18.92 13.98H22.68C24.52 13.98 26.02 15.54 26.02 17.48M21 12V30M41 21C41 32.04 32.04 41 21 41C9.96 41 1 32.04 1 21C1 9.96 9.96 1 21 1M31 3V11M31 11H39M31 11L41 1" stroke="#0037FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #0037FF;">Deposit</p>
+                        </div>  
+                        <div @click="showDisbursement" class="cursor-pointer bg-[#FFFFFF] w-full rounded-[6px] flex flex-col items-center justify-center" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                            <svg width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 24.5C16.5 26.44 18 28 19.84 28H23.6C25.2 28 26.5 26.64 26.5 24.94C26.5 23.12 25.7 22.46 24.52 22.04L18.5 19.94C17.32 19.52 16.52 18.88 16.52 17.04C16.52 15.36 17.82 13.98 19.42 13.98H23.18C25.02 13.98 26.52 15.54 26.52 17.48M21.5 12V30M41.5 21C41.5 32.04 32.54 41 21.5 41C10.46 41 1.5 32.04 1.5 21C1.5 9.96 10.46 1 21.5 1M41.5 9V1M41.5 1H33.5M41.5 1L31.5 11" stroke="#0037FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #0037FF;">Disbursement of funds</p>
+                        </div>  
+                        <div class="bg-[#FFFFFF] w-full rounded-[6px] flex flex-col items-center justify-center" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                            <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 19V31M15 31L19 27M15 31L11 27M41 17V27C41 37 37 41 27 41H15C5 41 1 37 1 27V15C1 5 5 1 15 1H25M41 17H33C27 17 25 15 25 9V1M41 17L25 1" stroke="#0037FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #0037FF;">Download</p>
+                        </div>  
                     </div>
-                    <div @click="showDeposit" class="bg-[#FFFFFF] w-[192px] rounded-[6px] flex flex-col items-center justify-center cursor-pointer" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
-                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 24.5C16 26.44 17.5 28 19.34 28H23.1C24.7 28 26 26.64 26 24.94C26 23.12 25.2 22.46 24.02 22.04L18 19.94C16.82 19.52 16.02 18.88 16.02 17.04C16.02 15.36 17.32 13.98 18.92 13.98H22.68C24.52 13.98 26.02 15.54 26.02 17.48M21 12V30M41 21C41 32.04 32.04 41 21 41C9.96 41 1 32.04 1 21C1 9.96 9.96 1 21 1M31 3V11M31 11H39M31 11L41 1" stroke="#0037FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #0037FF;">Deposit</p>
-                    </div>  
-                    <div @click="showDisbursement" class="cursor-pointer bg-[#FFFFFF] w-[192px] rounded-[6px] flex flex-col items-center justify-center" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
-                        <svg width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.5 24.5C16.5 26.44 18 28 19.84 28H23.6C25.2 28 26.5 26.64 26.5 24.94C26.5 23.12 25.7 22.46 24.52 22.04L18.5 19.94C17.32 19.52 16.52 18.88 16.52 17.04C16.52 15.36 17.82 13.98 19.42 13.98H23.18C25.02 13.98 26.52 15.54 26.52 17.48M21.5 12V30M41.5 21C41.5 32.04 32.54 41 21.5 41C10.46 41 1.5 32.04 1.5 21C1.5 9.96 10.46 1 21.5 1M41.5 9V1M41.5 1H33.5M41.5 1L31.5 11" stroke="#0037FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #0037FF;">Disbursement of funds</p>
-                    </div>  
-                    <div class="bg-[#FFFFFF] w-[192px] rounded-[6px] flex flex-col items-center justify-center" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
-                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 19V31M15 31L19 27M15 31L11 27M41 17V27C41 37 37 41 27 41H15C5 41 1 37 1 27V15C1 5 5 1 15 1H25M41 17H33C27 17 25 15 25 9V1M41 17L25 1" stroke="#0037FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p class="pt-[12px] text-[16px]" style="font-family: Geist; font-weight: 500; color: #0037FF;">Download</p>
-                    </div>  
                 </div>
                 <div class="bg-[#FFFFFF] mt-[6px] p-[16px] rounded-[6px]" style="border: 1px solid #EDF1F1;">
                     <table class="balance-table ">
@@ -84,9 +89,10 @@
             </div>
         </div>
     </div>
+            <div v-if="isDepositOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"></div>
         <transition name="popup">
-            <div v-if="isDepositOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                <div class="bg-[#F4F6F6] p-[6px] m-[12px] rounded-[8px] w-[600px]">
+            <div v-if="isDepositOpen"  class="fixed inset-0 flex items-center justify-center">
+                <div class=" bg-[#F4F6F6] p-[6px] m-[12px] rounded-[8px] w-[600px] ">
                     <div class="bg-[#FFFFFF] pt-[16px] pb-[6px] px-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
                         <div class="flex justify-between items-center">
                             <p class="text-[16px]" style="font-family: Geist; font-weight: 600; color: #000000;">Deposit</p>
@@ -146,8 +152,11 @@
                 </div>
             </div>
         </transition>
+
+
+            <div v-if="isDisbursementOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"></div>
         <transition name="popup">
-            <div v-if="isDisbursementOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+            <div v-if="isDisbursementOpen" class="fixed inset-0 flex items-center justify-center">
                 <div class="bg-[#F4F6F6] p-[6px] m-[12px] rounded-[8px] w-[600px]">
                     <div class="bg-[#FFFFFF] pt-[16px] pb-[6px] px-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
                         <div class="flex justify-between items-center">

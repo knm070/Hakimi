@@ -2,7 +2,7 @@
     <div>
         <div class="flex gap-[6px]">
             <div class="bg-[#FFFFFF]  rounded-[12px] flex-grow  flex items-center  ">
-                <div class="flex ga p-[10px]">
+                <div class="flex gap-[10px] p-[16px]">
                     <!-- Filter button -->
                     <button @click="openFilter" class="flex items-center ga py-[14px] px-[22px] rounded-full"
                         style="border: 1px solid #B9C7C6;">
@@ -25,9 +25,9 @@
                     </div>
                 </div>
             </div>
-            <div class="flex items-center ga bg-[#FFFFFF] px-[48px] py-[28px] rounded-[12px]">
+            <div class="flex items-center gap-[12px] bg-[#FFFFFF] px-[48px] py-[28px] rounded-[12px]">
                 <!-- Refresh Icon -->
-                <div class=" bg-white rounded-[12px] w-[48px] flex items-center cursor-pointer"
+                <div class=" bg-white rounded-[12px] p-[12px] flex items-center cursor-pointer"
                     style="border: 1px solid #EDF1F1; box-shadow: 0px 1px 2px 0px #1823220D;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -36,7 +36,7 @@
                     </svg>
                 </div>
                 <!-- Upload Icon -->
-                <div class=" bg-white rounded-[12px] w-[48px] flex items-center cursor-pointer"
+                <div class=" bg-white rounded-[12px] p-[12px] flex items-center cursor-pointer"
                     style="border: 1px solid #EDF1F1; box-shadow: 0px 1px 2px 0px #1823220D;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -48,7 +48,7 @@
                     </svg>
                 </div>
                 <!-- Settings Icon -->
-                <div @click="openSettings" class=" bg-white rounded-[12px] w-[48px] flex items-center cursor-pointer"
+                <div @click="openSettings" class=" bg-white rounded-[12px] p-[12px] flex items-center cursor-pointer"
                     style="border: 1px solid #EDF1F1; box-shadow: 0px 1px 2px 0px #1823220D;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -58,6 +58,254 @@
                 </div>
             </div>
         </div>
+        
+        
+        <div v-show="isFilterOpen" class="fixed inset-0 bg-black bg-opacity-50 " @click.self="closeFilter"></div>
+        <transition
+                name="slide"
+                enter-active-class="transition-transform duration-300 ease-in"
+                leave-active-class="transition-transform duration-300 ease-in"
+                enter-from-class="-translate-x-full"
+                enter-to-class="translate-x-0"
+                leave-from-class="translate-x-0"
+                leave-to-class="-translate-x-full"
+                
+            >
+                <div v-show="isFilterOpen" ref="filerPanel" class="fixed inset-0 bg-[#F4F6F6]  max-w-[312px] w-full rounded-[8px] p-[8px] m-[8px] flex flex-col">
+                    <div class="flex justify-between bg-[#FFFFFF] p-[12px] mb-[6px] rounded-[6px] ">
+                        <p class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000;">Filter</p>
+                        <span class="text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FF004D;">Clear</span>
+                    </div>
+        
+                    <div class=" bg-[#FFFFFF] rounded-[6px] p-[12px]  flex-grow">
+                        <div class="flex justify-between items-center ">
+                            <div class="flex items-center gap-[8px]">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.33333 1.3335V3.3335M10.6667 1.3335V3.3335M2.33333 6.06016H13.6667M7.99699 9.1335H8.00298M5.52954 9.1335H5.53553M5.52954 11.1335H5.53553M14 5.66683V11.3335C14 13.3335 13 14.6668 10.6667 14.6668H5.33333C3 14.6668 2 13.3335 2 11.3335V5.66683C2 3.66683 3 2.3335 5.33333 2.3335H10.6667C13 2.3335 14 3.66683 14 5.66683Z" stroke="#72908D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <p class="text-[13px]" style="font-family: Geist; font-weight: 600; color: #000000;">Date</p>
+                            </div>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.95998 7.54492L6.69998 4.28492C6.31498 3.89992 5.68498 3.89992 5.29998 4.28492L2.03998 7.54492" stroke="#95ACAA" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+        
+                        <div class="flex gap-[12px] pt-[8px]">
+                            <div class="flex items-center pl-[12px] pr-[8px] py-[6px] rounded-[6px] gap-[14px]" style="border: 1px solid #DCE3E3">
+                                <input type="text" placeholder="dd.mm.yyyy" class="border-none outline-none w-full text-[12px]">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.33333 1.3335V3.3335M10.6667 1.3335V3.3335M2.33333 6.06016H13.6667M7.99699 9.1335H8.00298M5.52954 9.1335H5.53553M5.52954 11.1335H5.53553M14 5.66683V11.3335C14 13.3335 13 14.6668 10.6667 14.6668H5.33333C3 14.6668 2 13.3335 2 11.3335V5.66683C2 3.66683 3 2.3335 5.33333 2.3335H10.6667C13 2.3335 14 3.66683 14 5.66683Z" stroke="#95ACAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="flex items-center pl-[12px] pr-[8px] gap-[14px] py-[6px] rounded-[6px]  " style="border: 1px solid #DCE3E3">
+                                <input type="text" placeholder="dd.mm.yyyy" class="border-none outline-none w-full text-[12px]">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.33333 1.3335V3.3335M10.6667 1.3335V3.3335M2.33333 6.06016H13.6667M7.99699 9.1335H8.00298M5.52954 9.1335H5.53553M5.52954 11.1335H5.53553M14 5.66683V11.3335C14 13.3335 13 14.6668 10.6667 14.6668H5.33333C3 14.6668 2 13.3335 2 11.3335V5.66683C2 3.66683 3 2.3335 5.33333 2.3335H10.6667C13 2.3335 14 3.66683 14 5.66683Z" stroke="#95ACAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+        
+                        </div>
+        
+                        <div class="py-[8px]">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-[10px]">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.44004 4.4335H10.5534C10.98 4.4335 11.3267 4.78016 11.3267 5.20683V6.06016C11.3267 6.3735 11.1334 6.76016 10.94 6.9535L9.27337 8.42683C9.04004 8.62016 8.88671 9.00683 8.88671 9.32016V10.9868C8.88671 11.2202 8.73337 11.5268 8.54004 11.6468L8.00004 11.9868C7.49337 12.3002 6.80004 11.9468 6.80004 11.3268V9.2735C6.80004 9.00016 6.64671 8.6535 6.48671 8.46016L5.01337 6.90683C4.82004 6.72016 4.66671 6.36683 4.66671 6.1335V5.24683C4.66671 4.78016 5.01337 4.4335 5.44004 4.4335Z" stroke="#72908D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6.00004 14.6668H10C13.3334 14.6668 14.6667 13.3335 14.6667 10.0002V6.00016C14.6667 2.66683 13.3334 1.3335 10 1.3335H6.00004C2.66671 1.3335 1.33337 2.66683 1.33337 6.00016V10.0002C1.33337 13.3335 2.66671 14.6668 6.00004 14.6668Z" stroke="#72908D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #000000;">Status</span>
+                                </div>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.95998 7.54492L6.69998 4.28492C6.31498 3.89992 5.68498 3.89992 5.29998 4.28492L2.03998 7.54492" stroke="#95ACAA" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+        
+                            <div class="pt-[8px] flex flex-col gap-[12px]">
+                                <div class="flex items-center gap-[6px]">
+                                    <input type="checkbox" class="w-[16px] h-[16px] rounded-[4px]" style="border: 1px solid #D0D5DD">
+                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000;">Was sent</span>
+                                </div>
+                                <div class="flex items-center gap-[6px]">
+                                    <input type="checkbox" class="w-[16px] h-[16px] " style="border: 1px solid #D0D5DD">
+                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000;">Failed to send</span>
+                                </div>
+                                <div class="flex items-center gap-[6px]">
+                                    <input type="checkbox" class="w-[16px] h-[16px] " style="border: 1px solid #D0D5DD">
+                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000;">Will be sent</span>
+                                </div>
+                                <div class="flex items-center gap-[6px]">
+                                    <input type="checkbox" class="w-[16px] h-[16px] " style="border: 1px solid #D0D5DD">
+                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000;">Unable to send</span>
+                                </div>
+                                <div class="flex items-center gap-[6px]">
+                                    <input type="checkbox" class="w-[16px] h-[16px] " style="border: 1px solid #D0D5DD">
+                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 400; color: #000000;">Is being sent</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+        </transition>
+        <!-- Table Settings -->
+        <div v-show="isSettingsOpen" class="fixed inset-0 bg-black bg-opacity-50 "></div>
+         <transition 
+            name="slide"
+            enter-active-class="transition-transform duration-300 ease-out"
+            leave-active-class="transition-transform duration-300 ease-in"
+            enter-from-class="translate-x-full"
+            enter-to-class="translate-x-0"
+            leave-from-class="translate-x-0"
+            leave-to-class="translate-x-full"
+         >
+                    <div v-show="isSettingsOpen"  class=" fixed inset-0 flex justify-end "  @click.self="closeSettings">
+                        <div class="bg-[#F4F6F6] max-w-[312px] w-full rounded-[8px] p-[8px] m-[8px] flex flex-col">
+                            <div class="flex justify-between bg-[#FFFFFF] rounded-[6px] p-[12px] mb-[6px] ">
+                                <h2 class="text-[14px]" style="font-family: Geist; font-weight: 600; color: #000000;">Table settings</h2>
+                                <span @click="closeSettings" class="text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FF004D;">Clear</span>
+                            </div>
+                            <div class="bg-[#FFFFFF] rounded-[6px] p-[12px] flex-grow">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-[6px]">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="8" cy="14" r="1" fill="#95ACAA"/>
+                                            <circle cx="8" cy="10" r="1" fill="#95ACAA"/>
+                                            <circle cx="8" cy="6" r="1" fill="#95ACAA"/>
+                                            <circle cx="12" cy="14" r="1" fill="#95ACAA"/>
+                                            <circle cx="12" cy="10" r="1" fill="#95ACAA"/>
+                                            <circle cx="12" cy="6" r="1" fill="#95ACAA"/>
+                                        </svg>
+                                        <span class="text-[12px]" style="font-family: Geist; font-weight: 500; color: #000000;">№</span>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" v-model="isToggled" class="sr-only peer" />
+                                        <div class="w-[43px] h-[24px] bg-gray-300 rounded-[12px] peer-checked:bg-blue-600 transition-colors duration-300"></div>
+                                        <div class="absolute left-[4px] top-[4px] w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                    </label>
+                                </div>
+        
+                                <div class="divide mt-[8px]"></div>
+        
+                                <div>
+                                    <div class="flex justify-between items-center pt-[14px]">
+                                        <div class="flex gap-[6px]">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="6" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="6" r="1" fill="#95ACAA"/>
+                                            </svg>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Client</span>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" v-model="isToggled" class="sr-only peer" />
+                                            <div class="w-[43px] h-[24px] bg-gray-300 rounded-[12px] peer-checked:bg-blue-600 transition-colors duration-300"></div>
+                                            <div class="absolute left-[4px] top-[4px] w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex justify-between items-center pt-[14px]">
+                                        <div class="flex gap-[6px]">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="6" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="6" r="1" fill="#95ACAA"/>
+                                            </svg>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Phone number</span>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" v-model="isToggled" class="sr-only peer" />
+                                            <div class="w-[43px] h-[24px] bg-gray-300 rounded-[12px] peer-checked:bg-blue-600 transition-colors duration-300"></div>
+                                            <div class="absolute left-[4px] top-[4px] w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex justify-between items-center pt-[14px]">
+                                        <div class="flex gap-[6px]">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="6" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="6" r="1" fill="#95ACAA"/>
+                                            </svg>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Message Text</span>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" v-model="isToggled" class="sr-only peer" />
+                                            <div class="w-[43px] h-[24px] bg-gray-300 rounded-[12px] peer-checked:bg-blue-600 transition-colors duration-300"></div>
+                                            <div class="absolute left-[4px] top-[4px] w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex justify-between items-center pt-[14px]">
+                                        <div class="flex gap-[6px]">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="6" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="6" r="1" fill="#95ACAA"/>
+                                            </svg>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Date of sent</span>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" v-model="isToggled" class="sr-only peer" />
+                                            <div class="w-[43px] h-[24px] bg-gray-300 rounded-[12px] peer-checked:bg-blue-600 transition-colors duration-300"></div>
+                                            <div class="absolute left-[4px] top-[4px] w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex justify-between items-center pt-[14px]">
+                                        <div class="flex gap-[6px]">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="6" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="6" r="1" fill="#95ACAA"/>
+                                            </svg>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Sent</span>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" v-model="isToggled" class="sr-only peer" />
+                                            <div class="w-[43px] h-[24px] bg-gray-300 rounded-[12px] peer-checked:bg-blue-600 transition-colors duration-300"></div>
+                                            <div class="absolute left-[4px] top-[4px] w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex justify-between items-center pt-[14px]">
+                                        <div class="flex gap-[6px]">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="8" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="8" cy="6" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="14" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="10" r="1" fill="#95ACAA"/>
+                                                <circle cx="12" cy="6" r="1" fill="#95ACAA"/>
+                                            </svg>
+                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 500; color: #72908D;">Status</span>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" v-model="isToggled" class="sr-only peer" />
+                                            <div class="w-[43px] h-[24px] bg-gray-300 rounded-[12px] peer-checked:bg-blue-600 transition-colors duration-300"></div>
+                                            <div class="absolute left-[4px] top-[4px] w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+         </transition>
+         
     </div>
       <!-- Filter -->
       <transition

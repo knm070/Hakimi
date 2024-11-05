@@ -6,7 +6,6 @@
       :options="chartOptions"
       :series="series"
     ></apexchart>
-    asdasdss
   </div>
 </template>
 

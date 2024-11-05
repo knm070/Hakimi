@@ -1,4 +1,4 @@
-<template>
+        <template>
     <div class="bg-[#F4F6F6] h-full">
         <div class="flex w-full min-h-screen">
             <MainSidebar image="../image@2x.png" home="../home.svg" accountBalanceWallet="../account-balance-wallet1.svg" creditCardClock="../credit-card-clock.svg" locationCity="../location-city.svg" contractEdit="../contract-edit.svg" homeLinksTextDecoration="unset" />

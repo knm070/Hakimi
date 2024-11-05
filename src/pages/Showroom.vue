@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-[#F4F6F6] h-screen">
+    <div class="bg-[#F4F6F6] h-screen pb-[16px]">
         <div class="bg-[#FFFFFF] py-[12px] px-[24px] flex items-center justify-between ">
             <div class="flex items-center gap-[24px]">
                 <img src="/hakimiIcon.svg" alt="">
@@ -69,8 +69,8 @@
             </div>
         </div>
 
-        <div class="bg-[#FFFFFF] mt-[8px] py-[16px] px-[24px]">
-            <div class="border p-[16px] rounded-[14px] ">
+        <div class="bg-[#FFFFFF] mt-[8px]  py-[16px] px-[24px] ">
+            <div class=" p-[16px] rounded-[14px] " style="border: 1px solid #EDF1F1;">
                 <div class="flex justify-between">
                     <div>
                         <div class="flex gap-[6px]">
@@ -91,8 +91,8 @@
                         <img src="/showroomDownload.svg" alt="">
                     </div>
                     <div v-if="activeButton === 1" class="flex gap-[32px]">
-                        <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
-                            Murakkab     
+                        <button @click="selectButton" class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                            {{ selectedButton }}     
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_2_27365" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
                             <rect width="20" height="20" fill="#D9D9D9"/>
@@ -102,7 +102,7 @@
                             </g>
                             </svg>
                         </button>
-                        <div class="flex gap-[24px] items-center">
+                        <div v-if="selectedButton === 'Murakkab'" class="flex gap-[24px] items-center">
                             <p>Xonadon:</p>
                             <div class="flex gap-[12px]">
                                 <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
@@ -133,6 +133,56 @@
                                     <img src="/showroomBurgerMenu.svg" alt="">
                                 </button>
                             </div>
+                        </div>
+
+                        <div v-if="selectedButton === 'Oddiy'" class="flex gap-[24px] items-center">
+                            <p>Xonadon:</p>
+                            <div class="flex gap-[12px]">
+                                <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#00B252"/>
+                                    </svg>
+                                    Bo’sh
+                                </button>
+                                <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#FFD800"/>
+                                    </svg>
+                                    Band qilingan
+                                </button>
+                                <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#B9C7C6"/>
+                                    </svg>
+                                    Sotilmaydi
+                                </button>
+                            </div>
+                            
+                            <p>Shartnoma:</p>
+                            <div class="flex gap-[12px]">
+                                <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#0EA5E9"/>
+                                    </svg>
+                                    Faol
+                                </button>
+                                <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#FFD800"/>
+                                    </svg>
+                                    Boshlang’ich
+                                </button>
+                                <button class="flex items-center gap-[8px] rounded-[6px] py-[6px] px-[12px]" style="border: 1px solid #EDF1F1">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#EF4444"/>
+                                    </svg>
+                                    Tugallangan
+                                </button>            
+                                <button>
+                                    <img src="/showroomBurgerMenu.svg" alt="">
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                     <div v-if="activeButton === 2" class="flex gap-[32px]">
@@ -199,323 +249,509 @@
                     </div>
                 </div>
                 <div class="divide pt-[16px]"></div>
-                <div v-if="activeButton === 0" class="pt-[16px]">
-                    <table class="showroom-table">
-                        <thead>
-                            <tr v-for="(head, index) in tableHead" :key="index" class="bg-[#EDF1F1] text-[14px]" style="font-family: Geist; font-weight: 500; color: #4F7471">
-                                <th><p>{{ head.tjm }}</p></th>
-                                <th><p>{{ head.blok }}</p></th>
-                                <th><p>{{ head.roomNumber}}</p></th>
-                                <th><p>{{ head.floor}}</p></th>
-                                <th><p>{{ head.roomAmount}}</p></th>
-                                <th><p>{{ head.square}}</p></th>
-                                <th><p class="w-[80px]">{{ head.notRepaired}}</p></th>
-                                <th><p class="w-[78px]"> {{ head.repaired}}</p></th>
-                                <th><p>{{ head.notRepAmount}}</p></th>
-                                <th> <p class=" w-[100px]">{{ head.repAmount }}</p></th>
-                                <th><p>{{ head.position }}</p></th>
-                                <th><p>{{ head.equipped }}</p></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(body, index) in tableBody" :key="index" :class="[ 'text-[14px]', index % 2 == 1 ? 'bg-[#F4F6F6]' : 'bg-[#FFFFFF]']"
-                            style="font-family: Geist; font-weight: 600; color: #000000;"
-                            >
-                                <td class="w-[260px]">{{ body.tjm }}</td>
-                                <td class="w-[148px]">{{ body.blok }}</td>
-                                <td class="w-[128px]">{{ body.roomNumber}}</td>
-                                <td class="w-[148px]">{{ body.floor}}</td>
-                                <td class="w-[148px] "><p class="bg-[#C5F7DC] rounded-full w-[24px] text-center py-[2px] pr-[1px]">{{ body.roomAmount}}</p></td>
-                                <td class="w-[148px]">{{ body.square}}</td>
-                                <td class="w-[148px]">{{ body.notRepaired}}</td>
-                                <td class="w-[148px]">{{ body.repaired}}</td>
-                                <td class="w-[148px]">{{ body.notRepAmount}}</td>
-                                <td class="w-[120px]">{{ body.repAmount }}</td>
-                                <td class="w-[120px]">{{ body.position }}</td>
-                                <td class="w-[120px]"><p class="w-[48px] bg-[#58D18F] rounded-full text-center py-[2px]">{{ body.equipped }}</p></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div v-if="activeButton === 2" class="pt-[16px] ">
-                    <div class="pl-[70px] pb-[16px]">
-                        <p>1</p>
-                        <p class="pt-[12px]">1- podez</p>
+                <div :class="[isBlockInfoOpen ? 'flex' : 'block', ]">
+                    <div v-if="activeButton === 0" class="pt-[16px]">
+                        <table class="showroom-table">
+                            <thead>
+                                <tr v-for="(head, index) in tableHead" :key="index" class="bg-[#EDF1F1] text-[14px]" style="font-family: Geist; font-weight: 500; color: #4F7471">
+                                    <th><p>{{ head.tjm }}</p></th>
+                                    <th><p>{{ head.blok }}</p></th>
+                                    <th><p>{{ head.roomNumber}}</p></th>
+                                    <th><p>{{ head.floor}}</p></th>
+                                    <th><p>{{ head.roomAmount}}</p></th>
+                                    <th><p>{{ head.square}}</p></th>
+                                    <th><p class="w-[80px]">{{ head.notRepaired}}</p></th>
+                                    <th><p class="w-[78px]"> {{ head.repaired}}</p></th>
+                                    <th><p>{{ head.notRepAmount}}</p></th>
+                                    <th> <p class=" w-[100px]">{{ head.repAmount }}</p></th>
+                                    <th><p>{{ head.position }}</p></th>
+                                    <th><p>{{ head.equipped }}</p></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(body, index) in tableBody" :key="index" :class="[ 'text-[14px]', index % 2 == 1 ? 'bg-[#F4F6F6]' : 'bg-[#FFFFFF]']"
+                                style="font-family: Geist; font-weight: 600; color: #000000;"
+                                >
+                                    <td class="w-[260px]">{{ body.tjm }}</td>
+                                    <td class="w-[148px]">{{ body.blok }}</td>
+                                    <td class="w-[128px]">{{ body.roomNumber}}</td>
+                                    <td class="w-[148px]">{{ body.floor}}</td>
+                                    <td class="w-[148px] "><p class="bg-[#C5F7DC] rounded-full w-[24px] text-center py-[2px] pr-[1px]">{{ body.roomAmount}}</p></td>
+                                    <td class="w-[148px]">{{ body.square}}</td>
+                                    <td class="w-[148px]">{{ body.notRepaired}}</td>
+                                    <td class="w-[148px]">{{ body.repaired}}</td>
+                                    <td class="w-[148px]">{{ body.notRepAmount}}</td>
+                                    <td class="w-[120px]">{{ body.repAmount }}</td>
+                                    <td class="w-[120px]">{{ body.position }}</td>
+                                    <td class="w-[120px]"><p class="w-[48px] bg-[#58D18F] rounded-full text-center py-[2px]">{{ body.equipped }}</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="flex gap-[64px] overflow-auto max-h-screen overflow-y-auto ">
-                        <div class="flex flex-col gap-[8px]">
-                            <div class="flex gap-[64px] items-center">
-                                <span>9</span>
-                                <div class="flex gap-[8px] w-full">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>8</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>7</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>6</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>5</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>4</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>3</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>2</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>1</span>
     
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                    <div  class="overflow-auto">
+                        <div v-if="activeButton === 1" class="">
+                            <div class="pt-[16px] px-[16px] flex items-center gap-[24px]">
+                                <div class="flex flex-col-reverse pt-[30px]">
+                                    <div v-for="row in rows" :key="row" class="pt-[10px] pb-[9px] text-[14px]">
+                                        {{ row - 1 }}
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-[64px] overflow-auto">
+                                    <div class="flex flex-col items-start">
+                                        <div>
+                                            <p>1</p>
+                                            <p class="pt-[12px]">1- podez</p>
                                         </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                        <div class="flex flex-col gap-[9px] pt-[16px]">
+                                            <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex gap-[9px]">
+                                                <div v-for="(block , blockIndex) in row" :key="blockIndex" 
+                                                :style="getClass(block)"
+                                                @click="openBlock(block)"
+                                                 class="flex w-[40px] h-[40px] items-center justify-center  rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">
+                                                    {{ block }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-start">
+                                        <div>
+                                            <p>1</p>
+                                            <p class="pt-[12px]">2 - podez</p>
+                                        </div>
+                                        <div class="flex flex-col gap-[9px] pt-[16px]">
+                                            <div v-for="(row, rowIndex) in second" :key="rowIndex" class="flex gap-[9px]">
+                                                <div v-for="(block , blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center  rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">
+                                                    {{ block }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-start">
+                                        <div>
+                                            <p>1</p>
+                                            <p class="pt-[12px]">1- podez</p>
+                                        </div>
+                                        <div class="flex flex-col gap-[9px] pt-[16px]">
+                                            <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex gap-[9px]">
+                                                <div v-for="(block , blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center  rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">
+                                                    {{ block }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-start">
+                                        <div>
+                                            <p>1</p>
+                                            <p class="pt-[12px]">2 - podez</p>
+                                        </div>
+                                        <div class="flex flex-col gap-[9px] pt-[16px]">
+                                            <div v-for="(row, rowIndex) in second" :key="rowIndex" class="flex gap-[9px]">
+                                                <div v-for="(block , blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center  rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">
+                                                    {{ block }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-start">
+                                        <div>
+                                            <p>1</p>
+                                            <p class="pt-[12px]">1- podez</p>
+                                        </div>
+                                        <div class="flex flex-col gap-[9px] pt-[16px]">
+                                            <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex gap-[9px]">
+                                                <div v-for="(block , blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center  rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">
+                                                    {{ block }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-start">
+                                        <div>
+                                            <p>1</p>
+                                            <p class="pt-[12px]">2 - podez</p>
+                                        </div>
+                                        <div class="flex flex-col gap-[9px] pt-[16px]">
+                                            <div v-for="(row, rowIndex) in second" :key="rowIndex" class="flex gap-[9px]">
+                                                <div v-for="(block , blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center  rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FFFFFF;">
+                                                    {{ block }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col-reverse pt-[30px]">
+                                    <div v-for="row in rows" :key="row" class="pt-[10px] pb-[9px] text-[14px]">
+                                        {{ row - 1 }}
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+        
+                        <div v-if="activeButton === 2" class="pt-[16px] ">
+                            <div class="pl-[70px] pb-[16px]">
+                                <p>1</p>
+                                <p class="pt-[12px]">1- podez</p>
+                            </div>
+                            <div class="flex gap-[64px] overflow-auto max-h-screen overflow-y-auto ">
+                                <div class="flex flex-col gap-[8px]">
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>9</span>
+                                        <div class="flex gap-[8px] w-full">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>8</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>7</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>6</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>5</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>4</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>3</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>2</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>1</span>
+            
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-[8px]">
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>9</span>
+                                        <div class="flex gap-[8px] w-full">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>8</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>7</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>6</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>5</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>4</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>3</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>2</span>
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-[64px] items-center">
+                                        <span>1</span>
+            
+                                        <div class="flex gap-[8px]">
+                                            <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
+                                                <div class="flex justify-between">
+                                                    <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
+                                                    <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
+                                                </div>
+                                                <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
+                                                    <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
+                                                    <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col gap-[8px]">
-                            <div class="flex gap-[64px] items-center">
-                                <span>9</span>
-                                <div class="flex gap-[8px] w-full">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+                    </div>
+                    <div v-if="isBlockInfoOpen" class="bg-[#F4F6F6] max-w-[373px] w-full p-[6px] my-[16px] mr-[16px] rounded-[8px]">
+                        <div class="bg-[#FFFFFF] p-[12px] rounded-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                            <div class="flex justify-between items-start">
+                                <p>Guruh</p>
+                                <img @click="closeBlock" src="/closeWhite.svg" alt="" width="32px" height="32px">
+                            </div>
+                            <div class="flex gap-[8px] pt-[12px]">
+                                <span class="w-[32px] h-[32px] flex items-center justify-center  rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #FFFFFF;" :style="getClass(selecetedBlock)">
+                                    {{ selecetedBlock }}
+                                </span>
+                                <img src="/addWhite.svg" alt="">
+                            </div>
+
+                            <button class="py-[8px] w-full rounded-[8px] text-white mt-[12px]" style="background: linear-gradient(180deg, #0037FF 0%, #002DD1 100%); border: 1px solid;border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 100%);">Batafsil</button>
+                        </div>
+
+                        <div class="bg-[#FFFFFF] p-[12px] rounded-[6px] mt-[6px]" style="border: 1px solid var(--Line-Container-Line, #EDF1F1); box-shadow: 0px 1px 2px 0px #1823220D;">
+                            <div class="flex justify-between items-center">
+                                <p> Xonadon № <span>{{ selecetedBlock }}</span></p>
+                                <div class="bg-[#FEF2F2] flex gap-[8px] py-[6px] px-[10px] rounded-[6px]">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5Z" fill="#EF4444"/>
+                                    </svg>
+                                    Tugallangan
                                 </div>
                             </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>8</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+
+                            <div class="divide pt-[12px]"></div>
+
+                            <div class="pt-[12px] flex items-center justify-center">
+                                <img src="/assets/img/housePlan.jpg" alt="">
+                            </div>
+                            <div class="divide pt-[12px]"></div>
+
+                            <div class="bg-[#E5EBFF] rounded-[4px] p-[12px] mt-[12px] flex justify-between items-center">
+                                <p>Narxi</p>
+                                <div>
+                                    <span>656 000 000 UZS</span>
+                                    <p>8 000 000 UZS/m²</p>
                                 </div>
                             </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>7</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+                            <div>
+                                <p class="text-center">Xonadon ma’lumotlari</p>
+                                <div class="flex justify-between mt-[12px] p-[6px] rounded-[6px] bg-[#EDF1F1]">
+                                    <p>Bino</p>
+                                    <span>4</span>
                                 </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>6</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+                                <div class="flex justify-between p-[6px] rounded-[6px] ">
+                                    <p>Qavat</p>
+                                    <span>4</span>
                                 </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>5</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+                                <div class="flex justify-between  p-[6px] rounded-[6px] bg-[#EDF1F1]">
+                                    <p>Xonadon raqami</p>
+                                    <span>20</span>
                                 </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>4</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+                                <div class="flex justify-between p-[6px] rounded-[6px] ">
+                                    <p>Xonalar soni</p>
+                                    <span>2</span>
                                 </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>3</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+                                <div class="flex justify-between  p-[6px] rounded-[6px] bg-[#EDF1F1]">
+                                    <p>Umumiy maydoni</p>
+                                    <span>82 m2</span>
                                 </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>2</span>
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+                                <div class="flex justify-between p-[6px] rounded-[6px] ">
+                                    <p>Boshlang'ich to'lov (0.1%)</p>
+                                    <span>656 000 UZS</span>
                                 </div>
-                            </div>
-                            <div class="flex gap-[64px] items-center">
-                                <span>1</span>
-    
-                                <div class="flex gap-[8px]">
-                                    <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00B252">
-                                        <div class="flex justify-between">
-                                            <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.room }}</p>
-                                            <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.number }}</span>
-                                        </div>
-                                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                                            <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #FFFFFF;">{{ shaxmatka2.amount }}</span>
-                                            <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #FFFFFF;">{{ shaxmatka2.perSquare }}</p>
-                                        </div>
-                                    </div>
+                                <div class="flex justify-between  p-[6px] rounded-[6px] bg-[#EDF1F1]">
+                                    <p>To'lov muddati</p>
+                                    <span>48 oy</span>
+                                </div>
+                                <div class="flex justify-between p-[6px] rounded-[6px] ">
+                                    <p>Oylik to'lov</p>
+                                    <span>13 653 000 UZS</span>
+                                </div>
+                                <div class="flex justify-between  p-[6px] rounded-[6px] bg-[#EDF1F1]">
+                                    <p>Holati</p>
+                                    <span>Ta'mirsiz</span>
                                 </div>
                             </div>
                         </div>
@@ -541,13 +777,13 @@ import { useI18n } from "vue-i18n";
         data() {
             return {
                 languages: {
-        en: "English",
-        uz: "Uzbek",
-        ru: "Russian",
-        fa: "Persian",
-      },
-      currentLanguage: "en",
-      locale: this.$i18n.locale,
+                    en: "English",
+                    uz: "Uzbek",
+                    ru: "Russian",
+                    fa: "Persian",
+                },
+                currentLanguage: "en",
+                locale: this.$i18n.locale,
                 size: ref('middle'),
                 regionOptions: ref([
                 {
@@ -757,22 +993,101 @@ import { useI18n } from "vue-i18n";
                         amount : '690 900 000 UZS',
                         perSquare : '98.7 m2 - 7 000 000 UZS/m2'
                     },
-                ]
+                ],
+                selectedButton: 'Murakkab',
+                rows: 10,
+                blocks: [
+                        [93, 10, 15, 27, 83, 45],   // Row 9
+                        [67, 45, 23, 93, 7, 71],   // Row 8
+                        [97, 48, 88, 28, 59, 58],  // Row 7
+                        [96, 93, 96, 62, 68, 82],  // Row 6
+                        [18, 54, 51, 2, 89, 54],   // Row 5
+                        [26, 56, 78, 21, 49, 9],   // Row 4
+                        [84, 61, 28, 25, 43, 20],  // Row 3
+                        [4, 56, 56, 25, 40, ''],    // Row 2
+                        [], [], []  // Empty Rows for Row 0, 1, 2
+                ],
+                second: [
+                    [93, 10, 15, 27, 83, 45, 84, 61,],   // Row 9
+                    [67, 45, 23, 93, 7, 71 ,10, 15],   // Row 8
+                    [97, 48, 88, 28, 59, 58, 93, 10,],  // Row 7
+                    [96, 93, 96, 62, 68, 82 ,25, 40,],  // Row 6
+                    [18, 54, 51, 2, 89, 54, 18, 2],   // Row 5
+                    [26, 56, 78, 21, 49, 9, 84, 61,],   // Row 4
+                    [84, 61, 28, 25, 43, 20, 84, 61,],  // Row 3
+                    [4, 56, 56, 25, 40, 83, 45],    // Row 2
+                    [], [], []  // Empty Rows for Row 0, 1, 2
+                ],
+
+                selecetedBlock: null,
+                isBlockInfoOpen : false
+
+
+                
             }
         },
         methods: {
             changeLanguage(event) {
-      this.currentLanguage = event.target.value;
-      this.$i18n.locale = this.currentLanguage;
-    },
+                this.currentLanguage = event.target.value;
+                this.$i18n.locale = this.currentLanguage;
+            },
             selectButton(button) {
-                this.buttons = button;
+                this.selectedButton = this.selectedButton === 'Murakkab' ? 'Oddiy' : 'Murakkab'
             },
             setActiveButton(index) {
                 this.activeButton = index;
             },
+
+            openBlock(block) {
+                this.selecetedBlock = block;
+                this.isBlockInfoOpen = true;
+            },
+            
+            closeBlock(block) {
+                this.selecetedBlock = block;
+                this.isBlockInfoOpen = false;
+            }
         },
-    }
+        
+
+        computed : {
+            getClass() {
+                return (block) => {
+                    if (this.selectedButton === 'Murakkab') {
+                        if (block > 40) {
+                            return 'background: #00B252';
+                        }
+                        else if(block < 20 ) {
+                            return 'background :#DB4F00';
+                        }
+                        else if(block < 10){
+                            return "background: #B9C7C6";
+                        }
+                        
+                        else {
+                            return 'background: #FFFFF; border: 1px solid #00B252';
+                        }
+                    }
+                    else if(this.selectedButton === 'Oddiy') {
+                            if (block > 40) {
+                                return 'background: #0EA5E9'
+                            }
+                            else if(block < 20 ) {
+                                return 'background :#EF4444'
+                            }
+                            else if(block < 10){
+                                return "background: #B9C7C6"
+                            }
+                            
+                            else {
+                                return 'background: #FFFFF; border: 1px solid #00B252'
+                            }
+                    }
+                }
+            }
+        }
+        
+        }
 </script>
 
 <style  scoped>
