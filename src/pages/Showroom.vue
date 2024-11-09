@@ -73,7 +73,11 @@
                   class="flex items-center gap-[8px] bg-[#E5EBFF] py-[6px] px-[12px] rounded-[6px]"
                   @click="setActiveButton(index)"
                   :class="['flex items-center gap-[8px] py-[6px] px-[12px] rounded-[6px]', activeButton === index ? 'bg-[#E5EBFF]' : 'bg-[#F4F6F6]']"
-                  :style="{ fontFamily: 'Geist', fontWeight: '600', color: activeButton === index ? '#0037FF' : '#72908D' }"
+                  :style="{
+                    fontFamily: 'Geist',
+                    fontWeight: '600',
+                    color: activeButton === index ? '#0037FF' : '#72908D',
+                  }"
                 >
                   <img :src="activeButton === index ? button.img2 : button.img" alt="" />
                   {{ button.name }}
@@ -303,13 +307,23 @@
                   <td class="w-[128px]">{{ body.number }}</td>
                   <td class="w-[148px]">{{ body.floor_number }}</td>
                   <td class="w-[148px]">
-                    <p class="bg-[#C5F7DC] rounded-full w-[24px] text-center py-[2px] pr-[1px]">{{ body.room_numbers }}</p>
+                    <p class="bg-[#C5F7DC] rounded-full w-[24px] text-center py-[2px] pr-[1px]">
+                      {{ body.room_numbers }}
+                    </p>
                   </td>
                   <td class="w-[148px]">{{ body.area }}</td>
-                  <td class="w-[148px]">{{ body.unrepaired_price.toLocaleString() }}</td>
-                  <td class="w-[148px]">{{ body.repaired_price.toLocaleString() }}</td>
-                  <td class="w-[148px]">{{ body.unrepaired_total_price.toLocaleString() }}</td>
-                  <td class="w-[120px]">{{ body.repaired_total_price.toLocaleString() }}</td>
+                  <td class="w-[148px]">
+                    {{ body.unrepaired_price.toLocaleString() }}
+                  </td>
+                  <td class="w-[148px]">
+                    {{ body.repaired_price.toLocaleString() }}
+                  </td>
+                  <td class="w-[148px]">
+                    {{ body.unrepaired_total_price.toLocaleString() }}
+                  </td>
+                  <td class="w-[120px]">
+                    {{ body.repaired_total_price.toLocaleString() }}
+                  </td>
                   <td class="w-[120px]">{{ body.condition }}</td>
                   <td class="w-[120px]">
                     <p :class="['w-[100] rounded-full text-center py-[2px]', body.sale_type === 'for_sale' ? 'bg-[#58D18F]' : '', body.sale_type === 'sold_out' ? 'bg-[#FF6347]' : '', body.sale_type === 'not_for_sale' ? 'bg-[#B0B0B0]' : '']">
@@ -326,20 +340,10 @@
               <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
             </div>
           </div>
-
-          <div class="overflow-auto">
-            <div v-if="activeButton === 1" class="">
-              <div class="pt-[16px] px-[16px] flex items-center gap-[24px]">
-                <div class="flex flex-col-reverse pt-[30px]">
-                  <div v-for="row in rows" :key="row" class="pt-[10px] pb-[9px] text-[14px]">
-                    {{ row - 1 }}
-                  </div>
-                </div>
-                <div class="flex items-center gap-[64px] overflow-auto">
-                  <div class="flex flex-col items-start">
+          <!-- <div class="flex flex-col items-start">
                     <div>
-                      <p>1</p>
-                      <p class="pt-[12px]">1- podez</p>
+                      <p>{{ selectedProject }}</p>
+                      <p class="pt-[12px]">{{selectedHouse}}- podez</p>
                     </div>
                     <div class="flex flex-col gap-[9px] pt-[16px]">
                       <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex gap-[9px]">
@@ -348,75 +352,58 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="flex flex-col items-start">
-                    <div>
-                      <p>1</p>
-                      <p class="pt-[12px]">2 - podez</p>
-                    </div>
-                    <div class="flex flex-col gap-[9px] pt-[16px]">
-                      <div v-for="(row, rowIndex) in second" :key="rowIndex" class="flex gap-[9px]">
-                        <div v-for="(block, blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #ffffff">
-                          {{ block }}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-col items-start">
-                    <div>
-                      <p>1</p>
-                      <p class="pt-[12px]">1- podez</p>
-                    </div>
-                    <div class="flex flex-col gap-[9px] pt-[16px]">
-                      <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex gap-[9px]">
-                        <div v-for="(block, blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #ffffff">
-                          {{ block }}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-col items-start">
-                    <div>
-                      <p>1</p>
-                      <p class="pt-[12px]">2 - podez</p>
-                    </div>
-                    <div class="flex flex-col gap-[9px] pt-[16px]">
-                      <div v-for="(row, rowIndex) in second" :key="rowIndex" class="flex gap-[9px]">
-                        <div v-for="(block, blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #ffffff">
-                          {{ block }}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-col items-start">
-                    <div>
-                      <p>1</p>
-                      <p class="pt-[12px]">1- podez</p>
-                    </div>
-                    <div class="flex flex-col gap-[9px] pt-[16px]">
-                      <div v-for="(row, rowIndex) in blocks" :key="rowIndex" class="flex gap-[9px]">
-                        <div v-for="(block, blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #ffffff">
-                          {{ block }}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex flex-col items-start">
-                    <div>
-                      <p>1</p>
-                      <p class="pt-[12px]">2 - podez</p>
-                    </div>
-                    <div class="flex flex-col gap-[9px] pt-[16px]">
-                      <div v-for="(row, rowIndex) in second" :key="rowIndex" class="flex gap-[9px]">
-                        <div v-for="(block, blockIndex) in row" :key="blockIndex" :style="getClass(block)" class="flex w-[40px] h-[40px] items-center justify-center rounded-[6px] text-[14px] cursor-pointer" style="font-family: Geist; font-weight: 500; color: #ffffff">
-                          {{ block }}
-                        </div>
-                      </div>
-                    </div>
+                  </div> -->
+          <!-- NEW Code -->
+          <div class="overflow-auto">
+            <div v-if="activeButton === 1" class="">
+              <div class="pt-[16px] px-[16px] flex items-center gap-[24px]">
+                <div class="flex flex-col-reverse pt-[30px]">
+                  <div v-for="row in rows" :key="row" class="pt-[15px] pb-[12px] text-[14px]">
+                    {{ row - 1 }}
                   </div>
                 </div>
+                <div v-if="apartments.length > 0">
+                  <!-- Loop through buildings -->
+                  <div class="d-flex">
+                    <div v-for="(building, buildingIndex) in apartments" :key="buildingIndex" class="flex">
+                      <div class="flex gap-[64px] overflow-auto mr-5">
+                        <div class="flex flex-col gap-[9px] pt-[16px]">
+                          <div class="flex gap-[9px]">
+                            <!-- Loop through entrances within each building -->
+                            <div v-for="(entrance, entranceIndex) in building.entrances" :key="entranceIndex" class="flex flex-col">
+                              <div class="text-lg font-bold mb-2">{{ entrance.name }}</div>
+
+                              <!-- Loop through floors within each entrance -->
+                              <div v-for="(floor, floorIndex) in entrance.floors.reverse()" :key="floorIndex" class="flex flex-col">
+                                <div class="flex gap-[9px]">
+                                  <!-- Loop through apartments within each floor -->
+                                  <div
+                                    v-for="(apartment, aptIndex) in floor.apartments"
+                                    :key="aptIndex"
+                                    class="flex w-[40px] h-[40px] items-center justify-center rounded-[6px] text-[12px] cursor-pointer mt-2"
+                                    :class="{
+                                      'bg-green-500 text-white': apartment.sale_type === 'for_sale',
+                                      'bg-red-500 text-white': apartment.sale_type === 'sold_out',
+                                      'bg-white border border-black-800 text-green': apartment.sale_type === 'not_for_sale',
+                                    }"
+                                    @click="openBlock(apartment)"
+                                    style="font-family: Geist; font-weight: 500"
+                                  >
+                                    {{ apartment.name }}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Show message if no buildings data -->
+                  </div>
+                  <!-- NEw Code -->
+                </div>
                 <div class="flex flex-col-reverse pt-[30px]">
-                  <div v-for="row in rows" :key="row" class="pt-[10px] pb-[9px] text-[14px]">
+                  <div v-for="row in rows" :key="row" class="pt-[15px] pb-[12px] text-[14px]">
                     {{ row - 1 }}
                   </div>
                 </div>
@@ -435,12 +422,16 @@
                     <div class="flex gap-[8px] w-full">
                       <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
                         <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
+                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">
+                            {{ shaxmatka2.room }}
+                          </p>
                           <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
                         </div>
                         <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
                           <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
+                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">
+                            {{ shaxmatka2.perSquare }}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -450,256 +441,16 @@
                     <div class="flex gap-[8px]">
                       <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
                         <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
+                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">
+                            {{ shaxmatka2.room }}
+                          </p>
                           <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
                         </div>
                         <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
                           <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>7</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>6</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>5</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>4</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>3</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>2</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>1</span>
-
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-[8px]">
-                  <div class="flex gap-[64px] items-center">
-                    <span>9</span>
-                    <div class="flex gap-[8px] w-full">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>8</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>7</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>6</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>5</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>4</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>3</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>2</span>
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex gap-[64px] items-center">
-                    <span>1</span>
-
-                    <div class="flex gap-[8px]">
-                      <div v-for="(shaxmatka2, index) in shaxmatka2" :key="index" class="p-[12px] rounded-[8px] bg-[#00B252] w-[280px]" style="border: 1px solid #00b252">
-                        <div class="flex justify-between">
-                          <p class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.room }}</p>
-                          <span class="text-[12px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.number }}</span>
-                        </div>
-                        <div class="w-full py-[4px] px-[12px] mt-[10px] rounded-[8px] bg-[#FFFFFF26]">
-                          <span class="text-[18px]" style="font-family: Geist; font-weight: 600; color: #ffffff">{{ shaxmatka2.amount }}</span>
-                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">{{ shaxmatka2.perSquare }}</p>
+                          <p class="pt-[2px] text-[16px]" style="font-family: Geist; font-weight: 400; color: #ffffff">
+                            {{ shaxmatka2.perSquare }}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -821,6 +572,8 @@ export default {
       },
       currentLanguage: "en",
       locale: this.$i18n.locale,
+      ascending: false,
+      ascendingOrder: [], // Flag for toggling the order
       table_data: [],
       selectedProject: null, // Holds the selected project ID
       projects: [], // Stores raw project data
@@ -868,7 +621,7 @@ export default {
           equipped: "Holati",
         },
       ],
-   
+
       shaxmatka2: [
         {
           room: "3 xonali",
@@ -915,42 +668,31 @@ export default {
       ],
       selectedButton: "Murakkab",
       rows: 10,
-      blocks: [
-        [93, 10, 15, 27, 83, 45], // Row 9
-        [67, 45, 23, 93, 7, 71], // Row 8
-        [97, 48, 88, 28, 59, 58], // Row 7
-        [96, 93, 96, 62, 68, 82], // Row 6
-        [18, 54, 51, 2, 89, 54], // Row 5
-        [26, 56, 78, 21, 49, 9], // Row 4
-        [84, 61, 28, 25, 43, 20], // Row 3
-        [4, 56, 56, 25, 40, ""], // Row 2
-        [],
-        [],
-        [], // Empty Rows for Row 0, 1, 2
-      ],
-      second: [
-        [93, 10, 15, 27, 83, 45, 84, 61], // Row 9
-        [67, 45, 23, 93, 7, 71, 10, 15], // Row 8
-        [97, 48, 88, 28, 59, 58, 93, 10], // Row 7
-        [96, 93, 96, 62, 68, 82, 25, 40], // Row 6
-        [18, 54, 51, 2, 89, 54, 18, 2], // Row 5
-        [26, 56, 78, 21, 49, 9, 84, 61], // Row 4
-        [84, 61, 28, 25, 43, 20, 84, 61], // Row 3
-        [4, 56, 56, 25, 40, 83, 45], // Row 2
-        [],
-        [],
-        [], // Empty Rows for Row 0, 1, 2
-      ],
 
       selecetedBlock: null,
       isBlockInfoOpen: false,
     };
   },
   mounted() {
+    this.fetchApartments(1);
+
     this.fetchTableData();
     this.fetchProjects();
   },
+
   methods: {
+    // sortedFloors(entranceIndex) {
+    //   // Return the floors in the order based on the flag for the specific entrance
+    //   return this.initializedAscendingOrder[entranceIndex] ? this.apartments[0].entrances[entranceIndex].floors : this.apartments[0].entrances[entranceIndex].floors.slice().reverse();
+    // },
+    toggleFloorOrder(entranceIndex) {
+      // Toggle the floor order for the specific entrance
+      this.$set(this.ascendingOrder, entranceIndex, !this.ascendingOrder[entranceIndex]);
+    },
+    // toggleFloorOrder() {
+    //   // Toggles the order flag when an apartment is clicked
+    //   this.ascending = !this.ascending;
+    // },
     changeLanguage(event) {
       this.currentLanguage = event.target.value;
       this.$i18n.locale = this.currentLanguage;
@@ -1004,11 +746,10 @@ export default {
       }
     },
     async fetchHouses(projectId) {
-        this.selectedProject=projectId;
+      this.selectedProject = projectId;
       this.selectedProjectName = this.projectOptions.find((option) => option.value === projectId)?.label;
       this.selectedHouse = null;
       this.houseOptions = [];
-      this.apartments = [];
 
       try {
         const response = await axios.get(`/projects/houses/?project_id=${projectId}`);
@@ -1021,28 +762,48 @@ export default {
       }
     },
     async fetchApartments(houseId) {
-        this.selectedHouseName = this.houseOptions.find((option) => option.value === houseId)?.label;
+      this.selectedHouseName = this.houseOptions.find((option) => option.value === houseId)?.label;
       this.selectedHouse = houseId;
       console.log("Selected Project:", this.selectedProject);
       console.log("Selected House:", this.selectedHouse);
-      if (this.selectedProject && this.selectedHouse) {
-        try {
-          const response = await axios.get(`/projects/apartments/shaxmatka/?project_id=${this.selectedProject}&house_id=${this.selectedHouse}`);
-          this.apartments = response.data.results;
-          console.log("Fetched Apartments:", this.apartments); // Debugging log
-        } catch (error) {
-          console.error("An error occurred while fetching apartments:", error);
-        }
-      } else {
-        console.warn("Both project and house must be selected before fetching apartments.");
+      // if (this.selectedProject && this.selectedHouse) {
+      try {
+        // const response = await axios.get(`/projects/apartments/shaxmatka/?project_id=${this.selectedProject}&house_id=${this.selectedHouse}`);
+        const response = await axios.get(`/projects/apartments/shaxmatka/?project_id=1`);
+        this.apartments = response.data.results;
+
+        console.log("Buildin Data:", this.apartments); // Debugging log
+        console.log("Buildin Data:", this.apartments.length); // Debugging log
+      } catch (error) {
+        console.error("An error occurred while fetching apartments:", error);
       }
+      // } else {
+      //   console.warn("Both project and house must be selected before fetching apartments.");
+      // }
     },
     filterOption(input, option) {
       return option.label.toLowerCase().includes(input.toLowerCase());
-    }
-
+    },
   },
+  // props: {
+  //   apartments: {
+  //     type: Array,
+  //     required: true,
+  //   },
+  // },
+
   computed: {
+    // Initialize the ascendingOrder array for each entrance
+    initializedAscendingOrder() {
+      if (!this.ascendingOrder.length && this.apartments[0]?.entrances) {
+        this.ascendingOrder = this.apartments[0].entrances.map(() => true);
+      }
+      return this.ascendingOrder;
+    },
+    sortedFloors() {
+      // Toggles the order based on the 'ascending' flag
+      return this.ascending ? this.apartments[0].entrances[0].floors : this.apartments[0].entrances[0].floors.slice().reverse();
+    },
     // Calculate total pages based on data length and items per page
     totalPages() {
       return Math.ceil(this.table_data.length / this.itemsPerPage);
